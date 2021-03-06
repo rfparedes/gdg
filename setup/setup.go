@@ -2,7 +2,7 @@ package setup
 
 import (
 	"fmt"
-	"log"
+	"github.com/rfparedes/gdg/util"
 	"os"
 	"os/exec"
 
@@ -12,14 +12,13 @@ import (
 // FindSupportedUtilities - Determine supported binaries and path
 func FindSupportedUtilities() map[string]string {
 
-	utilities := []string{"iostat", "top", "mpstat", "vmstat", "ss", "nstat", "cat", "ps", "nfsiostat", "ethtool", "ip", "pidstat", "rtmon"}
+	utilities := []string{"iostat", "top", "mpstat", "vmstat", "ss", "nstat", "cat", "ps", "nfsiostat", "ethtool", "ip", "pidstat", "rtmon", "iofake"}
 	u := make(map[string]string)
 
 	for _, utility := range utilities {
 		path, err := exec.LookPath(utility)
 		if err != nil {
 			fmt.Printf("Cannot find %s. Excluding.\n", utility)
-			u[utility] = ""
 		} else {
 			fmt.Printf("%s is supported. Path is %s.\n", utility, path)
 			u[utility] = path
@@ -28,26 +27,38 @@ func FindSupportedUtilities() map[string]string {
 	return u
 }
 
-// CreateOrLoadConfig - Create a configuration file if not already present
+// CreateOrLoadConfig - Create a configuration file
 func CreateOrLoadConfig() int {
 
-	const configFile = "gdg.cfg"
-	const interval = "30"
-	const logDir = "/Users/rich/Downloads/gdg/"
+	argMap := map[string]string{
+		"iostat":    " 1 3 -t -k -x -N",
+		"top":       " -c -b -n 1",
+		"mpstat":    " 1 2 -P ALL",
+		"vmstat":    " -d",
+		"ss":        " -neopa",
+		"meminfo":   "/proc/meminfo",
+		"slabinfo":  "/proc/slabinfo",
+		"ps":        " -eo user,pid,ppid,%cpu,%mem,vsz,rss,tty,stat,start,time,wchan:32,args",
+		"nfsiostat": " 1 3",
+		"ethtool":   " -S",
+		"ip":        " -s -s addr",
+		"pidstat":   "",
+		"nstat":     " -asz",
+	}
 
-	// check that logDir and configFile are present, if not create
-	file, err := os.OpenFile(configFile, os.O_RDONLY|os.O_CREATE, 0644)
-	defer file.Close()
-	if err != nil {
-		log.Print("Error: ", err)
-		return 1
+	const interval = "30"
+	const configFile = "gdg.cfg"
+	const logDir = "/var/log/gdg/"
+
+	// Create gdg configuration file
+	if err := util.CreateFile(configFile); err != nil {
+		fmt.Println("File creation failed with error: " + err.Error())
+		os.Exit(1)
 	}
-	if _, err := os.Stat(logDir); os.IsNotExist(err) {
-		os.MkdirAll(logDir, 0750)
-	}
-	if err != nil {
-		log.Print("Error: ", err)
-		return 1
+	// Create parent log directory
+	if err := util.CreateDir(logDir); err != nil {
+		fmt.Println("Directory creation failed with error: " + err.Error())
+		os.Exit(1)
 	}
 
 	utilities := FindSupportedUtilities()
@@ -60,11 +71,25 @@ func CreateOrLoadConfig() int {
 	cfg.Section("").NewKey("interval", interval)
 	cfg.Section("").NewKey("logdir", logDir)
 	for u, p := range utilities {
-		cfg.Section("utility").NewKey(u, p)
+		var call string
+
+		//Create child log directory for utility
+		if err := util.CreateDir(logDir + u); err != nil {
+			fmt.Println("Directory creation failed with error: " + err.Error())
+			os.Exit(1)
+		}
+		if _, ok := argMap[u]; ok {
+			call = p + argMap[u]
+		} else {
+			call = p
+		}
+		cfg.Section("utility").NewKey(u, call)
 	}
 
 	cfg.SaveTo(configFile)
 	return 0
 }
+
+// Find network interfaces
 
 // Setup systemd timer

@@ -107,3 +107,22 @@ func GetLocations() (configFile string, dataDir string) {
 	dataDir = pwd + "/gdg-data/"
 	return configFile, dataDir
 }
+
+// GetConfigKeyValue gets the configuration file key value
+func GetConfigKeyValue(key string, section string) (value string, err error) {
+	// Get current working directory to store config file and dataDir
+	pwd, err := os.Getwd()
+	if err != nil {
+		log.Print("Cannot get current working directory")
+		os.Exit(1)
+	}
+	configFile := pwd + "/gdg.cfg"
+	cfg, err := ini.Load(configFile)
+	if err != nil {
+		log.Printf("Fail to read file: %v", err)
+		os.Exit(1)
+	}
+
+	value = cfg.Section(section).Key(key).String()
+	return value, err
+}

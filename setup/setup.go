@@ -1,17 +1,18 @@
 package setup
 
 import (
+	"github.com/rfparedes/gdg/util"
 	"log"
+	"net"
 	"os"
 	"os/exec"
-
-	"github.com/rfparedes/gdg/util"
+	"strconv"
 )
 
 // FindSupportedUtilities - Determine supported binaries and path
 func FindSupportedUtilities() map[string]string {
 
-	utilities := []string{"iostat", "top", "mpstat", "vmstat", "ss", "nstat", "ps", "nfsiostat", "ethtool", "ip", "pidstat", "meminfo", "slabinfo", "iofake"}
+	utilities := []string{"iostat", "top", "mpstat", "vmstat", "ss", "nstat", "ps", "nfsiostat", "ethtool", "ip", "pidstat", "meminfo", "slabinfo"}
 	u := make(map[string]string)
 
 	log.Print("Finding Supported Utilities", utilities)
@@ -34,7 +35,7 @@ func FindSupportedUtilities() map[string]string {
 	return u
 }
 
-// CreateOrLoadConfig - Create a configuration file
+// CreateOrLoadConfig - Create configuration file and directories
 func CreateOrLoadConfig(interval string) int {
 
 	argMap := map[string]string{
@@ -47,13 +48,13 @@ func CreateOrLoadConfig(interval string) int {
 		"slabinfo":  " /proc/slabinfo",
 		"ps":        " -eo user,pid,ppid,%cpu,%mem,vsz,rss,tty,stat,start,time,wchan:32,args",
 		"nfsiostat": " 1 3",
-		"ethtool":   " -S",
+		"ethtool":   " -S ",
 		"ip":        " -s -s addr",
 		"pidstat":   "",
 		"nstat":     " -asz",
 	}
 	configFile, dataDir := util.GetLocations()
-
+	nics := getNICs()
 	// Create gdg configuration file
 	if err := util.CreateFile(configFile); err != nil {
 		log.Println("File creation failed with error: " + err.Error())
@@ -69,19 +70,19 @@ func CreateOrLoadConfig(interval string) int {
 
 	err := util.SetConfigKey("hostname", util.GetShortHostname(), "")
 	if err != nil {
-		log.Print("Cannot set key 'status'")
+		log.Print("Cannot set key 'hostname'")
 	}
 	err = util.SetConfigKey("interval", interval, "")
 	if err != nil {
-		log.Print("Cannot set key 'status'")
+		log.Print("Cannot set key 'interval'")
 	}
 	err = util.SetConfigKey("configfile", configFile, "")
 	if err != nil {
-		log.Print("Cannot set key 'status'")
+		log.Print("Cannot set key 'configfile'")
 	}
 	err = util.SetConfigKey("datadir", dataDir, "")
 	if err != nil {
-		log.Print("Cannot set key 'status'")
+		log.Print("Cannot set key 'datadir'")
 	}
 	for u, p := range utilities {
 		var call string
@@ -91,22 +92,35 @@ func CreateOrLoadConfig(interval string) int {
 			log.Println("Directory creation failed with error: " + err.Error())
 			os.Exit(1)
 		}
+
 		if _, ok := argMap[u]; ok {
 			call = p + argMap[u]
 		} else {
 			call = p
 		}
+		if u == "ethtool" {
+			for i, n := range nics {
+				if n == "lo" {
+					continue
+				}
+				//ethtoolCmd := (call + n)
+				err = util.SetConfigKey(u+strconv.Itoa(i), call+n, "utility")
+				if err != nil {
+					log.Print("Cannot set key ", u)
+				}
+			}
+			continue
+		}
+
 		err = util.SetConfigKey(u, call, "utility")
 		if err != nil {
-			log.Print("Cannot set key 'status'")
+			log.Print("Cannot set key ", u)
 		}
 	}
 	return 0
 }
 
-// Find network interfaces
-
-// CreateSystemd function
+// CreateSystemd will create service and timer files
 func CreateSystemd(interval string, gdgPath string) {
 
 	configfile, _ := util.GetLocations()
@@ -203,4 +217,14 @@ func DeleteSystemd() {
 	if err != nil {
 		log.Print("Cannot set key 'status'")
 	}
+}
+
+// Find network interfaces
+func getNICs() []string {
+	var NICs []string
+	interfaces, _ := net.Interfaces()
+	for _, inter := range interfaces {
+		NICs = append(NICs, inter.Name)
+	}
+	return NICs
 }

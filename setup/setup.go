@@ -1,12 +1,13 @@
 package setup
 
 import (
-	"github.com/rfparedes/gdg/util"
 	"log"
 	"net"
 	"os"
 	"os/exec"
 	"strconv"
+
+	"github.com/rfparedes/gdg/util"
 )
 
 // FindSupportedUtilities - Determine supported binaries and path
@@ -53,7 +54,7 @@ func CreateOrLoadConfig(interval string) int {
 		"pidstat":   "",
 		"nstat":     " -asz",
 	}
-	configFile, dataDir := util.GetLocations()
+	_, configFile, dataDir := util.GetLocations()
 	nics := getNICs()
 	// Create gdg configuration file
 	if err := util.CreateFile(configFile); err != nil {
@@ -121,9 +122,9 @@ func CreateOrLoadConfig(interval string) int {
 }
 
 // CreateSystemd will create service and timer files
-func CreateSystemd(interval string, gdgPath string) {
+func CreateSystemd(interval string) {
 
-	configfile, _ := util.GetLocations()
+	gdgPath, configFile, _ := util.GetLocations()
 	timer := `[Unit]
 Description=Granular Data Gatherer Timer
 Requires=gdg.service
@@ -142,7 +143,7 @@ Wants=gdg.timer
 	
 [Service]
 Type=oneshot
-ExecStart=` + gdgPath + "gdg -g -c " + configfile + "\n" +
+ExecStart=` + gdgPath + "gdg -g -c " + configFile + "\n" +
 		`
 [Install]
 WantedBy=multi-user.target`

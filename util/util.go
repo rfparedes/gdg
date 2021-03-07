@@ -97,16 +97,17 @@ func SetConfigKey(key string, value string, section string) (err error) {
 }
 
 // GetLocations get the locations of configfile and datadir
-func GetLocations() (configFile string, dataDir string) {
+func GetLocations() (gdgPath string, configFile string, dataDir string) {
 	// Get current working directory to store config file and dataDir
 	pwd, err := os.Getwd()
 	if err != nil {
 		log.Print("Cannot get current working directory")
 		os.Exit(1)
 	}
+	gdgPath = pwd + "/"
 	configFile = pwd + "/gdg.cfg"
 	dataDir = pwd + "/gdg-data/"
-	return configFile, dataDir
+	return gdgPath, configFile, dataDir
 }
 
 // GetConfigKeyValue gets the configuration file key value

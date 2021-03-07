@@ -79,6 +79,8 @@ func main() {
 		os.Exit(1)
 	}
 
+	//gdgPath, _, _ := util.GetLocations()
+
 	if c.interval < 30 {
 		log.Println("Interval cannot be less than 30s. Setting to 30s")
 		c.interval = 30
@@ -89,7 +91,7 @@ func main() {
 			log.Print("Setting up Granular Data Gatherer")
 			setup.CreateOrLoadConfig(strconv.Itoa(c.interval))
 			log.Print("Creating and Enabling systemd service and timer in /etc/systemd/system/")
-			setup.CreateSystemd(strconv.Itoa(c.interval), "/home/rich/mdata/git/gdg/")
+			setup.CreateSystemd(strconv.Itoa(c.interval))
 			setup.EnableSystemd()
 		} else {
 			fmt.Println("gdg is already started")

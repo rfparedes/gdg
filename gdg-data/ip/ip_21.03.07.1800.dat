@@ -1,0 +1,1325 @@
+zzz ***Sun Mar 7 06:38:00 EST 2021
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    94199527   267201   0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    94199527   267201   0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       0       
+2: em1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether a4:bb:6d:a5:53:57 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.0.115/22 brd 192.168.3.255 scope global dynamic noprefixroute em1
+       valid_lft 48965sec preferred_lft 48965sec
+    inet6 fe80::8196:1c13:f2ee:7de2/64 scope link noprefixroute 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    128727865950 134135122 0       784     0       1509964 
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       79      
+    TX: bytes  packets  errors  dropped carrier collsns 
+    234891030778 195675284 0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       2       
+3: wlan0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc pfifo_fast state DOWN group default qlen 1000
+    link/ether 36:9b:a2:38:97:70 brd ff:ff:ff:ff:ff:ff
+    RX: bytes  packets  errors  dropped overrun mcast   
+    0          0        0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    0          0        0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       1       
+5: vpn0: <POINTOPOINT,MULTICAST,NOARP,UP,LOWER_UP> mtu 1406 qdisc pfifo_fast state UP group default qlen 500
+    link/none 
+    inet 10.156.114.152/23 brd 10.156.115.255 scope global noprefixroute vpn0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::37a:7e4f:959e:97be/64 scope link stable-privacy 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    74727592   56371    0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    19655197   20267    0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       2       
+zzz ***Sun Mar 7 06:38:30 EST 2021
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    94199527   267201   0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    94199527   267201   0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       0       
+2: em1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether a4:bb:6d:a5:53:57 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.0.115/22 brd 192.168.3.255 scope global dynamic noprefixroute em1
+       valid_lft 48934sec preferred_lft 48934sec
+    inet6 fe80::8196:1c13:f2ee:7de2/64 scope link noprefixroute 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    128727907576 134135396 0       784     0       1509994 
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       79      
+    TX: bytes  packets  errors  dropped carrier collsns 
+    234891433128 195675688 0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       2       
+3: wlan0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc pfifo_fast state DOWN group default qlen 1000
+    link/ether 36:9b:a2:38:97:70 brd ff:ff:ff:ff:ff:ff
+    RX: bytes  packets  errors  dropped overrun mcast   
+    0          0        0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    0          0        0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       1       
+5: vpn0: <POINTOPOINT,MULTICAST,NOARP,UP,LOWER_UP> mtu 1406 qdisc pfifo_fast state UP group default qlen 500
+    link/none 
+    inet 10.156.114.152/23 brd 10.156.115.255 scope global noprefixroute vpn0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::37a:7e4f:959e:97be/64 scope link stable-privacy 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    74727592   56371    0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    19655197   20267    0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       2       
+zzz ***Sun Mar 7 06:39:00 EST 2021
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    94199527   267201   0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    94199527   267201   0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       0       
+2: em1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether a4:bb:6d:a5:53:57 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.0.115/22 brd 192.168.3.255 scope global dynamic noprefixroute em1
+       valid_lft 48904sec preferred_lft 48904sec
+    inet6 fe80::8196:1c13:f2ee:7de2/64 scope link noprefixroute 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    128727948926 134135658 0       784     0       1510012 
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       79      
+    TX: bytes  packets  errors  dropped carrier collsns 
+    234891855368 195676113 0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       2       
+3: wlan0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc pfifo_fast state DOWN group default qlen 1000
+    link/ether 36:9b:a2:38:97:70 brd ff:ff:ff:ff:ff:ff
+    RX: bytes  packets  errors  dropped overrun mcast   
+    0          0        0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    0          0        0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       1       
+5: vpn0: <POINTOPOINT,MULTICAST,NOARP,UP,LOWER_UP> mtu 1406 qdisc pfifo_fast state UP group default qlen 500
+    link/none 
+    inet 10.156.114.152/23 brd 10.156.115.255 scope global noprefixroute vpn0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::37a:7e4f:959e:97be/64 scope link stable-privacy 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    74727592   56371    0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    19655197   20267    0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       2       
+zzz ***Sun Mar 7 06:39:31 EST 2021
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    94199527   267201   0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    94199527   267201   0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       0       
+2: em1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether a4:bb:6d:a5:53:57 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.0.115/22 brd 192.168.3.255 scope global dynamic noprefixroute em1
+       valid_lft 48873sec preferred_lft 48873sec
+    inet6 fe80::8196:1c13:f2ee:7de2/64 scope link noprefixroute 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    128731354433 134138133 0       784     0       1510026 
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       79      
+    TX: bytes  packets  errors  dropped carrier collsns 
+    234892308032 195677054 0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       2       
+3: wlan0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc pfifo_fast state DOWN group default qlen 1000
+    link/ether 36:9b:a2:38:97:70 brd ff:ff:ff:ff:ff:ff
+    RX: bytes  packets  errors  dropped overrun mcast   
+    0          0        0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    0          0        0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       1       
+5: vpn0: <POINTOPOINT,MULTICAST,NOARP,UP,LOWER_UP> mtu 1406 qdisc pfifo_fast state UP group default qlen 500
+    link/none 
+    inet 10.156.114.152/23 brd 10.156.115.255 scope global noprefixroute vpn0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::37a:7e4f:959e:97be/64 scope link stable-privacy 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    74727592   56371    0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    19655197   20267    0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       2       
+zzz ***Sun Mar 7 06:40:01 EST 2021
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    94199527   267201   0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    94199527   267201   0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       0       
+2: em1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether a4:bb:6d:a5:53:57 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.0.115/22 brd 192.168.3.255 scope global dynamic noprefixroute em1
+       valid_lft 48843sec preferred_lft 48843sec
+    inet6 fe80::8196:1c13:f2ee:7de2/64 scope link noprefixroute 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    128734769827 134140655 0       784     0       1510032 
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       79      
+    TX: bytes  packets  errors  dropped carrier collsns 
+    234892784754 195678060 0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       2       
+3: wlan0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc pfifo_fast state DOWN group default qlen 1000
+    link/ether 36:9b:a2:38:97:70 brd ff:ff:ff:ff:ff:ff
+    RX: bytes  packets  errors  dropped overrun mcast   
+    0          0        0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    0          0        0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       1       
+5: vpn0: <POINTOPOINT,MULTICAST,NOARP,UP,LOWER_UP> mtu 1406 qdisc pfifo_fast state UP group default qlen 500
+    link/none 
+    inet 10.156.114.152/23 brd 10.156.115.255 scope global noprefixroute vpn0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::37a:7e4f:959e:97be/64 scope link stable-privacy 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    74727592   56371    0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    19655197   20267    0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       2       
+zzz ***Sun Mar 7 06:40:32 EST 2021
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    94200127   267207   0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    94200127   267207   0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       0       
+2: em1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether a4:bb:6d:a5:53:57 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.0.115/22 brd 192.168.3.255 scope global dynamic noprefixroute em1
+       valid_lft 48812sec preferred_lft 48812sec
+    inet6 fe80::8196:1c13:f2ee:7de2/64 scope link noprefixroute 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    128734813245 134140939 0       784     0       1510062 
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       79      
+    TX: bytes  packets  errors  dropped carrier collsns 
+    234893184893 195678477 0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       2       
+3: wlan0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc pfifo_fast state DOWN group default qlen 1000
+    link/ether 36:9b:a2:38:97:70 brd ff:ff:ff:ff:ff:ff
+    RX: bytes  packets  errors  dropped overrun mcast   
+    0          0        0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    0          0        0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       1       
+5: vpn0: <POINTOPOINT,MULTICAST,NOARP,UP,LOWER_UP> mtu 1406 qdisc pfifo_fast state UP group default qlen 500
+    link/none 
+    inet 10.156.114.152/23 brd 10.156.115.255 scope global noprefixroute vpn0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::37a:7e4f:959e:97be/64 scope link stable-privacy 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    74727592   56371    0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    19655197   20267    0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       2       
+zzz ***Sun Mar 7 06:41:02 EST 2021
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    94200127   267207   0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    94200127   267207   0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       0       
+2: em1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether a4:bb:6d:a5:53:57 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.0.115/22 brd 192.168.3.255 scope global dynamic noprefixroute em1
+       valid_lft 48782sec preferred_lft 48782sec
+    inet6 fe80::8196:1c13:f2ee:7de2/64 scope link noprefixroute 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    128738216759 134143404 0       784     0       1510063 
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       79      
+    TX: bytes  packets  errors  dropped carrier collsns 
+    234893655195 195679424 0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       2       
+3: wlan0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc pfifo_fast state DOWN group default qlen 1000
+    link/ether 36:9b:a2:38:97:70 brd ff:ff:ff:ff:ff:ff
+    RX: bytes  packets  errors  dropped overrun mcast   
+    0          0        0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    0          0        0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       1       
+5: vpn0: <POINTOPOINT,MULTICAST,NOARP,UP,LOWER_UP> mtu 1406 qdisc pfifo_fast state UP group default qlen 500
+    link/none 
+    inet 10.156.114.152/23 brd 10.156.115.255 scope global noprefixroute vpn0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::37a:7e4f:959e:97be/64 scope link stable-privacy 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    74727592   56371    0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    19655197   20267    0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       2       
+zzz ***Sun Mar 7 06:41:33 EST 2021
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    94200127   267207   0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    94200127   267207   0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       0       
+2: em1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether a4:bb:6d:a5:53:57 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.0.115/22 brd 192.168.3.255 scope global dynamic noprefixroute em1
+       valid_lft 48751sec preferred_lft 48751sec
+    inet6 fe80::8196:1c13:f2ee:7de2/64 scope link noprefixroute 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    128741623375 134145894 0       784     0       1510089 
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       79      
+    TX: bytes  packets  errors  dropped carrier collsns 
+    234894115805 195680352 0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       2       
+3: wlan0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc pfifo_fast state DOWN group default qlen 1000
+    link/ether 36:9b:a2:38:97:70 brd ff:ff:ff:ff:ff:ff
+    RX: bytes  packets  errors  dropped overrun mcast   
+    0          0        0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    0          0        0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       1       
+5: vpn0: <POINTOPOINT,MULTICAST,NOARP,UP,LOWER_UP> mtu 1406 qdisc pfifo_fast state UP group default qlen 500
+    link/none 
+    inet 10.156.114.152/23 brd 10.156.115.255 scope global noprefixroute vpn0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::37a:7e4f:959e:97be/64 scope link stable-privacy 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    74727592   56371    0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    19655197   20267    0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       2       
+zzz ***Sun Mar 7 06:42:03 EST 2021
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    94200127   267207   0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    94200127   267207   0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       0       
+2: em1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether a4:bb:6d:a5:53:57 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.0.115/22 brd 192.168.3.255 scope global dynamic noprefixroute em1
+       valid_lft 48721sec preferred_lft 48721sec
+    inet6 fe80::8196:1c13:f2ee:7de2/64 scope link noprefixroute 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    128745027359 134148363 0       784     0       1510089 
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       79      
+    TX: bytes  packets  errors  dropped carrier collsns 
+    234894571873 195681299 0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       2       
+3: wlan0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc pfifo_fast state DOWN group default qlen 1000
+    link/ether fe:a6:52:08:3d:a3 brd ff:ff:ff:ff:ff:ff
+    RX: bytes  packets  errors  dropped overrun mcast   
+    0          0        0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    0          0        0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       1       
+5: vpn0: <POINTOPOINT,MULTICAST,NOARP,UP,LOWER_UP> mtu 1406 qdisc pfifo_fast state UP group default qlen 500
+    link/none 
+    inet 10.156.114.152/23 brd 10.156.115.255 scope global noprefixroute vpn0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::37a:7e4f:959e:97be/64 scope link stable-privacy 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    74727592   56371    0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    19655197   20267    0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       2       
+zzz ***Sun Mar 7 06:42:34 EST 2021
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    94200127   267207   0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    94200127   267207   0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       0       
+2: em1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether a4:bb:6d:a5:53:57 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.0.115/22 brd 192.168.3.255 scope global dynamic noprefixroute em1
+       valid_lft 48690sec preferred_lft 48690sec
+    inet6 fe80::8196:1c13:f2ee:7de2/64 scope link noprefixroute 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    128748465482 134150958 0       784     0       1510119 
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       79      
+    TX: bytes  packets  errors  dropped carrier collsns 
+    234895072777 195682360 0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       2       
+3: wlan0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc pfifo_fast state DOWN group default qlen 1000
+    link/ether fe:a6:52:08:3d:a3 brd ff:ff:ff:ff:ff:ff
+    RX: bytes  packets  errors  dropped overrun mcast   
+    0          0        0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    0          0        0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       1       
+5: vpn0: <POINTOPOINT,MULTICAST,NOARP,UP,LOWER_UP> mtu 1406 qdisc pfifo_fast state UP group default qlen 500
+    link/none 
+    inet 10.156.114.152/23 brd 10.156.115.255 scope global noprefixroute vpn0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::37a:7e4f:959e:97be/64 scope link stable-privacy 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    74727592   56371    0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    19655197   20267    0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       2       
+zzz ***Sun Mar 7 06:43:04 EST 2021
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    94201095   267217   0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    94201095   267217   0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       0       
+2: em1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether a4:bb:6d:a5:53:57 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.0.115/22 brd 192.168.3.255 scope global dynamic noprefixroute em1
+       valid_lft 48660sec preferred_lft 48660sec
+    inet6 fe80::8196:1c13:f2ee:7de2/64 scope link noprefixroute 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    128751869327 134153417 0       784     0       1510120 
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       79      
+    TX: bytes  packets  errors  dropped carrier collsns 
+    234895521648 195683284 0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       2       
+3: wlan0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc pfifo_fast state DOWN group default qlen 1000
+    link/ether fe:a6:52:08:3d:a3 brd ff:ff:ff:ff:ff:ff
+    RX: bytes  packets  errors  dropped overrun mcast   
+    0          0        0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    0          0        0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       1       
+5: vpn0: <POINTOPOINT,MULTICAST,NOARP,UP,LOWER_UP> mtu 1406 qdisc pfifo_fast state UP group default qlen 500
+    link/none 
+    inet 10.156.114.152/23 brd 10.156.115.255 scope global noprefixroute vpn0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::37a:7e4f:959e:97be/64 scope link stable-privacy 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    74727592   56371    0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    19655197   20267    0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       2       
+zzz ***Sun Mar 7 06:43:35 EST 2021
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    94201095   267217   0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    94201095   267217   0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       0       
+2: em1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether a4:bb:6d:a5:53:57 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.0.115/22 brd 192.168.3.255 scope global dynamic noprefixroute em1
+       valid_lft 48629sec preferred_lft 48629sec
+    inet6 fe80::8196:1c13:f2ee:7de2/64 scope link noprefixroute 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    128751909169 134153682 0       784     0       1510138 
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       79      
+    TX: bytes  packets  errors  dropped carrier collsns 
+    234895959906 195683708 0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       2       
+3: wlan0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc pfifo_fast state DOWN group default qlen 1000
+    link/ether fe:a6:52:08:3d:a3 brd ff:ff:ff:ff:ff:ff
+    RX: bytes  packets  errors  dropped overrun mcast   
+    0          0        0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    0          0        0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       1       
+5: vpn0: <POINTOPOINT,MULTICAST,NOARP,UP,LOWER_UP> mtu 1406 qdisc pfifo_fast state UP group default qlen 500
+    link/none 
+    inet 10.156.114.152/23 brd 10.156.115.255 scope global noprefixroute vpn0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::37a:7e4f:959e:97be/64 scope link stable-privacy 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    74727592   56371    0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    19655197   20267    0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       2       
+zzz ***Sun Mar 7 06:44:05 EST 2021
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    94201095   267217   0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    94201095   267217   0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       0       
+2: em1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether a4:bb:6d:a5:53:57 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.0.115/22 brd 192.168.3.255 scope global dynamic noprefixroute em1
+       valid_lft 48599sec preferred_lft 48599sec
+    inet6 fe80::8196:1c13:f2ee:7de2/64 scope link noprefixroute 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    128755314776 134156165 0       784     0       1510152 
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       79      
+    TX: bytes  packets  errors  dropped carrier collsns 
+    234896419736 195684645 0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       2       
+3: wlan0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc pfifo_fast state DOWN group default qlen 1000
+    link/ether fe:a6:52:08:3d:a3 brd ff:ff:ff:ff:ff:ff
+    RX: bytes  packets  errors  dropped overrun mcast   
+    0          0        0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    0          0        0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       1       
+5: vpn0: <POINTOPOINT,MULTICAST,NOARP,UP,LOWER_UP> mtu 1406 qdisc pfifo_fast state UP group default qlen 500
+    link/none 
+    inet 10.156.114.152/23 brd 10.156.115.255 scope global noprefixroute vpn0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::37a:7e4f:959e:97be/64 scope link stable-privacy 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    74727592   56371    0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    19655197   20267    0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       2       
+zzz ***Sun Mar 7 06:44:36 EST 2021
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    94201095   267217   0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    94201095   267217   0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       0       
+2: em1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether a4:bb:6d:a5:53:57 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.0.115/22 brd 192.168.3.255 scope global dynamic noprefixroute em1
+       valid_lft 48568sec preferred_lft 48568sec
+    inet6 fe80::8196:1c13:f2ee:7de2/64 scope link noprefixroute 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    128758724604 134158667 0       784     0       1510188 
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       79      
+    TX: bytes  packets  errors  dropped carrier collsns 
+    234896888548 195685572 0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       2       
+3: wlan0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc pfifo_fast state DOWN group default qlen 1000
+    link/ether fe:a6:52:08:3d:a3 brd ff:ff:ff:ff:ff:ff
+    RX: bytes  packets  errors  dropped overrun mcast   
+    0          0        0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    0          0        0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       1       
+5: vpn0: <POINTOPOINT,MULTICAST,NOARP,UP,LOWER_UP> mtu 1406 qdisc pfifo_fast state UP group default qlen 500
+    link/none 
+    inet 10.156.114.152/23 brd 10.156.115.255 scope global noprefixroute vpn0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::37a:7e4f:959e:97be/64 scope link stable-privacy 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    74727592   56371    0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    19655197   20267    0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       2       
+zzz ***Sun Mar 7 06:45:06 EST 2021
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    94201095   267217   0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    94201095   267217   0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       0       
+2: em1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether a4:bb:6d:a5:53:57 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.0.115/22 brd 192.168.3.255 scope global dynamic noprefixroute em1
+       valid_lft 48538sec preferred_lft 48538sec
+    inet6 fe80::8196:1c13:f2ee:7de2/64 scope link noprefixroute 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    128762221149 134162602 0       784     0       1510190 
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       79      
+    TX: bytes  packets  errors  dropped carrier collsns 
+    234897366590 195686513 0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       2       
+3: wlan0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc pfifo_fast state DOWN group default qlen 1000
+    link/ether fe:a6:52:08:3d:a3 brd ff:ff:ff:ff:ff:ff
+    RX: bytes  packets  errors  dropped overrun mcast   
+    0          0        0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    0          0        0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       1       
+5: vpn0: <POINTOPOINT,MULTICAST,NOARP,UP,LOWER_UP> mtu 1406 qdisc pfifo_fast state UP group default qlen 500
+    link/none 
+    inet 10.156.114.152/23 brd 10.156.115.255 scope global noprefixroute vpn0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::37a:7e4f:959e:97be/64 scope link stable-privacy 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    74727592   56371    0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    19655197   20267    0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       2       
+zzz ***Sun Mar 7 06:45:37 EST 2021
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    94201095   267217   0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    94201095   267217   0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       0       
+2: em1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether a4:bb:6d:a5:53:57 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.0.115/22 brd 192.168.3.255 scope global dynamic noprefixroute em1
+       valid_lft 48507sec preferred_lft 48507sec
+    inet6 fe80::8196:1c13:f2ee:7de2/64 scope link noprefixroute 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    128765722929 134166573 0       784     0       1510206 
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       79      
+    TX: bytes  packets  errors  dropped carrier collsns 
+    234897825776 195687456 0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       2       
+3: wlan0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc pfifo_fast state DOWN group default qlen 1000
+    link/ether fe:a6:52:08:3d:a3 brd ff:ff:ff:ff:ff:ff
+    RX: bytes  packets  errors  dropped overrun mcast   
+    0          0        0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    0          0        0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       1       
+5: vpn0: <POINTOPOINT,MULTICAST,NOARP,UP,LOWER_UP> mtu 1406 qdisc pfifo_fast state UP group default qlen 500
+    link/none 
+    inet 10.156.114.152/23 brd 10.156.115.255 scope global noprefixroute vpn0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::37a:7e4f:959e:97be/64 scope link stable-privacy 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    74727592   56371    0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    19655197   20267    0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       2       
+zzz ***Sun Mar 7 06:46:07 EST 2021
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    94201095   267217   0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    94201095   267217   0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       0       
+2: em1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether a4:bb:6d:a5:53:57 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.0.115/22 brd 192.168.3.255 scope global dynamic noprefixroute em1
+       valid_lft 48477sec preferred_lft 48477sec
+    inet6 fe80::8196:1c13:f2ee:7de2/64 scope link noprefixroute 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    128765757407 134166805 0       784     0       1510206 
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       79      
+    TX: bytes  packets  errors  dropped carrier collsns 
+    234898241208 195687873 0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       2       
+3: wlan0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc pfifo_fast state DOWN group default qlen 1000
+    link/ether fe:a6:52:08:3d:a3 brd ff:ff:ff:ff:ff:ff
+    RX: bytes  packets  errors  dropped overrun mcast   
+    0          0        0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    0          0        0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       1       
+5: vpn0: <POINTOPOINT,MULTICAST,NOARP,UP,LOWER_UP> mtu 1406 qdisc pfifo_fast state UP group default qlen 500
+    link/none 
+    inet 10.156.114.152/23 brd 10.156.115.255 scope global noprefixroute vpn0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::37a:7e4f:959e:97be/64 scope link stable-privacy 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    74727592   56371    0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    19655197   20267    0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       2       
+zzz ***Sun Mar 7 06:46:38 EST 2021
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    94201095   267217   0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    94201095   267217   0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       0       
+2: em1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether a4:bb:6d:a5:53:57 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.0.115/22 brd 192.168.3.255 scope global dynamic noprefixroute em1
+       valid_lft 48446sec preferred_lft 48446sec
+    inet6 fe80::8196:1c13:f2ee:7de2/64 scope link noprefixroute 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    128769166129 134169304 0       784     0       1510230 
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       79      
+    TX: bytes  packets  errors  dropped carrier collsns 
+    234898705324 195688823 0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       2       
+3: wlan0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc pfifo_fast state DOWN group default qlen 1000
+    link/ether fe:a6:52:08:3d:a3 brd ff:ff:ff:ff:ff:ff
+    RX: bytes  packets  errors  dropped overrun mcast   
+    0          0        0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    0          0        0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       1       
+5: vpn0: <POINTOPOINT,MULTICAST,NOARP,UP,LOWER_UP> mtu 1406 qdisc pfifo_fast state UP group default qlen 500
+    link/none 
+    inet 10.156.114.152/23 brd 10.156.115.255 scope global noprefixroute vpn0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::37a:7e4f:959e:97be/64 scope link stable-privacy 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    74727592   56371    0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    19655197   20267    0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       2       
+zzz ***Sun Mar 7 06:47:08 EST 2021
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    94201095   267217   0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    94201095   267217   0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       0       
+2: em1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether a4:bb:6d:a5:53:57 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.0.115/22 brd 192.168.3.255 scope global dynamic noprefixroute em1
+       valid_lft 48416sec preferred_lft 48416sec
+    inet6 fe80::8196:1c13:f2ee:7de2/64 scope link noprefixroute 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    128772568707 134171770 0       784     0       1510231 
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       79      
+    TX: bytes  packets  errors  dropped carrier collsns 
+    234899167480 195689759 0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       2       
+3: wlan0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc pfifo_fast state DOWN group default qlen 1000
+    link/ether 76:b8:95:4f:94:39 brd ff:ff:ff:ff:ff:ff
+    RX: bytes  packets  errors  dropped overrun mcast   
+    0          0        0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    0          0        0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       1       
+5: vpn0: <POINTOPOINT,MULTICAST,NOARP,UP,LOWER_UP> mtu 1406 qdisc pfifo_fast state UP group default qlen 500
+    link/none 
+    inet 10.156.114.152/23 brd 10.156.115.255 scope global noprefixroute vpn0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::37a:7e4f:959e:97be/64 scope link stable-privacy 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    74727592   56371    0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    19655197   20267    0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       2       
+zzz ***Sun Mar 7 06:47:39 EST 2021
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    94201095   267217   0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    94201095   267217   0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       0       
+2: em1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether a4:bb:6d:a5:53:57 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.0.115/22 brd 192.168.3.255 scope global dynamic noprefixroute em1
+       valid_lft 48385sec preferred_lft 48385sec
+    inet6 fe80::8196:1c13:f2ee:7de2/64 scope link noprefixroute 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    128775974507 134174242 0       784     0       1510249 
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       79      
+    TX: bytes  packets  errors  dropped carrier collsns 
+    234899608800 195690680 0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       2       
+3: wlan0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc pfifo_fast state DOWN group default qlen 1000
+    link/ether 76:b8:95:4f:94:39 brd ff:ff:ff:ff:ff:ff
+    RX: bytes  packets  errors  dropped overrun mcast   
+    0          0        0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    0          0        0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       1       
+5: vpn0: <POINTOPOINT,MULTICAST,NOARP,UP,LOWER_UP> mtu 1406 qdisc pfifo_fast state UP group default qlen 500
+    link/none 
+    inet 10.156.114.152/23 brd 10.156.115.255 scope global noprefixroute vpn0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::37a:7e4f:959e:97be/64 scope link stable-privacy 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    74727592   56371    0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    19655197   20267    0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       2       
+zzz ***Sun Mar 7 06:48:09 EST 2021
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    94201095   267217   0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    94201095   267217   0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       0       
+2: em1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether a4:bb:6d:a5:53:57 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.0.115/22 brd 192.168.3.255 scope global dynamic noprefixroute em1
+       valid_lft 48355sec preferred_lft 48355sec
+    inet6 fe80::8196:1c13:f2ee:7de2/64 scope link noprefixroute 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    128779376875 134176708 0       784     0       1510249 
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       79      
+    TX: bytes  packets  errors  dropped carrier collsns 
+    234900066814 195691616 0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       2       
+3: wlan0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc pfifo_fast state DOWN group default qlen 1000
+    link/ether 76:b8:95:4f:94:39 brd ff:ff:ff:ff:ff:ff
+    RX: bytes  packets  errors  dropped overrun mcast   
+    0          0        0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    0          0        0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       1       
+5: vpn0: <POINTOPOINT,MULTICAST,NOARP,UP,LOWER_UP> mtu 1406 qdisc pfifo_fast state UP group default qlen 500
+    link/none 
+    inet 10.156.114.152/23 brd 10.156.115.255 scope global noprefixroute vpn0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::37a:7e4f:959e:97be/64 scope link stable-privacy 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    74727592   56371    0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    19655197   20267    0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       2       
+zzz ***Sun Mar 7 06:48:40 EST 2021
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    94201463   267221   0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    94201463   267221   0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       0       
+2: em1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether a4:bb:6d:a5:53:57 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.0.115/22 brd 192.168.3.255 scope global dynamic noprefixroute em1
+       valid_lft 48324sec preferred_lft 48324sec
+    inet6 fe80::8196:1c13:f2ee:7de2/64 scope link noprefixroute 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    128782787987 134179216 0       784     0       1510279 
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       79      
+    TX: bytes  packets  errors  dropped carrier collsns 
+    234900530508 195692560 0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       2       
+3: wlan0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc pfifo_fast state DOWN group default qlen 1000
+    link/ether 76:b8:95:4f:94:39 brd ff:ff:ff:ff:ff:ff
+    RX: bytes  packets  errors  dropped overrun mcast   
+    0          0        0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    0          0        0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       1       
+5: vpn0: <POINTOPOINT,MULTICAST,NOARP,UP,LOWER_UP> mtu 1406 qdisc pfifo_fast state UP group default qlen 500
+    link/none 
+    inet 10.156.114.152/23 brd 10.156.115.255 scope global noprefixroute vpn0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::37a:7e4f:959e:97be/64 scope link stable-privacy 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    74727592   56371    0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    19655197   20267    0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       2       
+zzz ***Sun Mar 7 06:49:10 EST 2021
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    94201463   267221   0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    94201463   267221   0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       0       
+2: em1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether a4:bb:6d:a5:53:57 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.0.115/22 brd 192.168.3.255 scope global dynamic noprefixroute em1
+       valid_lft 48294sec preferred_lft 48294sec
+    inet6 fe80::8196:1c13:f2ee:7de2/64 scope link noprefixroute 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    128786190294 134181680 0       784     0       1510281 
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       79      
+    TX: bytes  packets  errors  dropped carrier collsns 
+    234900988810 195693498 0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       2       
+3: wlan0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc pfifo_fast state DOWN group default qlen 1000
+    link/ether 76:b8:95:4f:94:39 brd ff:ff:ff:ff:ff:ff
+    RX: bytes  packets  errors  dropped overrun mcast   
+    0          0        0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    0          0        0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       1       
+5: vpn0: <POINTOPOINT,MULTICAST,NOARP,UP,LOWER_UP> mtu 1406 qdisc pfifo_fast state UP group default qlen 500
+    link/none 
+    inet 10.156.114.152/23 brd 10.156.115.255 scope global noprefixroute vpn0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::37a:7e4f:959e:97be/64 scope link stable-privacy 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    74727592   56371    0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    19655197   20267    0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       2       
+zzz ***Sun Mar 7 06:49:41 EST 2021
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    94201463   267221   0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    94201463   267221   0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       0       
+2: em1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether a4:bb:6d:a5:53:57 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.0.115/22 brd 192.168.3.255 scope global dynamic noprefixroute em1
+       valid_lft 48263sec preferred_lft 48263sec
+    inet6 fe80::8196:1c13:f2ee:7de2/64 scope link noprefixroute 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    128789598752 134184178 0       784     0       1510305 
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       79      
+    TX: bytes  packets  errors  dropped carrier collsns 
+    234901443140 195694450 0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       2       
+3: wlan0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc pfifo_fast state DOWN group default qlen 1000
+    link/ether 76:b8:95:4f:94:39 brd ff:ff:ff:ff:ff:ff
+    RX: bytes  packets  errors  dropped overrun mcast   
+    0          0        0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    0          0        0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       1       
+5: vpn0: <POINTOPOINT,MULTICAST,NOARP,UP,LOWER_UP> mtu 1406 qdisc pfifo_fast state UP group default qlen 500
+    link/none 
+    inet 10.156.114.152/23 brd 10.156.115.255 scope global noprefixroute vpn0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::37a:7e4f:959e:97be/64 scope link stable-privacy 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    74727592   56371    0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    19655197   20267    0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       2       
+zzz ***Sun Mar 7 06:50:11 EST 2021
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    94201463   267221   0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    94201463   267221   0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       0       
+2: em1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether a4:bb:6d:a5:53:57 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.0.115/22 brd 192.168.3.255 scope global dynamic noprefixroute em1
+       valid_lft 48233sec preferred_lft 48233sec
+    inet6 fe80::8196:1c13:f2ee:7de2/64 scope link noprefixroute 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    128793001175 134186640 0       784     0       1510307 
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       79      
+    TX: bytes  packets  errors  dropped carrier collsns 
+    234901894552 195695389 0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       2       
+3: wlan0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc pfifo_fast state DOWN group default qlen 1000
+    link/ether 76:b8:95:4f:94:39 brd ff:ff:ff:ff:ff:ff
+    RX: bytes  packets  errors  dropped overrun mcast   
+    0          0        0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    0          0        0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       1       
+5: vpn0: <POINTOPOINT,MULTICAST,NOARP,UP,LOWER_UP> mtu 1406 qdisc pfifo_fast state UP group default qlen 500
+    link/none 
+    inet 10.156.114.152/23 brd 10.156.115.255 scope global noprefixroute vpn0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::37a:7e4f:959e:97be/64 scope link stable-privacy 
+       valid_lft forever preferred_lft forever
+    RX: bytes  packets  errors  dropped overrun mcast   
+    74727592   56371    0       0       0       0       
+    RX errors: length   crc     frame   fifo    missed
+               0        0       0       0       0       
+    TX: bytes  packets  errors  dropped carrier collsns 
+    19655197   20267    0       0       0       0       
+    TX errors: aborted  fifo   window heartbeat transns
+               0        0       0       0       2       

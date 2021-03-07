@@ -79,12 +79,13 @@ func main() {
 		os.Exit(1)
 	}
 
-	//gdgPath, _, _ := util.GetLocations()
-
+	// User enters interval less than 30s (NOT ALLOWED)
 	if c.interval < 30 {
 		log.Println("Interval cannot be less than 30s. Setting to 30s")
 		c.interval = 30
 	}
+
+	// User starts gdg
 	if c.start == true {
 		status, _ := util.GetConfigKeyValue("status", "")
 		if status != "started" {
@@ -96,7 +97,10 @@ func main() {
 		} else {
 			fmt.Println("gdg is already started")
 		}
+		return
 	}
+
+	// User stops gdg
 	if c.stop == true {
 		status, _ := util.GetConfigKeyValue("status", "")
 		if status != "stopped" {
@@ -108,6 +112,7 @@ func main() {
 		} else {
 			fmt.Println("gdg is already stopped")
 		}
+		return
 
 	}
 	if c.gather == true {

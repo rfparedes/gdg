@@ -45,17 +45,25 @@ func main() {
 	}
 	if c.install == true {
 		log.Print("Installing Granular Data Gatherer")
-		setup.CreateOrLoadConfig()
+		setup.CreateOrLoadConfig(strconv.Itoa(c.interval))
 		log.Print("Creating and Enabling systemd service and timer in /etc/systemd/system/")
-		setup.EnableSystemd(strconv.Itoa(c.interval), "/home/rich/mdata/git/gdg/")
+		setup.CreateSystemd(strconv.Itoa(c.interval), "/home/rich/mdata/git/gdg/")
+		setup.EnableSystemd()
 	}
-
 	if c.uninstall == true {
 		log.Print("Uninstalling Granular Data Gatherer")
+		log.Print("Keeping Configuration and Data. Delete manually")
 		log.Print("Deleting systemd service and timer in /etc/systemd/system/")
 		setup.DisableSystemd()
+		setup.DeleteSystemd()
 	}
 	if c.gather == true {
 		action.Gather()
+	}
+	if c.stop == true {
+		setup.DisableSystemd()
+	}
+	if c.start == true {
+		setup.EnableSystemd()
 	}
 }

@@ -10,10 +10,6 @@ import (
 	"gopkg.in/ini.v1"
 )
 
-const interval = "30"
-const configFile = "/etc/gdg.cfg"
-const logDir = "/var/log/gdg/"
-
 // FindSupportedUtilities - Determine supported binaries and path
 func FindSupportedUtilities() map[string]string {
 
@@ -41,7 +37,7 @@ func FindSupportedUtilities() map[string]string {
 }
 
 // CreateOrLoadConfig - Create a configuration file
-func CreateOrLoadConfig() int {
+func CreateOrLoadConfig(interval string) int {
 
 	argMap := map[string]string{
 		"iostat":    " 1 3 -t -k -x -N",
@@ -59,13 +55,22 @@ func CreateOrLoadConfig() int {
 		"nstat":     " -asz",
 	}
 
+	// Get current working directory to store config file and dataDir
+	pwd, err := os.Getwd()
+	if err != nil {
+		log.Print("Cannot get current working directory")
+		os.Exit(1)
+	}
+	configFile := pwd + "/gdg.cfg"
+	dataDir := pwd + "/gdg-data/"
+	log.Print(configFile)
 	// Create gdg configuration file
 	if err := util.CreateFile(configFile); err != nil {
 		log.Println("File creation failed with error: " + err.Error())
 		os.Exit(1)
 	}
 	// Create parent log directory
-	if err := util.CreateDir(logDir); err != nil {
+	if err := util.CreateDir(dataDir); err != nil {
 		log.Println("Directory creation failed with error: " + err.Error())
 		os.Exit(1)
 	}
@@ -79,11 +84,13 @@ func CreateOrLoadConfig() int {
 
 	cfg.Section("").NewKey("hostname", util.GetShortHostname())
 	cfg.Section("").NewKey("interval", interval)
+	cfg.Section("").NewKey("configfile", configFile)
+	cfg.Section("").NewKey("datadir", dataDir)
 	for u, p := range utilities {
 		var call string
 
 		//Create child log directory for utility
-		if err := util.CreateDir(logDir + u); err != nil {
+		if err := util.CreateDir(dataDir + u); err != nil {
 			log.Println("Directory creation failed with error: " + err.Error())
 			os.Exit(1)
 		}
@@ -101,8 +108,8 @@ func CreateOrLoadConfig() int {
 
 // Find network interfaces
 
-// EnableSystemd function
-func EnableSystemd(interval string, gdgPath string) {
+// CreateSystemd function
+func CreateSystemd(interval string, gdgPath string) {
 
 	timer := `[Unit]
 Description=Granular Data Gatherer Timer
@@ -142,7 +149,10 @@ WantedBy=multi-user.target`
 		}
 		f.Sync()
 	}
+}
 
+// EnableSystemd enables the systemd gdg.timer
+func EnableSystemd() {
 	systemctl, err := exec.LookPath("systemctl")
 	if err != nil {
 		log.Print("Cannot find 'systemctl' executable")
@@ -156,7 +166,7 @@ WantedBy=multi-user.target`
 	}
 }
 
-// DisableSystemd function
+// DisableSystemd disables the sytemd gdg.timer
 func DisableSystemd() {
 
 	systemctl, err := exec.LookPath("systemctl")
@@ -169,9 +179,14 @@ func DisableSystemd() {
 	if err != nil {
 		log.Print("Cannot disable 'gdg.timer'")
 	}
+}
+
+// DeleteSystemd function to delete the gdg systemd services
+func DeleteSystemd() {
+
 	strings := []string{"timer", "service"}
 	for _, s := range strings {
-		err = os.Remove("/etc/systemd/system/gdg." + s)
+		err := os.Remove("/etc/systemd/system/gdg." + s)
 		if err != nil {
 			log.Print("Cannot remove '/etc/systemd/system/gdg." + s + "'")
 		}

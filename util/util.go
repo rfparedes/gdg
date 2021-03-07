@@ -6,6 +6,8 @@ import (
 	"os"
 	"os/exec"
 	"time"
+
+	"gopkg.in/ini.v1"
 )
 
 // CreateDir function
@@ -71,4 +73,37 @@ func CurrentDatFile(utility string) string {
 func CreateHeader() string {
 	t := time.Now()
 	return ("zzz ***" + t.Format("Mon Jan 2 03:04:05 MST 2006"))
+}
+
+// SetConfigKey sets the configuration file key value
+func SetConfigKey(key string, value string, section string) (err error) {
+	// Get current working directory to store config file and dataDir
+	pwd, err := os.Getwd()
+	if err != nil {
+		log.Print("Cannot get current working directory")
+		os.Exit(1)
+	}
+	configFile := pwd + "/gdg.cfg"
+	cfg, err := ini.Load(configFile)
+	if err != nil {
+		log.Printf("Fail to read file: %v", err)
+		os.Exit(1)
+	}
+
+	cfg.Section(section).NewKey(key, value)
+	err = cfg.SaveTo(configFile)
+	return err
+}
+
+// GetLocations get the locations of configfile and datadir
+func GetLocations() (configFile string, dataDir string) {
+	// Get current working directory to store config file and dataDir
+	pwd, err := os.Getwd()
+	if err != nil {
+		log.Print("Cannot get current working directory")
+		os.Exit(1)
+	}
+	configFile = pwd + "/gdg.cfg"
+	dataDir = pwd + "/gdg-data/"
+	return configFile, dataDir
 }

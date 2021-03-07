@@ -9,11 +9,8 @@ import (
 	"gopkg.in/ini.v1"
 )
 
-const configFile = "/etc/gdg.cfg"
-const logDir = "/var/log/gdg/"
-
 // Gather the data
-func Gather() {
+func Gather(configFile string) {
 
 	var gatherCmd *exec.Cmd
 	cfg, err := ini.Load(configFile)
@@ -23,11 +20,11 @@ func Gather() {
 	}
 	// Get all supported utilities
 	keys := cfg.Section("utility").KeyStrings()
-
+	dataDir := cfg.Section("").Key("datadir").String()
 	// Gather for each
 	for _, k := range keys {
 		// Create dat file if it doesn't exist
-		datFile := (logDir + k + "/" + util.CurrentDatFile(k))
+		datFile := (dataDir + k + "/" + util.CurrentDatFile(k))
 		f, err := os.OpenFile(datFile, os.O_WRONLY|os.O_APPEND|os.O_CREATE, 0744)
 		util.Check(err)
 		defer f.Close()

@@ -6,8 +6,6 @@ import (
 	"os/exec"
 
 	"github.com/rfparedes/gdg/util"
-
-	"gopkg.in/ini.v1"
 )
 
 // FindSupportedUtilities - Determine supported binaries and path
@@ -54,16 +52,8 @@ func CreateOrLoadConfig(interval string) int {
 		"pidstat":   "",
 		"nstat":     " -asz",
 	}
+	configFile, dataDir := util.GetLocations()
 
-	// Get current working directory to store config file and dataDir
-	pwd, err := os.Getwd()
-	if err != nil {
-		log.Print("Cannot get current working directory")
-		os.Exit(1)
-	}
-	configFile := pwd + "/gdg.cfg"
-	dataDir := pwd + "/gdg-data/"
-	log.Print(configFile)
 	// Create gdg configuration file
 	if err := util.CreateFile(configFile); err != nil {
 		log.Println("File creation failed with error: " + err.Error())
@@ -76,16 +66,23 @@ func CreateOrLoadConfig(interval string) int {
 	}
 
 	utilities := FindSupportedUtilities()
-	cfg, err := ini.Load(configFile)
-	if err != nil {
-		log.Printf("Fail to read file: %v", err)
-		os.Exit(1)
-	}
 
-	cfg.Section("").NewKey("hostname", util.GetShortHostname())
-	cfg.Section("").NewKey("interval", interval)
-	cfg.Section("").NewKey("configfile", configFile)
-	cfg.Section("").NewKey("datadir", dataDir)
+	err := util.SetConfigKey("hostname", util.GetShortHostname(), "")
+	if err != nil {
+		log.Print("Cannot set key 'status'")
+	}
+	err = util.SetConfigKey("interval", interval, "")
+	if err != nil {
+		log.Print("Cannot set key 'status'")
+	}
+	err = util.SetConfigKey("configfile", configFile, "")
+	if err != nil {
+		log.Print("Cannot set key 'status'")
+	}
+	err = util.SetConfigKey("datadir", dataDir, "")
+	if err != nil {
+		log.Print("Cannot set key 'status'")
+	}
 	for u, p := range utilities {
 		var call string
 
@@ -99,10 +96,11 @@ func CreateOrLoadConfig(interval string) int {
 		} else {
 			call = p
 		}
-		cfg.Section("utility").NewKey(u, call)
+		err = util.SetConfigKey(u, call, "utility")
+		if err != nil {
+			log.Print("Cannot set key 'status'")
+		}
 	}
-
-	cfg.SaveTo(configFile)
 	return 0
 }
 
@@ -111,6 +109,7 @@ func CreateOrLoadConfig(interval string) int {
 // CreateSystemd function
 func CreateSystemd(interval string, gdgPath string) {
 
+	configfile, _ := util.GetLocations()
 	timer := `[Unit]
 Description=Granular Data Gatherer Timer
 Requires=gdg.service
@@ -129,7 +128,7 @@ Wants=gdg.timer
 	
 [Service]
 Type=oneshot
-ExecStart=` + gdgPath + "gdg -g\n" +
+ExecStart=` + gdgPath + "gdg -g -c " + configfile + "\n" +
 		`
 [Install]
 WantedBy=multi-user.target`
@@ -164,6 +163,10 @@ func EnableSystemd() {
 		log.Print("Cannot enable 'gdg.timer'")
 		os.Exit(1)
 	}
+	err = util.SetConfigKey("status", "started", "")
+	if err != nil {
+		log.Print("Cannot set key 'status'")
+	}
 }
 
 // DisableSystemd disables the sytemd gdg.timer
@@ -179,6 +182,11 @@ func DisableSystemd() {
 	if err != nil {
 		log.Print("Cannot disable 'gdg.timer'")
 	}
+	err = util.SetConfigKey("status", "stopped", "")
+	if err != nil {
+		log.Print("Cannot set key 'status'")
+	}
+
 }
 
 // DeleteSystemd function to delete the gdg systemd services
@@ -190,5 +198,9 @@ func DeleteSystemd() {
 		if err != nil {
 			log.Print("Cannot remove '/etc/systemd/system/gdg." + s + "'")
 		}
+	}
+	err := util.SetConfigKey("status", "stopped", "")
+	if err != nil {
+		log.Print("Cannot set key 'status'")
 	}
 }

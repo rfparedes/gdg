@@ -1,0 +1,1546 @@
+zzz ***Sat Mar 6 11:22:12 EST 2021
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           0.972           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           0.932           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.131          16.244         123.627        0 (0.0%)          27.303          47.935
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.296          37.145         125.298        0 (0.0%)          31.717       18060.872
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           0.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           0.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           0.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           0.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+zzz ***Sat Mar 6 11:22:42 EST 2021
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           0.972           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           0.932           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.131          16.244         123.627        0 (0.0%)          27.303          47.935
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.296          37.145         125.295        0 (0.0%)          31.717       18060.403
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           0.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           0.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           0.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           0.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+zzz ***Sat Mar 6 11:23:13 EST 2021
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           0.972           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           0.932           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.131          16.244         123.626        0 (0.0%)          27.303          47.935
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.296          37.145         125.293        0 (0.0%)          31.716       18059.935
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           2.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           2.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   1.000           3.922           3.922        0 (0.0%)           0.000           1.000
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           0.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           0.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+zzz ***Sat Mar 6 11:23:43 EST 2021
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           0.973           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           0.932           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.131          16.244         123.626        0 (0.0%)          27.303          47.935
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.296          37.145         125.290        0 (0.0%)          31.715       18059.448
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           2.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           2.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   1.000           3.129           3.129        0 (0.0%)           1.000           1.000
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           0.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           0.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+zzz ***Sat Mar 6 11:24:14 EST 2021
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           0.973           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           0.933           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.131          16.244         123.626        0 (0.0%)          27.303          47.935
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.296          37.144         125.287        0 (0.0%)          31.714       18058.962
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           2.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           2.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   1.000           2.336           2.336        0 (0.0%)           1.000           0.000
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           0.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           0.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+zzz ***Sat Mar 6 11:24:44 EST 2021
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           0.973           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           0.933           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.131          16.244         123.626        0 (0.0%)          27.303          47.935
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.296          37.144         125.283        0 (0.0%)          31.713       18058.475
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           2.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           2.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   1.000           1.543           1.543        0 (0.0%)           0.000           0.000
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           0.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           0.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+zzz ***Sat Mar 6 11:25:15 EST 2021
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           0.973           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           0.933           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.131          16.243         123.626        0 (0.0%)          27.303          47.935
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.296          37.144         125.280        0 (0.0%)          31.712       18057.989
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           4.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           4.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   1.000           4.750           4.750        0 (0.0%)           1.000           1.000
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+         164.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+         164.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   2.000           6.406           3.203        0 (0.0%)           0.500           0.500
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                  22.000        2800.453         127.293        0 (0.0%)          13.182          13.500
+zzz ***Sat Mar 6 11:25:45 EST 2021
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           0.973           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           0.933           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.131          16.243         123.626        0 (0.0%)          27.303          47.935
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.296          37.145         125.277        0 (0.0%)          31.711       18057.106
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           2.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           2.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   1.000           3.957           3.957        0 (0.0%)           1.000           0.000
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           0.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           0.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+zzz ***Sat Mar 6 11:26:16 EST 2021
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           0.973           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           0.933           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.131          16.243         123.626        0 (0.0%)          27.303          47.935
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.297          37.144         125.274        0 (0.0%)          31.710       18056.620
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           2.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           2.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   1.000           3.164           3.164        0 (0.0%)           1.000           1.000
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           0.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           0.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+zzz ***Sat Mar 6 11:26:46 EST 2021
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           0.973           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           0.933           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.131          16.243         123.626        0 (0.0%)          27.303          47.935
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.297          37.144         125.271        0 (0.0%)          31.709       18056.133
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           2.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           2.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   1.000           2.371           2.371        0 (0.0%)           0.000           0.000
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           0.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           0.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+zzz ***Sat Mar 6 11:27:17 EST 2021
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           0.973           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           0.933           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.131          16.243         123.626        0 (0.0%)          27.303          47.935
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.297          37.144         125.268        0 (0.0%)          31.709       18055.647
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           2.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           2.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   1.000           1.578           1.578        0 (0.0%)           0.000           0.000
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           0.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           0.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+zzz ***Sat Mar 6 11:27:47 EST 2021
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           0.973           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           0.933           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.131          16.243         123.626        0 (0.0%)          27.303          47.935
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.297          37.144         125.265        0 (0.0%)          31.708       18055.161
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           2.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           2.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   1.000           4.785           4.785        0 (0.0%)           1.000           0.000
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           0.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           0.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+zzz ***Sat Mar 6 11:28:18 EST 2021
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           0.973           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           0.933           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.131          16.243         123.626        0 (0.0%)          27.303          47.935
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.297          37.143         125.262        0 (0.0%)          31.707       18054.674
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           2.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           2.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   1.000           3.992           3.992        0 (0.0%)           1.000           0.000
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           0.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           0.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+zzz ***Sat Mar 6 11:28:48 EST 2021
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           0.973           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           0.933           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.131          16.242         123.626        0 (0.0%)          27.303          47.935
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.297          37.143         125.259        0 (0.0%)          31.706       18054.188
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           2.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           2.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   1.000           3.199           3.199        0 (0.0%)           1.000           1.000
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           0.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           0.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+zzz ***Sat Mar 6 11:29:19 EST 2021
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           0.973           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           0.933           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.131          16.242         123.626        0 (0.0%)          27.303          47.935
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.297          37.143         125.256        0 (0.0%)          31.705       18053.702
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           2.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           2.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   1.000           2.406           2.406        0 (0.0%)           1.000           0.000
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           2.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           2.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+zzz ***Sat Mar 6 11:29:49 EST 2021
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           0.973           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           0.933           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.131          16.242         123.625        0 (0.0%)          27.303          47.935
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.297          37.144         125.253        0 (0.0%)          31.704       18052.802
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           2.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           2.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   1.000           1.613           1.613        0 (0.0%)           1.000           1.000
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           0.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           0.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+zzz ***Sat Mar 6 11:30:20 EST 2021
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           0.973           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           0.933           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.131          16.242         123.624        0 (0.0%)          27.303          47.934
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.297          37.144         125.250        0 (0.0%)          31.703       18051.884
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           0.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           0.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+          45.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+          45.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   1.000           5.879           5.879        0 (0.0%)           0.000           1.000
+zzz ***Sat Mar 6 11:30:48 EST 2021
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           0.973           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           0.933           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.131          16.242         123.620        0 (0.0%)          27.302          47.933
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.297          37.144         125.245        0 (0.0%)          31.701       18051.074
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           2.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           2.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   1.000           4.027           4.027        0 (0.0%)           0.000           1.000
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           0.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           0.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+zzz ***Sat Mar 6 11:31:49 EST 2021
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           0.973           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           0.933           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.131          16.242         123.619        0 (0.0%)          27.301          47.932
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.297          37.143         125.242        0 (0.0%)          31.700       18050.587
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           2.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           2.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   1.000           3.234           3.234        0 (0.0%)           1.000           1.000
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           0.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           0.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+zzz ***Sat Mar 6 11:32:49 EST 2021
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           0.973           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           0.933           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.131          16.241         123.619        0 (0.0%)          27.301          47.932
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.297          37.143         125.239        0 (0.0%)          31.700       18050.101
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           2.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           2.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   1.000           2.441           2.441        0 (0.0%)           0.000           1.000
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           0.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           0.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+zzz ***Sat Mar 6 11:33:50 EST 2021
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           0.973           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           0.933           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.131          16.241         123.619        0 (0.0%)          27.301          47.932
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.297          37.142         125.236        0 (0.0%)          31.699       18049.615
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           2.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           2.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   1.000           1.648           1.648        0 (0.0%)           1.000           1.000
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           0.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           0.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+zzz ***Sat Mar 6 11:34:30 EST 2021
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           0.973           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           0.933           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.131          16.241         123.614        0 (0.0%)          27.300          47.930
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.297          37.143         125.231        0 (0.0%)          31.697       18048.392
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           2.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           2.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   1.000           4.855           4.855        0 (0.0%)           1.000           1.000
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           0.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           0.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+zzz ***Sat Mar 6 11:35:00 EST 2021
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           0.973           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           0.933           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.131          16.241         123.614        0 (0.0%)          27.300          47.930
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.297          37.143         125.228        0 (0.0%)          31.696       18047.906
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           2.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           2.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   1.000           4.062           4.062        0 (0.0%)           1.000           0.000
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           0.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           0.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+zzz ***Sat Mar 6 11:35:29 EST 2021
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           0.974           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           0.933           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.131          16.240         123.614        0 (0.0%)          27.300          47.930
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.297          37.142         125.224        0 (0.0%)          31.695       18047.402
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+          44.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+          44.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   1.000           1.008           1.008        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   1.000           3.270           3.270        0 (0.0%)           0.000           0.000
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           0.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           0.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+zzz ***Sat Mar 6 11:36:18 EST 2021
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           0.974           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           0.934           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.131          16.240         123.614        0 (0.0%)          27.300          47.930
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.297          37.142         125.221        0 (0.0%)          31.694       18046.898
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           2.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           2.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   1.000           2.477           2.477        0 (0.0%)           0.000           0.000
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           0.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           0.000           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+zzz ***Sat Mar 6 11:36:48 EST 2021
+
+mercury:/volume1 mounted on /mnt:
+
+           ops/s       rpc bklog
+           0.974           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.000           0.000           0.000        0 (0.0%)           0.000           0.000
+
+mercury.internal.paredes.pw:/volume1/data mounted on /home/rich/mdata:
+
+           ops/s       rpc bklog
+           0.934           0.000
+
+read:              ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.131          16.240         123.613        0 (0.0%)          27.300          47.930
+write:             ops/s            kB/s           kB/op         retrans    avg RTT (ms)    avg exe (ms)
+                   0.297          37.143         125.218        0 (0.0%)          31.693       18045.999

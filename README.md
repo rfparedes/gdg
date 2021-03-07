@@ -1,1 +1,1 @@
-# gdg
+# Granular Data Gatherer (gdg)

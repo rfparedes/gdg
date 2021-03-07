@@ -181,6 +181,6 @@ Distributed under the GPL-3.0 License. See `LICENSE` for more information.
 [watchers-shield]: https://img.shields.io/github/watchers/rfparedes/gdg?color=%20%2330BA78&style=social
 [watchers-url]:https://github.com/rfparedes/gdg/watchers
 [issues-shield]: https://img.shields.io/github/issues/rfparedes/gdg?color=%20%2330BA78
-[issues-url]: https://github.com/rfparedes/repo/issues
+[issues-url]: https://github.com/rfparedes/gdg/issues
 [license-shield]: https://img.shields.io/github/license/rfparedes/gdg?color=%20%2330BA78
 [license-url]: https://github.com/rfparedes/gdg/blob/main/LICENSE

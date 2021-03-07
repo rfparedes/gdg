@@ -40,7 +40,7 @@ func CreateOrLoadConfig(interval string) int {
 
 	argMap := map[string]string{
 		"iostat":    " 1 3 -t -k -x -N",
-		"top":       " -c -b -n 1",
+		"top":       " -c -b -w 512 -n 1",
 		"mpstat":    " 1 2 -P ALL",
 		"vmstat":    " -d",
 		"ss":        " -neopa",

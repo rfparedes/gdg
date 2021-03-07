@@ -50,11 +50,26 @@ func main() {
 
 	// User requests status
 	if c.status == true {
-		value, err := util.GetConfigKeyValue("status", "")
+		status, err := util.GetConfigKeyValue("status", "")
 		if err != nil {
-			fmt.Println("Cannot get status. No status value present")
+			fmt.Println("Cannot get status. Try running '-start' if this is first time running")
+			return
 		}
-		fmt.Printf("Status: %s\n", value)
+		interval, err := util.GetConfigKeyValue("interval", "")
+		if err != nil {
+			fmt.Println("Cannot get interval. Try running '-stop', then '-start'")
+			return
+		}
+		dataDir, err := util.GetConfigKeyValue("datadir", "")
+		if err != nil {
+			fmt.Println("Cannot get datadir. Try running '-stop', then '-start'")
+			return
+		}
+		fmt.Printf("VERSION: %s-%s\n", progName, ver)
+		fmt.Printf("STATUS: %s\n", status)
+		fmt.Printf("INTERVAL: %ss\n", interval)
+		fmt.Printf("DATA LOCATION: %s\n", dataDir)
+		fmt.Printf("CURRENT DATA SIZE: %.0fMB\n", util.DirSizeMB(dataDir))
 		return
 	}
 	// Everything but getting version requires root user

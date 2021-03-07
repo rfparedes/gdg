@@ -5,6 +5,7 @@ import (
 	"log"
 	"os"
 	"os/exec"
+	"path/filepath"
 	"time"
 
 	"gopkg.in/ini.v1"
@@ -119,10 +120,23 @@ func GetConfigKeyValue(key string, section string) (value string, err error) {
 	configFile := pwd + "/gdg.cfg"
 	cfg, err := ini.Load(configFile)
 	if err != nil {
-		log.Printf("Fail to read file: %v", err)
-		os.Exit(1)
+		return
 	}
 
 	value = cfg.Section(section).Key(key).String()
 	return value, err
+}
+
+// DirSizeMB gets the size of the datadir
+func DirSizeMB(path string) float64 {
+	var dirSize int64 = 0
+	readSize := func(path string, file os.FileInfo, err error) error {
+		if !file.IsDir() {
+			dirSize += file.Size()
+		}
+		return nil
+	}
+	filepath.Walk(path, readSize)
+	sizeMB := float64(dirSize) / 1024.0 / 1024.0
+	return sizeMB
 }

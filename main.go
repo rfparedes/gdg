@@ -21,12 +21,14 @@ type config struct {
 	gather     bool
 	configfile string
 	status     bool
+	reload     bool
 }
 
 func (c *config) setup() {
 	flag.BoolVar(&c.version, "v", false, "Output version information")
 	flag.BoolVar(&c.start, "start", false, "Start gathering data")
 	flag.BoolVar(&c.stop, "stop", false, "Stop gathering data")
+	flag.BoolVar(&c.reload, "reload", false, "Reload after interval or utility change")
 	flag.IntVar(&c.interval, "t", 30, "Gathering interval in seconds")
 	flag.BoolVar(&c.gather, "g", false, "Gather one-time")
 	flag.StringVar(&c.configfile, "c", "gdg.cfg", "gdg.cfg file location")
@@ -113,7 +115,16 @@ func main() {
 			fmt.Println("gdg is already stopped")
 		}
 		return
+	}
 
+	// User reloads gdg
+	if c.reload == true {
+		log.Print("Reloading gdg")
+		setup.DisableSystemd()
+		setup.DeleteSystemd()
+		setup.CreateOrLoadConfig(strconv.Itoa(c.interval))
+		setup.CreateSystemd(strconv.Itoa(c.interval))
+		setup.EnableSystemd()
 	}
 	if c.gather == true {
 		action.Gather(c.configfile)

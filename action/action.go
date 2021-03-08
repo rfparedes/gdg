@@ -2,7 +2,6 @@ package action
 
 import (
 	"fmt"
-	"log"
 	"os"
 	"os/exec"
 	"strings"
@@ -24,7 +23,6 @@ func Gather(configFile string) {
 	}
 	// Get all supported utilities
 	keys := cfg.Section("utility").KeyStrings()
-	log.Println(keys)
 	dataDir := cfg.Section("").Key("datadir").String()
 	// Gather for each
 	for _, k := range keys {

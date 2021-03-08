@@ -170,7 +170,7 @@ gdg has been validated on:
 
 * SLE-12 (SLES or SLES-SAP 12 all SPs)
 * SLE-15 (SLES or SLES-SAP 15 all SPs)
-* openSUSE LEAP 12/15
+* openSUSE Leap 12/15
 * Debian 9
 * Debian 10
 

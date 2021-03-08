@@ -6,6 +6,7 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"strings"
 	"time"
 
 	"gopkg.in/ini.v1"
@@ -140,4 +141,29 @@ func DirSizeMB(path string) float64 {
 	filepath.Walk(path, readSize)
 	sizeMB := float64(dirSize) / 1024.0 / 1024.0
 	return sizeMB
+}
+
+// IsBinaryDir will determine whether selinux context is acceptable for location of gdg binary
+func IsBinaryDir(dir string) bool {
+	ls, err := exec.LookPath("ls")
+	if err != nil {
+		log.Print("Cannot find ls executable")
+		os.Exit(1)
+	}
+	cmd := exec.Command(ls, "-Zd", dir)
+	var out bytes.Buffer
+	cmd.Stdout = &out
+	err = cmd.Run()
+	if err != nil {
+		os.Exit(1)
+	}
+	if strings.Contains(out.String(), "?") {
+		return true
+	} else if strings.Contains(out.String(), "usr_t") {
+		return true
+	} else if strings.Contains(out.String(), "bin_t") {
+		return true
+	} else {
+		return false
+	}
 }

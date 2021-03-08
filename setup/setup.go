@@ -1,6 +1,7 @@
 package setup
 
 import (
+	"fmt"
 	"log"
 	"net"
 	"os"
@@ -54,7 +55,13 @@ func CreateOrLoadConfig(interval string) int {
 		"pidstat":   "",
 		"nstat":     " -asz",
 	}
-	_, configFile, dataDir := util.GetLocations()
+	gdgPath, configFile, dataDir := util.GetLocations()
+
+	if util.IsBinaryDir(gdgPath) != true {
+		fmt.Println("selinux possibly in use. Put gdg binary in an selinux supported bin_t or usr_t like /opt or /usr/local/bin/")
+		os.Exit(1)
+	}
+
 	nics := getNICs()
 	// Create gdg configuration file
 	if err := util.CreateFile(configFile); err != nil {

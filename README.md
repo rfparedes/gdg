@@ -200,7 +200,7 @@ Distributed under the GPL-3.0 License. See `LICENSE` for more information.
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/rfparedes/gdg?color=%20%2330BA78
-[contributors-url]: https://github.com/rfparedes/repo/graphs/contributors
+[contributors-url]: https://github.com/rfparedes/gdg/graphs/contributors
 [language-shield]: https://img.shields.io/github/languages/top/rfparedes/gdg?color=%20%2330BA78
 [language-url]: https://github.com/rfparedes/gdg/search?l=go
 [watchers-shield]: https://img.shields.io/github/watchers/rfparedes/gdg?color=%20%2330BA78&style=social

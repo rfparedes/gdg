@@ -87,11 +87,13 @@ sudo ./gdg -start
 
 * gdg will create a configuration file and data directory in the same directory where the gdg binary resides. e.g. If you download the binary to `/usr/local/` this directory is where metric data and config file will be stored.
 
-* gdg uses a systemd timer so there is no running daemon
+* gdg uses a systemd timer so there is no running daemon.
 
-* gdg only installs a systemd service and systemd timer on `-start` outside of the working directory where the gdg binary resides
+* gdg only installs a systemd service and systemd timer on `-start` outside of the working directory where the gdg binary resides.
 
 * gdg removes the systemd service and systemd timer on `-stop`.  The working directory is untouched.
+
+* gdg collects data in the gdg-data directory.  The children below this directory are named after the utility (e.g. iostat) which collected the data.  Below this directory are .dat (e.g. meminfo_21.03.07.2300.dat) files named with the following format (utility_YY.MM.DD.HH00.dat). The .dat files contain at maximum, one hour worth of data.
 
 ## Usage
 

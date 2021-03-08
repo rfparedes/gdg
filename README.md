@@ -36,6 +36,7 @@
     <li><a href="#technical-details">Technical Details</a></li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#build-it-yourself">Build It Yourself</a></li>
+    <li><a href="#validated-distributions">Validated Distributions</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
@@ -82,32 +83,43 @@ sudo ./gdg -start
   * ethtool
   * ip
   * pidstat
+  * rtmon
 
-* gdg will detect which utilities are available and only use those.  In advance, you can install any of the utilities above anytime before or after setup.
+* gdg will detect which utilities are available and only use those installed.  In advance, you can install any of the utilities above anytime before or after setup. Most of these utilities are located in only five different packages. On most distributions, sysstat package contains (`iostat`, `mpstat`, `pidstat`), nfs-common or nfs-client package contains (`nfsiostat`), procps package contains (`top`, `vmstat`, `ps`), iproute2 package contains (`ss`, `nstat`, `ip`, `rtmon`) and ethtool contains (`ethtool`).
 
 * gdg will create a configuration file and data directory in the same directory where the gdg binary resides. e.g. If you download the binary to `/usr/local/` this directory is where metric data and config file will be stored.
 
-* gdg uses a systemd timer so there is no running daemon
+* gdg uses a systemd timer so there is no running daemon.
 
-* gdg only installs a systemd service and systemd timer on `-start` outside of the working directory where the gdg binary resides
+* gdg only installs a systemd service and systemd timer on `-start` outside of the working directory where the gdg binary resides.
 
-* gdg removed the systemd service and systemd timer on `-stop`.  The working directory is untouched.
+* gdg removes the systemd service and systemd timer on `-stop`.  The working directory is untouched.
+
+* gdg collects data in the `gdg-data` directory.  The children below this directory are named after the utility (e.g. `iostat`) which collected the data.  Below this directory are .dat (e.g. `meminfo_21.03.07.2300.dat`) files named after the following format (`utility_YY.MM.DD.HH00.dat`). The .dat files contain at maximum, one hour worth of data.
+
+* To easily search down chronologically through the data collected in the .dat file, use the search string `zzz`.
 
 ## Usage
 
-### To start collection in 30s intervals, run
+### To start collection in 30s intervals, run:
 
 ```sh
 sudo ./gdg -t 30 -start
 ```
 
-### To stop collection, run
+### To stop collection, run:
 
 ```sh
 sudo ./gdg -stop
 ```
 
-### To see the current status of gdg including start/stop status, version, interval, data location, and current size of collected data, run
+### To see the data collected:
+
+```sh
+cd gdg-data
+```
+
+### To see the current status of gdg including start/stop status, version, interval, data location, and current size of collected data, run:
 
 ```sh
 sudo ./gdg -status
@@ -151,7 +163,17 @@ Start it
 ```sh
 sudo ./gdg -start
 ```
-<!-- ROADMAP -->
+
+## Validated Distributions
+
+gdg has been validated on:
+
+* SLE-12 (SLES or SLES-SAP 12 all SPs)
+* SLE-15 (SLES or SLES-SAP 15 all SPs)
+* openSUSE Leap 12/15
+* Debian 9
+* Debian 10
+
 ## Roadmap
 
 See the [open issues](https://github.com/rfparedes/gdg/issues) for a list of proposed features (and known issues).
@@ -181,6 +203,6 @@ Distributed under the GPL-3.0 License. See `LICENSE` for more information.
 [watchers-shield]: https://img.shields.io/github/watchers/rfparedes/gdg?color=%20%2330BA78&style=social
 [watchers-url]:https://github.com/rfparedes/gdg/watchers
 [issues-shield]: https://img.shields.io/github/issues/rfparedes/gdg?color=%20%2330BA78
-[issues-url]: https://github.com/rfparedes/repo/issues
+[issues-url]: https://github.com/rfparedes/gdg/issues
 [license-shield]: https://img.shields.io/github/license/rfparedes/gdg?color=%20%2330BA78
 [license-url]: https://github.com/rfparedes/gdg/blob/main/LICENSE

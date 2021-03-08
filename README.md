@@ -36,7 +36,7 @@
     <li><a href="#technical-details">Technical Details</a></li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#build-it-yourself">Build It Yourself</a></li>
-    <li><a href="#testing">Testing</a></li>
+    <li><a href="#validated-distributions">Validated Distributions</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
@@ -164,7 +164,7 @@ Start it
 sudo ./gdg -start
 ```
 
-## Testing
+## Validated Distributions
 
 gdg has been validated on:
 

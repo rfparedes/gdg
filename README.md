@@ -95,7 +95,7 @@ sudo ./gdg -start
 
 * gdg collects data in the `gdg-data` directory.  The children below this directory are named after the utility (e.g. `iostat`) which collected the data.  Below this directory are .dat (e.g. `meminfo_21.03.07.2300.dat`) files named after the following format (`utility_YY.MM.DD.HH00.dat`). The .dat files contain at maximum, one hour worth of data.
 
-* To easily search down the data collected in the .dat file, use the search string `zzz`.
+* To easily search down chronologically through the data collected in the .dat file, use the search string `zzz`.
 
 ## Usage
 

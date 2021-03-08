@@ -36,6 +36,7 @@
     <li><a href="#technical-details">Technical Details</a></li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#build-it-yourself">Build It Yourself</a></li>
+    <li><a href="#testing">Testing</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
@@ -162,7 +163,17 @@ Start it
 ```sh
 sudo ./gdg -start
 ```
-<!-- ROADMAP -->
+
+## Testing
+
+gdg has been validated on:
+
+* SLE-12 (SLES or SLES-SAP 12 all SPs)
+* SLE-15 (SLES or SLES-SAP 15 all SPs)
+* openSUSE LEAP 12/15
+* Debian 9
+* Debian 10
+
 ## Roadmap
 
 See the [open issues](https://github.com/rfparedes/gdg/issues) for a list of proposed features (and known issues).

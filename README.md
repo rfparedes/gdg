@@ -67,7 +67,7 @@ Start it
 sudo ./gdg -start
 ```
 
-## Technical Details - Read Once, Understand All
+## Technical Details
 
 * gdg uses standard Linux utilities to perform its work, including:
 

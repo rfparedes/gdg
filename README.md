@@ -91,7 +91,7 @@ sudo ./gdg -start
 
 * gdg only installs a systemd service and systemd timer on `-start` outside of the working directory where the gdg binary resides
 
-* gdg removed the systemd service and systemd timer on `-stop`.  The working directory is untouched.
+* gdg removes the systemd service and systemd timer on `-stop`.  The working directory is untouched.
 
 ## Usage
 

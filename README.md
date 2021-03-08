@@ -95,19 +95,25 @@ sudo ./gdg -start
 
 ## Usage
 
-### To start collection in 30s intervals, run
+### To start collection in 30s intervals, run:
 
 ```sh
 sudo ./gdg -t 30 -start
 ```
 
-### To stop collection, run
+### To stop collection, run:
 
 ```sh
 sudo ./gdg -stop
 ```
 
-### To see the current status of gdg including start/stop status, version, interval, data location, and current size of collected data, run
+### To see the data collected:
+
+```sh
+cd gdg-data
+```
+
+### To see the current status of gdg including start/stop status, version, interval, data location, and current size of collected data, run:
 
 ```sh
 sudo ./gdg -status

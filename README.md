@@ -174,6 +174,8 @@ gdg has been validated on:
 * openSUSE Leap 12/15
 * Debian 9
 * Debian 10
+* RHEL7
+* RHEL8
 
 ## Roadmap
 

@@ -84,7 +84,7 @@ sudo ./gdg -start
   * pidstat
   * rtmon
 
-* gdg will detect which utilities are available and only use those.  In advance, you can install any of the utilities above anytime before or after setup. Most of these utilities are located in only five different packages. On most distributions, sysstat package contains (`iostat`, `mpstat`, `pidstat`), nfs-common or nfs-client package contains (`nfsiostat`), procps package contains (`top`, `vmstat`, `ps`) and iproute2 package contains (`ss`, `nstat`, `ip`, `rtmon`) and ethtool contains (`ethtool`).
+* gdg will detect which utilities are available and only use those installed.  In advance, you can install any of the utilities above anytime before or after setup. Most of these utilities are located in only five different packages. On most distributions, sysstat package contains (`iostat`, `mpstat`, `pidstat`), nfs-common or nfs-client package contains (`nfsiostat`), procps package contains (`top`, `vmstat`, `ps`) and iproute2 package contains (`ss`, `nstat`, `ip`, `rtmon`) and ethtool contains (`ethtool`).
 
 * gdg will create a configuration file and data directory in the same directory where the gdg binary resides. e.g. If you download the binary to `/usr/local/` this directory is where metric data and config file will be stored.
 

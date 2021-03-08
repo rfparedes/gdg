@@ -49,7 +49,6 @@ func main() {
 		fmt.Println(progName + " v" + ver + " (https://github.com/rfparedes/gdg)")
 		return
 	}
-
 	// User requests status
 	if c.status == true {
 		status, err := util.GetConfigKeyValue("status", "")

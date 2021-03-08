@@ -6,6 +6,7 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"strconv"
 	"strings"
 	"time"
 
@@ -166,4 +167,21 @@ func IsBinaryDir(dir string) bool {
 	} else {
 		return false
 	}
+}
+
+// DStateCount will return the number of processes in D state
+func DStateCount() int {
+
+	cmd := "ps -eo stat | grep D | wc -l"
+	out, err := exec.Command("bash", "-c", cmd).Output()
+	if err != nil {
+		log.Printf("Failed to execute command: %s\n", cmd)
+		return 0
+	}
+	i, err := strconv.Atoi(string(out))
+	if err != nil {
+		log.Printf("Failed to execute command: %s\n", cmd)
+		return 0
+	}
+	return i
 }

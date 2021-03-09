@@ -6,6 +6,7 @@ import (
 	"log"
 	"os"
 	"os/user"
+	"path/filepath"
 	"strconv"
 
 	"github.com/rfparedes/gdg/action"
@@ -29,20 +30,34 @@ func (c *config) setup() {
 	flag.BoolVar(&c.stop, "stop", false, "Stop gathering data")
 	flag.BoolVar(&c.reload, "reload", false, "Reload after interval or utility change")
 	flag.IntVar(&c.interval, "t", 30, "Gathering interval in seconds")
-	flag.BoolVar(&c.gather, "g", false, "Gather one-time")
+	flag.BoolVar(&c.gather, "g", false, "Gather oneshot")
 	flag.BoolVar(&c.status, "status", false, "Get current status")
 }
 
 const progName string = "gdg"
 const ver string = "0.9.0"
 
+var c = config{}
+
 func main() {
 
+	// At least one argument is required
 	if len(os.Args) <= 1 {
 		fmt.Println("Nothing to do.")
 		os.Exit(0)
 	}
-	c := config{}
+	// Make sure user is running gdg out of /usr/local/sbin/
+	ex, err := os.Executable()
+	if err != nil {
+		panic(err)
+	}
+	exPath := filepath.Dir(ex)
+	if exPath != setup.GdgDir {
+		fmt.Println("gdg binary must be in /usr/local/sbin")
+		os.Exit(1)
+	}
+
+	//c := config{}
 	c.setup()
 	flag.Parse()
 
@@ -93,11 +108,9 @@ func main() {
 	if c.start == true {
 		status, _ := util.GetConfigKeyValue("status", "")
 		if status != "started" {
-			log.Print("Setting up Granular Data Gatherer")
-			setup.CreateOrLoadConfig(strconv.Itoa(c.interval))
-			log.Print("Creating and Enabling systemd service and timer in /etc/systemd/system/")
-			setup.CreateSystemd(strconv.Itoa(c.interval))
-			setup.EnableSystemd()
+			fmt.Println("~ Starting gdg ~")
+			start()
+			fmt.Println("~ gdg started ~")
 		} else {
 			fmt.Println("gdg is already started")
 		}
@@ -108,11 +121,9 @@ func main() {
 	if c.stop == true {
 		status, _ := util.GetConfigKeyValue("status", "")
 		if status != "stopped" {
-			log.Print("Stopping Granular Data Gatherer")
-			log.Print("Keeping Configuration and Data. Delete manually")
-			log.Print("Deleting systemd service and timer in /etc/systemd/system/")
-			setup.DisableSystemd()
-			setup.DeleteSystemd()
+			fmt.Println("~ Stopping gdg ~")
+			stop()
+			fmt.Println("~ gdg stopped ~")
 		} else {
 			fmt.Println("gdg is already stopped")
 		}
@@ -121,16 +132,25 @@ func main() {
 
 	// User reloads gdg
 	if c.reload == true {
-		log.Print("Reloading gdg")
-		setup.DisableSystemd()
-		setup.DeleteSystemd()
-		setup.CreateOrLoadConfig(strconv.Itoa(c.interval))
-		setup.CreateSystemd(strconv.Itoa(c.interval))
-		setup.EnableSystemd()
+		fmt.Println("~ Reloading gdg ~")
+		stop()
+		start()
+		fmt.Println("~ gdg reloaded ~")
 		os.Exit(0)
 	}
 	if c.gather == true {
 		action.Gather()
 		os.Exit(0)
 	}
+}
+
+func start() {
+	setup.CreateOrLoadConfig(strconv.Itoa(c.interval))
+	setup.CreateSystemd(strconv.Itoa(c.interval))
+	setup.EnableSystemd()
+}
+
+func stop() {
+	setup.DisableSystemd()
+	setup.DeleteSystemd()
 }

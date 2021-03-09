@@ -1,6 +1,7 @@
 package setup
 
 import (
+	"fmt"
 	"log"
 	"net"
 	"os"
@@ -12,7 +13,7 @@ import (
 
 // Constants for file/direction locations following FHS 3.0 Specifications
 const (
-	GdgDir = "/usr/local/sbin/"
+	GdgDir = "/usr/local/sbin"
 )
 
 // FindSupportedUtilities returns supported binaries with path
@@ -20,8 +21,8 @@ func FindSupportedUtilities() map[string]string {
 
 	utilities := []string{"iostat", "top", "mpstat", "vmstat", "ss", "nstat", "ps", "nfsiostat", "ethtool", "ip", "pidstat", "meminfo", "slabinfo"}
 	u := make(map[string]string)
-
-	log.Print("Finding Supported Utilities", utilities)
+	var supportedUtilities []string
+	fmt.Println("~ Finding supported utilities ~")
 	for _, utility := range utilities {
 
 		var path string
@@ -33,11 +34,13 @@ func FindSupportedUtilities() map[string]string {
 			path, err = exec.LookPath(utility)
 		}
 		if err != nil {
-			log.Printf("Cannot find %s. Excluding\n", utility)
+			log.Printf("~ %s not found ~\n", utility)
 		} else {
+			supportedUtilities = append(supportedUtilities, utility)
 			u[utility] = path
 		}
 	}
+	fmt.Printf("~ Supported utilities %s ~\n", supportedUtilities)
 	return u
 }
 
@@ -61,6 +64,7 @@ func CreateOrLoadConfig(interval string) int {
 	}
 	nics := getNICs()
 
+	fmt.Println("~ Setting up gdg ~")
 	// Create gdg configuration file
 	if err := util.CreateFile(util.ConfigFile); err != nil {
 		log.Println("File creation failed with error: " + err.Error())
@@ -128,7 +132,6 @@ func CreateOrLoadConfig(interval string) int {
 
 // CreateSystemd will create service and timer files
 func CreateSystemd(interval string) {
-
 	timer := `[Unit]
 Description=Granular Data Gatherer Timer
 Requires=gdg.service
@@ -147,11 +150,12 @@ Wants=gdg.timer
 	
 [Service]
 Type=oneshot
-ExecStart=` + GdgDir + "gdg -g" + "\n" +
+ExecStart=` + GdgDir + "/gdg -g" + "\n" +
 		`
 [Install]
 WantedBy=multi-user.target`
 
+	fmt.Println("~ Creating systemd service and timer ~")
 	strings := []string{"timer", "service"}
 	// Create systemd files
 	for _, s := range strings {
@@ -176,6 +180,7 @@ func EnableSystemd() {
 		log.Print("Cannot find 'systemctl' executable")
 		os.Exit(1)
 	}
+	fmt.Println("~ Enabling systemd timer ~")
 	enableCmd := exec.Command(systemctl, "enable", "gdg.timer", "--now")
 	err = enableCmd.Run()
 	if err != nil {
@@ -196,6 +201,7 @@ func DisableSystemd() {
 		log.Print("Cannot find 'systemctl' executable")
 		os.Exit(1)
 	}
+	fmt.Println("~ Disabling systemd timer ~")
 	disableCmd := exec.Command(systemctl, "disable", "gdg.timer", "--now")
 	err = disableCmd.Run()
 	if err != nil {
@@ -211,6 +217,7 @@ func DisableSystemd() {
 // DeleteSystemd function to delete the gdg systemd services
 func DeleteSystemd() {
 
+	fmt.Println("~ Removing systemd service and timer ~")
 	strings := []string{"timer", "service"}
 	for _, s := range strings {
 		err := os.Remove("/etc/systemd/system/gdg." + s)

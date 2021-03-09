@@ -2,7 +2,7 @@ package util
 
 import (
 	"bytes"
-	"log"
+	"fmt"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -54,7 +54,7 @@ func GetShortHostname() string {
 
 	hostnameBinary, err := exec.LookPath("hostname")
 	if err != nil {
-		log.Print("Cannot find hostname executable")
+		fmt.Println("Cannot find hostname executable")
 		return defaultHostname
 	}
 	cmd := exec.Command(hostnameBinary, "-s")
@@ -91,7 +91,7 @@ func SetConfigKey(key string, value string, section string) (err error) {
 
 	cfg, err := ini.Load(ConfigFile)
 	if err != nil {
-		log.Printf("Fail to read file: %v", err)
+		fmt.Printf("Fail to read file: %v", err)
 		os.Exit(1)
 	}
 	cfg.Section(section).NewKey(key, value)
@@ -134,12 +134,12 @@ func DStateCount() int {
 	cmd := "ps -eo stat | grep D | wc -l"
 	out, err := exec.Command("bash", "-c", cmd).Output()
 	if err != nil {
-		log.Printf("Failed to execute command: %s\n", cmd)
+		fmt.Printf("Failed to execute command: %s\n", cmd)
 		return 0
 	}
 	i, err := strconv.Atoi(string(out))
 	if err != nil {
-		log.Printf("Failed to execute command: %s\n", cmd)
+		fmt.Printf("Failed to execute command: %s\n", cmd)
 		return 0
 	}
 	return i

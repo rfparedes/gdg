@@ -2,7 +2,6 @@ package setup
 
 import (
 	"fmt"
-	"log"
 	"net"
 	"os"
 	"os/exec"
@@ -34,7 +33,7 @@ func FindSupportedUtilities() map[string]string {
 			path, err = exec.LookPath(utility)
 		}
 		if err != nil {
-			log.Printf("~ %s not found ~\n", utility)
+			fmt.Printf("~ %s not found ~\n", utility)
 		} else {
 			supportedUtilities = append(supportedUtilities, utility)
 			u[utility] = path
@@ -67,12 +66,12 @@ func CreateOrLoadConfig(interval string) int {
 	fmt.Println("~ Setting up gdg ~")
 	// Create gdg configuration file
 	if err := util.CreateFile(util.ConfigFile); err != nil {
-		log.Println("File creation failed with error: " + err.Error())
+		fmt.Println("File creation failed with error: " + err.Error())
 		os.Exit(1)
 	}
 	// Create parent log directory
 	if err := util.CreateDir(util.DataDir); err != nil {
-		log.Println("Directory creation failed with error: " + err.Error())
+		fmt.Println("Directory creation failed with error: " + err.Error())
 		os.Exit(1)
 	}
 
@@ -80,19 +79,19 @@ func CreateOrLoadConfig(interval string) int {
 
 	err := util.SetConfigKey("hostname", util.GetShortHostname(), "")
 	if err != nil {
-		log.Print("Cannot set key 'hostname'")
+		fmt.Println("Cannot set key 'hostname'")
 	}
 	err = util.SetConfigKey("interval", interval, "")
 	if err != nil {
-		log.Print("Cannot set key 'interval'")
+		fmt.Println("Cannot set key 'interval'")
 	}
 	err = util.SetConfigKey("configfile", util.ConfigFile, "")
 	if err != nil {
-		log.Print("Cannot set key 'configfile'")
+		fmt.Println("Cannot set key 'configfile'")
 	}
 	err = util.SetConfigKey("datadir", util.DataDir, "")
 	if err != nil {
-		log.Print("Cannot set key 'datadir'")
+		fmt.Println("Cannot set key 'datadir'")
 	}
 
 	for u, p := range utilities {
@@ -100,7 +99,7 @@ func CreateOrLoadConfig(interval string) int {
 
 		//Create child log directory for utility
 		if err := util.CreateDir(util.DataDir + u); err != nil {
-			log.Println("Directory creation failed with error: " + err.Error())
+			fmt.Println("Directory creation failed with error: " + err.Error())
 			os.Exit(1)
 		}
 
@@ -116,7 +115,7 @@ func CreateOrLoadConfig(interval string) int {
 				}
 				err = util.SetConfigKey(u+strconv.Itoa(i), call+n, "utility")
 				if err != nil {
-					log.Print("Cannot set key ", u)
+					fmt.Println("Cannot set key ", u)
 				}
 			}
 			continue
@@ -124,7 +123,7 @@ func CreateOrLoadConfig(interval string) int {
 
 		err = util.SetConfigKey(u, call, "utility")
 		if err != nil {
-			log.Print("Cannot set key ", u)
+			fmt.Println("Cannot set key ", u)
 		}
 	}
 	return 0
@@ -177,19 +176,19 @@ WantedBy=multi-user.target`
 func EnableSystemd() {
 	systemctl, err := exec.LookPath("systemctl")
 	if err != nil {
-		log.Print("Cannot find 'systemctl' executable")
+		fmt.Println("Cannot find 'systemctl' executable")
 		os.Exit(1)
 	}
 	fmt.Println("~ Enabling systemd timer ~")
 	enableCmd := exec.Command(systemctl, "enable", "gdg.timer", "--now")
 	err = enableCmd.Run()
 	if err != nil {
-		log.Print("Cannot enable 'gdg.timer'")
+		fmt.Println("Cannot enable 'gdg.timer'")
 		os.Exit(1)
 	}
 	err = util.SetConfigKey("status", "started", "")
 	if err != nil {
-		log.Print("Cannot set key 'status'")
+		fmt.Println("Cannot set key 'status'")
 	}
 }
 
@@ -198,18 +197,18 @@ func DisableSystemd() {
 
 	systemctl, err := exec.LookPath("systemctl")
 	if err != nil {
-		log.Print("Cannot find 'systemctl' executable")
+		fmt.Println("Cannot find 'systemctl' executable")
 		os.Exit(1)
 	}
 	fmt.Println("~ Disabling systemd timer ~")
 	disableCmd := exec.Command(systemctl, "disable", "gdg.timer", "--now")
 	err = disableCmd.Run()
 	if err != nil {
-		log.Print("Cannot disable 'gdg.timer'")
+		fmt.Println("Cannot disable 'gdg.timer'")
 	}
 	err = util.SetConfigKey("status", "stopped", "")
 	if err != nil {
-		log.Print("Cannot set key 'status'")
+		fmt.Println("Cannot set key 'status'")
 	}
 
 }
@@ -222,12 +221,12 @@ func DeleteSystemd() {
 	for _, s := range strings {
 		err := os.Remove("/etc/systemd/system/gdg." + s)
 		if err != nil {
-			log.Print("Cannot remove '/etc/systemd/system/gdg." + s + "'")
+			fmt.Print("Cannot remove '/etc/systemd/system/gdg." + s + "'")
 		}
 	}
 	err := util.SetConfigKey("status", "stopped", "")
 	if err != nil {
-		log.Print("Cannot set key 'status'")
+		fmt.Println("Cannot set key 'status'")
 	}
 }
 

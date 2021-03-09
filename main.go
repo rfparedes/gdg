@@ -3,7 +3,6 @@ package main
 import (
 	"flag"
 	"fmt"
-	"log"
 	"os"
 	"os/user"
 	"path/filepath"
@@ -99,8 +98,8 @@ func main() {
 	}
 
 	// User enters interval less than 30s (NOT ALLOWED)
-	if c.interval < 30 {
-		log.Println("Interval cannot be less than 30s. Setting to 30s")
+	if c.interval < 30 || c.interval > 3600 {
+		fmt.Println("! Interval cannot be less than 30s or more than 3600s. Setting to 30s !")
 		c.interval = 30
 	}
 

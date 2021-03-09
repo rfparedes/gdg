@@ -33,8 +33,11 @@ func (c *config) setup() {
 	flag.BoolVar(&c.status, "status", false, "Get current status")
 }
 
-const progName string = "gdg"
-const ver string = "0.9.0"
+const (
+	progName string = "gdg"
+	ver      string = "0.9.0"
+	gdgDir   string = "/usr/local/sbin"
+)
 
 var c = config{}
 
@@ -51,7 +54,7 @@ func main() {
 		panic(err)
 	}
 	exPath := filepath.Dir(ex)
-	if exPath != setup.GdgDir {
+	if exPath != gdgDir {
 		fmt.Println("gdg binary must be in /usr/local/sbin")
 		os.Exit(1)
 	}
@@ -144,12 +147,38 @@ func main() {
 }
 
 func start() {
+
+	gdgTimer := `[Unit]
+Description=Granular Data Gatherer Timer
+Requires=gdg.service
+	
+[Timer]
+OnActiveSec=0
+OnUnitActiveSec=` + strconv.Itoa(c.interval) + "\n" +
+		`AccuracySec=500msec
+	
+[Install]
+WantedBy=timers.target`
+
+	gdgService := `[Unit]
+Description=Granular Data Gatherer
+Wants=gdg.timer
+	
+[Service]
+Type=oneshot
+ExecStart=` + gdgDir + "/gdg -g" + "\n" +
+		`
+[Install]
+WantedBy=multi-user.target`
+
 	setup.CreateOrLoadConfig(strconv.Itoa(c.interval))
-	setup.CreateSystemd(strconv.Itoa(c.interval))
-	setup.EnableSystemd()
+	setup.CreateSystemd("service", gdgService, "gdg")
+	setup.CreateSystemd("timer", gdgTimer, "gdg")
+	setup.EnableSystemd("gdg.timer", "status")
 }
 
 func stop() {
-	setup.DisableSystemd()
-	setup.DeleteSystemd()
+	setup.DisableSystemd("gdg.timer")
+	setup.DeleteSystemd("gdg.timer", "status")
+	setup.DeleteSystemd("gdg.service", "status")
 }

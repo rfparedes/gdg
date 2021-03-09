@@ -10,11 +10,6 @@ import (
 	"github.com/rfparedes/gdg/util"
 )
 
-// Constants for file/direction locations following FHS 3.0 Specifications
-const (
-	GdgDir = "/usr/local/sbin"
-)
-
 // FindSupportedUtilities returns supported binaries with path
 func FindSupportedUtilities() map[string]string {
 
@@ -129,104 +124,133 @@ func CreateOrLoadConfig(interval string) int {
 	return 0
 }
 
+// // CreateSystemd will create service and timer files
+// func CreateSystemd(interval string) {
+// 	timer := `[Unit]
+// Description=Granular Data Gatherer Timer
+// Requires=gdg.service
+
+// [Timer]
+// OnActiveSec=0
+// OnUnitActiveSec=` + interval + "\n" +
+// 		`AccuracySec=500msec
+
+// [Install]
+// WantedBy=timers.target`
+
+// 	service := `[Unit]
+// Description=Granular Data Gatherer
+// Wants=gdg.timer
+
+// [Service]
+// Type=oneshot
+// ExecStart=` + GdgDir + "/gdg -g" + "\n" +
+// 		`
+// [Install]
+// WantedBy=multi-user.target`
+
+// 	fmt.Println("~ Creating systemd service and timer ~")
+// 	strings := []string{"timer", "service"}
+// 	// Create systemd files
+// 	for _, s := range strings {
+// 		f, err := os.OpenFile("/etc/systemd/system/gdg."+s, os.O_RDWR|os.O_CREATE, 0755)
+// 		util.Check(err)
+// 		defer f.Close()
+// 		if s == "timer" {
+// 			_, err := f.WriteString(timer)
+// 			util.Check(err)
+// 		} else {
+// 			_, err := f.WriteString(service)
+// 			util.Check(err)
+// 		}
+// 		f.Sync()
+// 	}
+// }
+
 // CreateSystemd will create service and timer files
-func CreateSystemd(interval string) {
-	timer := `[Unit]
-Description=Granular Data Gatherer Timer
-Requires=gdg.service
-	
-[Timer]
-OnActiveSec=0
-OnUnitActiveSec=` + interval + "\n" +
-		`AccuracySec=500msec
-	
-[Install]
-WantedBy=timers.target`
+func CreateSystemd(systemdType string, unitText string, name string) {
 
-	service := `[Unit]
-Description=Granular Data Gatherer
-Wants=gdg.timer
-	
-[Service]
-Type=oneshot
-ExecStart=` + GdgDir + "/gdg -g" + "\n" +
-		`
-[Install]
-WantedBy=multi-user.target`
+	fullPath := ("/etc/systemd/system/" + name + "." + systemdType)
 
-	fmt.Println("~ Creating systemd service and timer ~")
-	strings := []string{"timer", "service"}
+	fmt.Printf("~ Creating systemd %s ~\n", systemdType)
 	// Create systemd files
-	for _, s := range strings {
-		f, err := os.OpenFile("/etc/systemd/system/gdg."+s, os.O_RDWR|os.O_CREATE, 0755)
-		util.Check(err)
-		defer f.Close()
-		if s == "timer" {
-			_, err := f.WriteString(timer)
-			util.Check(err)
-		} else {
-			_, err := f.WriteString(service)
-			util.Check(err)
-		}
-		f.Sync()
-	}
+	f, err := os.OpenFile(fullPath, os.O_RDWR|os.O_CREATE, 0755)
+	util.Check(err)
+	defer f.Close()
+
+	_, err = f.WriteString(unitText)
+	util.Check(err)
+	f.Sync()
 }
 
 // EnableSystemd enables the systemd gdg.timer
-func EnableSystemd() {
+func EnableSystemd(service string, key string) {
 	systemctl, err := exec.LookPath("systemctl")
 	if err != nil {
-		fmt.Println("Cannot find 'systemctl' executable")
+		fmt.Println("~ Cannot find 'systemctl' executable ~")
 		os.Exit(1)
 	}
-	fmt.Println("~ Enabling systemd timer ~")
-	enableCmd := exec.Command(systemctl, "enable", "gdg.timer", "--now")
+	fmt.Printf("~ Enabling systemd %s ~\n", service)
+	enableCmd := exec.Command(systemctl, "enable", service, "--now")
 	err = enableCmd.Run()
 	if err != nil {
-		fmt.Println("Cannot enable 'gdg.timer'")
+		fmt.Printf("~ Cannot enable '%s' ~\n", service)
 		os.Exit(1)
 	}
-	err = util.SetConfigKey("status", "started", "")
-	if err != nil {
-		fmt.Println("Cannot set key 'status'")
+	if len(key) > 0 {
+		err = util.SetConfigKey(key, "started", "")
+		if err != nil {
+			fmt.Printf("~ Cannot set key '%s' ~\n", key)
+		}
 	}
 }
 
 // DisableSystemd disables the sytemd gdg.timer
-func DisableSystemd() {
+func DisableSystemd(service string) {
 
 	systemctl, err := exec.LookPath("systemctl")
 	if err != nil {
-		fmt.Println("Cannot find 'systemctl' executable")
+		fmt.Println("! Cannot find 'systemctl' executable !")
 		os.Exit(1)
 	}
 	fmt.Println("~ Disabling systemd timer ~")
-	disableCmd := exec.Command(systemctl, "disable", "gdg.timer", "--now")
+	disableCmd := exec.Command(systemctl, "disable", service, "--now")
 	err = disableCmd.Run()
 	if err != nil {
-		fmt.Println("Cannot disable 'gdg.timer'")
+		fmt.Printf("! Cannot disable '%s' !\n")
 	}
-	err = util.SetConfigKey("status", "stopped", "")
-	if err != nil {
-		fmt.Println("Cannot set key 'status'")
-	}
-
 }
 
-// DeleteSystemd function to delete the gdg systemd services
-func DeleteSystemd() {
+// // DeleteSystemd function to delete the gdg systemd services
+// func DeleteSystemd() {
 
-	fmt.Println("~ Removing systemd service and timer ~")
-	strings := []string{"timer", "service"}
-	for _, s := range strings {
-		err := os.Remove("/etc/systemd/system/gdg." + s)
-		if err != nil {
-			fmt.Print("Cannot remove '/etc/systemd/system/gdg." + s + "'")
-		}
-	}
-	err := util.SetConfigKey("status", "stopped", "")
+// 	fmt.Println("~ Removing systemd service and timer ~")
+// 	strings := []string{"timer", "service"}
+// 	for _, s := range strings {
+// 		err := os.Remove("/etc/systemd/system/gdg." + s)
+// 		if err != nil {
+// 			fmt.Print("Cannot remove '/etc/systemd/system/gdg." + s + "'")
+// 		}
+// 	}
+// 	err := util.SetConfigKey("status", "stopped", "")
+// 	if err != nil {
+// 		fmt.Println("Cannot set key 'status'")
+// 	}
+// }
+
+// DeleteSystemd function to delete the gdg systemd service or timer
+func DeleteSystemd(name string, key string) {
+
+	fullPath := ("/etc/systemd/system/" + name)
+
+	fmt.Printf("~ Removing systemd %s ~\n", name)
+	err := os.Remove(fullPath)
 	if err != nil {
-		fmt.Println("Cannot set key 'status'")
+		fmt.Printf("~ Cannot remove %s ~\n", fullPath)
+	}
+	err = util.SetConfigKey(key, "stopped", "")
+	if err != nil {
+		fmt.Println("~ Cannot set key %s ~\n")
 	}
 }
 
@@ -238,4 +262,25 @@ func getNICs() []string {
 		NICs = append(NICs, inter.Name)
 	}
 	return NICs
+}
+
+// EnableRtmon will enable rtmon logging
+func EnableRtmon() {
+
+	rtmon, err := exec.LookPath("rtmon")
+	if err != nil {
+		fmt.Println("Cannot find 'rtmon' executable")
+		os.Exit(1)
+	}
+
+	fmt.Println(rtmon)
+
+	// Add rtmon to configfile under utility
+
+	// Create rtmon systemd service
+
+	// Enable rtmon systemd service
+
+	// Add rtmon_status to configfile as enabled/disabled
+
 }

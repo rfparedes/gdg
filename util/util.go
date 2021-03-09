@@ -7,10 +7,15 @@ import (
 	"os/exec"
 	"path/filepath"
 	"strconv"
-	"strings"
 	"time"
 
 	"gopkg.in/ini.v1"
+)
+
+// Constants for file/direction locations following FHS 3.0 Specification
+const (
+	ConfigFile = "/etc/gdg.cfg"
+	DataDir    = "/var/log/gdg-data/"
 )
 
 // CreateDir function
@@ -36,6 +41,7 @@ func CreateFile(fileName string) (err error) {
 
 // Check error
 func Check(e error) {
+
 	if e != nil {
 		panic(e)
 	}
@@ -65,6 +71,7 @@ func GetShortHostname() string {
 
 // CurrentDatFile function
 func CurrentDatFile(utility string) string {
+
 	const fileExt = ".dat"
 
 	t := time.Now()
@@ -74,99 +81,51 @@ func CurrentDatFile(utility string) string {
 
 // CreateHeader will create date header for .dat files
 func CreateHeader() string {
+
 	t := time.Now()
 	return ("zzz ***" + t.Format("Mon Jan 2 03:04:05 MST 2006"))
 }
 
 // SetConfigKey sets the configuration file key value
 func SetConfigKey(key string, value string, section string) (err error) {
-	// Get current working directory to store config file and dataDir
-	pwd, err := os.Getwd()
-	if err != nil {
-		log.Print("Cannot get current working directory")
-		os.Exit(1)
-	}
-	configFile := pwd + "/gdg.cfg"
-	cfg, err := ini.Load(configFile)
+
+	cfg, err := ini.Load(ConfigFile)
 	if err != nil {
 		log.Printf("Fail to read file: %v", err)
 		os.Exit(1)
 	}
-
 	cfg.Section(section).NewKey(key, value)
-	err = cfg.SaveTo(configFile)
+	err = cfg.SaveTo(ConfigFile)
 	return err
-}
-
-// GetLocations get the locations of configfile and datadir
-func GetLocations() (gdgPath string, configFile string, dataDir string) {
-	// Get current working directory to store config file and dataDir
-	pwd, err := os.Getwd()
-	if err != nil {
-		log.Print("Cannot get current working directory")
-		os.Exit(1)
-	}
-	gdgPath = pwd + "/"
-	configFile = pwd + "/gdg.cfg"
-	dataDir = pwd + "/gdg-data/"
-	return gdgPath, configFile, dataDir
 }
 
 // GetConfigKeyValue gets the configuration file key value
 func GetConfigKeyValue(key string, section string) (value string, err error) {
-	// Get current working directory to store config file and dataDir
-	pwd, err := os.Getwd()
-	if err != nil {
-		log.Print("Cannot get current working directory")
-		os.Exit(1)
-	}
-	configFile := pwd + "/gdg.cfg"
-	cfg, err := ini.Load(configFile)
+
+	cfg, err := ini.Load(ConfigFile)
 	if err != nil {
 		return
 	}
-
 	value = cfg.Section(section).Key(key).String()
 	return value, err
 }
 
 // DirSizeMB gets the size of the datadir
-func DirSizeMB(path string) float64 {
+func DirSizeMB(dir string) (sizeMB float64, err error) {
+
+	if _, err := os.Stat(dir); os.IsNotExist(err) {
+		return 0.0, err
+	}
 	var dirSize int64 = 0
-	readSize := func(path string, file os.FileInfo, err error) error {
+	readSize := func(dir string, file os.FileInfo, err error) error {
 		if !file.IsDir() {
 			dirSize += file.Size()
 		}
 		return nil
 	}
-	filepath.Walk(path, readSize)
-	sizeMB := float64(dirSize) / 1024.0 / 1024.0
-	return sizeMB
-}
-
-// IsBinaryDir will determine whether selinux context is acceptable for location of gdg binary
-func IsBinaryDir(dir string) bool {
-	ls, err := exec.LookPath("ls")
-	if err != nil {
-		log.Print("Cannot find ls executable")
-		os.Exit(1)
-	}
-	cmd := exec.Command(ls, "-Zd", dir)
-	var out bytes.Buffer
-	cmd.Stdout = &out
-	err = cmd.Run()
-	if err != nil {
-		os.Exit(1)
-	}
-	if strings.Contains(out.String(), "?") {
-		return true
-	} else if strings.Contains(out.String(), "usr_t") {
-		return true
-	} else if strings.Contains(out.String(), "bin_t") {
-		return true
-	} else {
-		return false
-	}
+	filepath.Walk(dir, readSize)
+	sizeMB = float64(dirSize) / 1024.0 / 1024.0
+	return sizeMB, err
 }
 
 // DStateCount will return the number of processes in D state

@@ -1,7 +1,6 @@
 package setup
 
 import (
-	"fmt"
 	"log"
 	"net"
 	"os"
@@ -11,7 +10,12 @@ import (
 	"github.com/rfparedes/gdg/util"
 )
 
-// FindSupportedUtilities - Determine supported binaries and path
+// Constants for file/direction locations following FHS 3.0 Specifications
+const (
+	GdgDir = "/usr/local/sbin/"
+)
+
+// FindSupportedUtilities returns supported binaries with path
 func FindSupportedUtilities() map[string]string {
 
 	utilities := []string{"iostat", "top", "mpstat", "vmstat", "ss", "nstat", "ps", "nfsiostat", "ethtool", "ip", "pidstat", "meminfo", "slabinfo"}
@@ -55,21 +59,15 @@ func CreateOrLoadConfig(interval string) int {
 		"pidstat":   "",
 		"nstat":     " -asz",
 	}
-	gdgPath, configFile, dataDir := util.GetLocations()
-
-	if util.IsBinaryDir(gdgPath) != true {
-		fmt.Println("selinux possibly in use. Put gdg binary in an selinux supported bin_t or usr_t like /opt or /usr/local/bin/")
-		os.Exit(1)
-	}
-
 	nics := getNICs()
+
 	// Create gdg configuration file
-	if err := util.CreateFile(configFile); err != nil {
+	if err := util.CreateFile(util.ConfigFile); err != nil {
 		log.Println("File creation failed with error: " + err.Error())
 		os.Exit(1)
 	}
 	// Create parent log directory
-	if err := util.CreateDir(dataDir); err != nil {
+	if err := util.CreateDir(util.DataDir); err != nil {
 		log.Println("Directory creation failed with error: " + err.Error())
 		os.Exit(1)
 	}
@@ -84,19 +82,20 @@ func CreateOrLoadConfig(interval string) int {
 	if err != nil {
 		log.Print("Cannot set key 'interval'")
 	}
-	err = util.SetConfigKey("configfile", configFile, "")
+	err = util.SetConfigKey("configfile", util.ConfigFile, "")
 	if err != nil {
 		log.Print("Cannot set key 'configfile'")
 	}
-	err = util.SetConfigKey("datadir", dataDir, "")
+	err = util.SetConfigKey("datadir", util.DataDir, "")
 	if err != nil {
 		log.Print("Cannot set key 'datadir'")
 	}
+
 	for u, p := range utilities {
 		var call string
 
 		//Create child log directory for utility
-		if err := util.CreateDir(dataDir + u); err != nil {
+		if err := util.CreateDir(util.DataDir + u); err != nil {
 			log.Println("Directory creation failed with error: " + err.Error())
 			os.Exit(1)
 		}
@@ -111,7 +110,6 @@ func CreateOrLoadConfig(interval string) int {
 				if n == "lo" {
 					continue
 				}
-				//ethtoolCmd := (call + n)
 				err = util.SetConfigKey(u+strconv.Itoa(i), call+n, "utility")
 				if err != nil {
 					log.Print("Cannot set key ", u)
@@ -131,7 +129,6 @@ func CreateOrLoadConfig(interval string) int {
 // CreateSystemd will create service and timer files
 func CreateSystemd(interval string) {
 
-	gdgPath, configFile, _ := util.GetLocations()
 	timer := `[Unit]
 Description=Granular Data Gatherer Timer
 Requires=gdg.service
@@ -150,7 +147,7 @@ Wants=gdg.timer
 	
 [Service]
 Type=oneshot
-ExecStart=` + gdgPath + "gdg -g -c " + configFile + "\n" +
+ExecStart=` + GdgDir + "gdg -g" + "\n" +
 		`
 [Install]
 WantedBy=multi-user.target`

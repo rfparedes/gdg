@@ -14,14 +14,13 @@ import (
 )
 
 type config struct {
-	version    bool
-	stop       bool
-	start      bool
-	interval   int
-	gather     bool
-	configfile string
-	status     bool
-	reload     bool
+	version  bool
+	stop     bool
+	start    bool
+	interval int
+	gather   bool
+	status   bool
+	reload   bool
 }
 
 func (c *config) setup() {
@@ -31,7 +30,6 @@ func (c *config) setup() {
 	flag.BoolVar(&c.reload, "reload", false, "Reload after interval or utility change")
 	flag.IntVar(&c.interval, "t", 30, "Gathering interval in seconds")
 	flag.BoolVar(&c.gather, "g", false, "Gather one-time")
-	flag.StringVar(&c.configfile, "c", "gdg.cfg", "gdg.cfg file location")
 	flag.BoolVar(&c.status, "status", false, "Get current status")
 }
 
@@ -40,6 +38,10 @@ const ver string = "0.9.0"
 
 func main() {
 
+	if len(os.Args) <= 1 {
+		fmt.Println("Nothing to do.")
+		os.Exit(0)
+	}
 	c := config{}
 	c.setup()
 	flag.Parse()
@@ -47,31 +49,32 @@ func main() {
 	// User requests version
 	if c.version == true {
 		fmt.Println(progName + " v" + ver + " (https://github.com/rfparedes/gdg)")
-		return
+		os.Exit(0)
 	}
 	// User requests status
 	if c.status == true {
 		status, err := util.GetConfigKeyValue("status", "")
 		if err != nil {
 			fmt.Println("Cannot get status. Try running '-start' if this is first time running")
-			return
+			os.Exit(1)
 		}
 		interval, err := util.GetConfigKeyValue("interval", "")
 		if err != nil {
 			fmt.Println("Cannot get interval. Try running '-stop', then '-start'")
-			return
-		}
-		dataDir, err := util.GetConfigKeyValue("datadir", "")
-		if err != nil {
-			fmt.Println("Cannot get datadir. Try running '-stop', then '-start'")
-			return
+			os.Exit(1)
 		}
 		fmt.Printf("VERSION: %s-%s\n", progName, ver)
 		fmt.Printf("STATUS: %s\n", status)
 		fmt.Printf("INTERVAL: %ss\n", interval)
-		fmt.Printf("DATA LOCATION: %s\n", dataDir)
-		fmt.Printf("CURRENT DATA SIZE: %.0fMB\n", util.DirSizeMB(dataDir))
-		return
+		fmt.Printf("DATA LOCATION: %s\n", util.DataDir)
+		fmt.Printf("CONFIG LOCATION: %s\n", util.ConfigFile)
+		dirSize, err := util.DirSizeMB(util.DataDir)
+		if err != nil {
+			fmt.Printf("CURRENT DATA SIZE: N/A\n")
+		} else {
+			fmt.Printf("CURRENT DATA SIZE: %.0fMB\n", dirSize)
+		}
+		os.Exit(0)
 	}
 	// Everything but getting version requires root user
 	user, _ := user.Current()
@@ -98,7 +101,7 @@ func main() {
 		} else {
 			fmt.Println("gdg is already started")
 		}
-		return
+		os.Exit(0)
 	}
 
 	// User stops gdg
@@ -113,7 +116,7 @@ func main() {
 		} else {
 			fmt.Println("gdg is already stopped")
 		}
-		return
+		os.Exit(0)
 	}
 
 	// User reloads gdg
@@ -124,8 +127,10 @@ func main() {
 		setup.CreateOrLoadConfig(strconv.Itoa(c.interval))
 		setup.CreateSystemd(strconv.Itoa(c.interval))
 		setup.EnableSystemd()
+		os.Exit(0)
 	}
 	if c.gather == true {
-		action.Gather(c.configfile)
+		action.Gather()
+		os.Exit(0)
 	}
 }

@@ -59,7 +59,7 @@ To get a local copy up and running follow these simple steps.
 
 ### Installation
 
-Download the binary from Releases <https://github.com/rfparedes/gdg/releases/download/v0.9.0/gdg> to `/usr/local/sbin` on the server
+Download the binary from Releases (<https://github.com/rfparedes/gdg/releases/latest/download/gdg>) to `/usr/local/sbin` on the server
 
 Start it
 

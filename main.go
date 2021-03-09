@@ -21,6 +21,7 @@ type config struct {
 	gather   bool
 	status   bool
 	reload   bool
+	rtmon    bool
 }
 
 func (c *config) setup() {
@@ -31,6 +32,7 @@ func (c *config) setup() {
 	flag.IntVar(&c.interval, "t", 30, "Gathering interval in seconds")
 	flag.BoolVar(&c.gather, "g", false, "Gather oneshot")
 	flag.BoolVar(&c.status, "status", false, "Get current status")
+	flag.BoolVar(&c.rtmon, "rtmon", false, "Toggle rtmon")
 }
 
 const (
@@ -80,8 +82,14 @@ func main() {
 			fmt.Println("Cannot get interval. Try running '-stop', then '-start'")
 			os.Exit(1)
 		}
+		rtmon, err := util.GetConfigKeyValue("rtmon", "")
+		if err != nil {
+			fmt.Println("~ Cannot get rtmon status. ~")
+			os.Exit(1)
+		}
 		fmt.Printf("VERSION: %s-%s\n", progName, ver)
 		fmt.Printf("STATUS: %s\n", status)
+		fmt.Printf("RTMON: %s\n", rtmon)
 		fmt.Printf("INTERVAL: %ss\n", interval)
 		fmt.Printf("DATA LOCATION: %s\n", util.DataDir)
 		fmt.Printf("CONFIG LOCATION: %s\n", util.ConfigFile)
@@ -140,6 +148,24 @@ func main() {
 		fmt.Println("~ gdg reloaded ~")
 		os.Exit(0)
 	}
+
+	if c.rtmon == true {
+		rtmon, err := util.GetConfigKeyValue("rtmon", "")
+		if err != nil {
+			fmt.Println("~ Cannot get rtmon status ~")
+			os.Exit(1)
+		}
+		if rtmon == "stopped" {
+			setup.EnableRtmon()
+		} else if rtmon == "started" {
+			setup.DisableRtmon()
+		} else {
+			fmt.Println("~ Cannot determine rtmon status ~")
+			os.Exit(1)
+		}
+		os.Exit(0)
+	}
+
 	if c.gather == true {
 		action.Gather()
 		os.Exit(0)

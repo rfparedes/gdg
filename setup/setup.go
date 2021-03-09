@@ -190,7 +190,7 @@ func DeleteSystemd(name string, key string) {
 	}
 	err = util.SetConfigKey(key, "stopped", "")
 	if err != nil {
-		fmt.Println("~ Cannot set key %s ~\n")
+		fmt.Printf("~ Cannot set key %s ~\n", key)
 	}
 }
 
@@ -213,14 +213,36 @@ func EnableRtmon() {
 		os.Exit(1)
 	}
 
-	fmt.Println(rtmon)
+	if err := util.CreateDir(util.DataDir + "rtmon"); err != nil {
+		fmt.Println("Directory creation failed with error: " + err.Error())
+		os.Exit(1)
+	}
+
+	rtmonService := `[Unit]
+	Description="RTNetlink Monitor Daemon" 
+		
+	[Service]
+	ExecStart=` + rtmon + " file " + util.DataDir + "rtmon/rtmon.log" + "\n" +
+		`
+	[Install]
+	WantedBy=multi-user.target`
 
 	// Add rtmon to configfile under utility
-
+	err = util.SetConfigKey("rtmon", "started", "")
+	if err != nil {
+		fmt.Printf("~ Cannot set key %s ~\n", "rtmon")
+	}
+	fmt.Println(rtmon)
 	// Create rtmon systemd service
-
+	CreateSystemd("service", rtmonService, "rtmon")
 	// Enable rtmon systemd service
-
+	EnableSystemd("rtmon.service", "rtmon")
 	// Add rtmon_status to configfile as enabled/disabled
 
+}
+
+// DisableRtmon will disable rtmon
+func DisableRtmon() {
+	DisableSystemd("rtmon.service")
+	DeleteSystemd("rtmon.service", "rtmon")
 }

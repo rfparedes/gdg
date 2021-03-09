@@ -87,6 +87,10 @@ func main() {
 			fmt.Println("~ Cannot get rtmon status. ~")
 			os.Exit(1)
 		}
+		fmt.Println("~~~~~~~~~~~~~~~")
+
+		fmt.Println("  gdg status")
+		fmt.Println("~~~~~~~~~~~~~~~")
 		fmt.Printf("VERSION: %s-%s\n", progName, ver)
 		fmt.Printf("STATUS: %s\n", status)
 		fmt.Printf("RTMON: %s\n", rtmon)
@@ -99,6 +103,7 @@ func main() {
 		} else {
 			fmt.Printf("CURRENT DATA SIZE: %.0fMB\n", dirSize)
 		}
+		fmt.Println("~~~~~~~~~~~~~~~")
 		os.Exit(0)
 	}
 	// Everything but getting version requires root user

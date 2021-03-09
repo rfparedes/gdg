@@ -131,7 +131,7 @@ func CreateSystemd(systemdType string, unitText string, name string) {
 
 	fmt.Printf("~ Creating systemd %s ~\n", systemdType)
 	// Create systemd files
-	f, err := os.OpenFile(fullPath, os.O_RDWR|os.O_CREATE, 0755)
+	f, err := os.OpenFile(fullPath, os.O_RDWR|os.O_CREATE, 0644)
 	util.Check(err)
 	defer f.Close()
 

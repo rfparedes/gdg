@@ -60,13 +60,19 @@ To get a local copy up and running follow these simple steps.
 
 ### Installation
 
-Download the binary from Releases
+Download the binary from Releases to `/usr/local/sbin` on the server
 <https://github.com/rfparedes/gdg/releases/download/v0.9.0/gdg>
 
 Start it
 
 ```sh
-sudo ./gdg -start
+sudo /usr/local/sbin/gdg -start
+```
+
+Check Status Anytime
+
+```sh
+/usr/local/sbin/gdg -status
 ```
 
 ## Technical Details
@@ -88,42 +94,42 @@ sudo ./gdg -start
 
 * gdg will detect which utilities are available and only use those installed.  In advance, you can install any of the utilities above anytime before or after setup. Most of these utilities are located in only five different packages. On most distributions, sysstat package contains (`iostat`, `mpstat`, `pidstat`), nfs-common or nfs-client package contains (`nfsiostat`), procps package contains (`top`, `vmstat`, `ps`), iproute2 package contains (`ss`, `nstat`, `ip`, `rtmon`) and ethtool contains (`ethtool`).
 
-* gdg will create a configuration file and data directory in the same directory where the gdg binary resides. e.g. If you download the binary to `/usr/local/` this directory is where metric data and config file will be stored.
+* gdg will create a configuration file in `/etc/gdg.cfg` and a data directory in `/var/log/gdg`.
 
 * gdg uses a systemd timer so there is no running daemon.
 
-* gdg only installs a systemd service and systemd timer on `-start` outside of the working directory where the gdg binary resides.
+* gdg installs a systemd service and systemd timer on `-start`.
 
-* gdg removes the systemd service and systemd timer on `-stop`.  The working directory is untouched.
+* gdg removes the systemd service and systemd timer on `-stop`.  All other files are untouched.
 
-* gdg collects data in the `gdg-data` directory.  The children below this directory are named after the utility (e.g. `iostat`) which collected the data.  Below this directory are .dat (e.g. `meminfo_21.03.07.2300.dat`) files named after the following format (`utility_YY.MM.DD.HH00.dat`). The .dat files contain at maximum, one hour worth of data.
+* gdg collects data in the `/var/log/gdg-data` directory.  The children below this directory are named after the utility (e.g. `iostat`) which collected the data.  Below this directory are .dat (e.g. `meminfo_21.03.07.2300.dat`) files named after the following format (`utility_YY.MM.DD.HH00.dat`). The .dat files contain at maximum, one hour worth of data.
 
 * To easily search down chronologically through the data collected in the .dat file, use the search string `zzz`.
 
 ## Usage
 
-### To start collection in 30s intervals, run:
+### To start collection in 30s intervals, run
 
 ```sh
-sudo ./gdg -t 30 -start
+sudo /usr/local/sbin/gdg -t 30 -start
 ```
 
-### To stop collection, run:
+### To stop collection, run
 
 ```sh
-sudo ./gdg -stop
+sudo /usr/local/sbin/gdg -stop
 ```
 
-### To see the data collected:
+### To see the data collected
 
 ```sh
-cd gdg-data
+cd /var/log/gdg-data
 ```
 
-### To see the current status of gdg including start/stop status, version, interval, data location, and current size of collected data, run:
+### To see the current status of gdg including start/stop status, version, interval, data location, and current size of collected data, run
 
 ```sh
-sudo ./gdg -status
+/usr/local/sbin/gdg -status
 ```
 
 e.g.
@@ -132,14 +138,15 @@ e.g.
 VERSION: gdg-0.9.0
 STATUS: started
 INTERVAL: 30s
-DATA LOCATION: /usr/local/gdg/gdg-data/
+DATA LOCATION: /var/log/gdg-data/
+CONFIG LOCATION: /etc/gdg.cfg
 CURRENT DATA SIZE: 79MB
 ```
 
 ### For help
 
 ```sh
-./gdg -h
+/usr/local/sbin/gdg -h
 ```
 
 ## Build it yourself
@@ -159,10 +166,16 @@ cd gdg
 go build -o gdg
 ```
 
+Move it
+
+```sh
+mv gdg /usr/local/sbin
+```
+
 Start it
 
 ```sh
-sudo ./gdg -start
+sudo /usr/local/sbin/gdg -start
 ```
 
 ## Validated Distributions

@@ -56,7 +56,6 @@ To get a local copy up and running follow these simple steps.
 ### Prerequisites
 
 * a server, instance, VM running a systemd-enabled Linux distribution
-* if selinux is enabled, you must put the gdg binary into a selinux supported binary location like /opt/gdg or /usr/local/bin/.  selinux will not allow it to run otherwise
 
 ### Installation
 

@@ -148,7 +148,7 @@ CURRENT DATA SIZE: 79MB
 ### If you want to change the interval (-t) or after installing additional supported utilities, run
 
 ```sh
-/usr/local/sbin/gdg -reload
+sudo /usr/local/sbin/gdg -reload
 ```
 
 ### For help

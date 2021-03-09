@@ -96,7 +96,7 @@ Check Status Anytime
 
 * gdg will detect which utilities are available and only use those installed.  In advance, you can install any of the utilities above anytime before or after setup. Most of these utilities are located in only five different packages. On most distributions, sysstat package contains (`iostat`, `mpstat`, `pidstat`), nfs-common or nfs-client package contains (`nfsiostat`), procps package contains (`top`, `vmstat`, `ps`), iproute2 package contains (`ss`, `nstat`, `ip`, `rtmon`) and ethtool contains (`ethtool`).
 
-* gdg will create a configuration file in `/etc/gdg.cfg` and a data directory in `/var/log/gdg`.
+* gdg will create a configuration file in `/etc/gdg.cfg` and a data directory in `/var/log/gdg-data`.
 
 * gdg uses a systemd timer so there is no running daemon.
 

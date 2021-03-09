@@ -124,49 +124,6 @@ func CreateOrLoadConfig(interval string) int {
 	return 0
 }
 
-// // CreateSystemd will create service and timer files
-// func CreateSystemd(interval string) {
-// 	timer := `[Unit]
-// Description=Granular Data Gatherer Timer
-// Requires=gdg.service
-
-// [Timer]
-// OnActiveSec=0
-// OnUnitActiveSec=` + interval + "\n" +
-// 		`AccuracySec=500msec
-
-// [Install]
-// WantedBy=timers.target`
-
-// 	service := `[Unit]
-// Description=Granular Data Gatherer
-// Wants=gdg.timer
-
-// [Service]
-// Type=oneshot
-// ExecStart=` + GdgDir + "/gdg -g" + "\n" +
-// 		`
-// [Install]
-// WantedBy=multi-user.target`
-
-// 	fmt.Println("~ Creating systemd service and timer ~")
-// 	strings := []string{"timer", "service"}
-// 	// Create systemd files
-// 	for _, s := range strings {
-// 		f, err := os.OpenFile("/etc/systemd/system/gdg."+s, os.O_RDWR|os.O_CREATE, 0755)
-// 		util.Check(err)
-// 		defer f.Close()
-// 		if s == "timer" {
-// 			_, err := f.WriteString(timer)
-// 			util.Check(err)
-// 		} else {
-// 			_, err := f.WriteString(service)
-// 			util.Check(err)
-// 		}
-// 		f.Sync()
-// 	}
-// }
-
 // CreateSystemd will create service and timer files
 func CreateSystemd(systemdType string, unitText string, name string) {
 
@@ -220,23 +177,6 @@ func DisableSystemd(service string) {
 		fmt.Printf("! Cannot disable '%s' !\n")
 	}
 }
-
-// // DeleteSystemd function to delete the gdg systemd services
-// func DeleteSystemd() {
-
-// 	fmt.Println("~ Removing systemd service and timer ~")
-// 	strings := []string{"timer", "service"}
-// 	for _, s := range strings {
-// 		err := os.Remove("/etc/systemd/system/gdg." + s)
-// 		if err != nil {
-// 			fmt.Print("Cannot remove '/etc/systemd/system/gdg." + s + "'")
-// 		}
-// 	}
-// 	err := util.SetConfigKey("status", "stopped", "")
-// 	if err != nil {
-// 		fmt.Println("Cannot set key 'status'")
-// 	}
-// }
 
 // DeleteSystemd function to delete the gdg systemd service or timer
 func DeleteSystemd(name string, key string) {

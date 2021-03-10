@@ -51,3 +51,23 @@ func Gather() {
 	}
 
 }
+
+// TriggerSysrq will trigger a task trace
+func TriggerSysrq() {
+
+	util.SetConfigKey("dstate", "stopped", "d-state")
+
+	echo, err := exec.LookPath("echo")
+	if err != nil {
+		fmt.Print("Cannot find 'echo' executable.")
+		return
+	}
+	trigger := echo + " t > /proc/sysrq-trigger"
+	echoCmd := exec.Command("bash", "-c", trigger)
+	err = echoCmd.Run()
+	if err != nil {
+		fmt.Print("Failed to trigger sysrq")
+		return
+	}
+
+}

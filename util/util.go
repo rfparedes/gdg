@@ -7,6 +7,7 @@ import (
 	"os/exec"
 	"path/filepath"
 	"strconv"
+	"strings"
 	"time"
 
 	"gopkg.in/ini.v1"
@@ -129,7 +130,7 @@ func DirSizeMB(dir string) (sizeMB float64, err error) {
 }
 
 // DStateCount will return the number of processes in D state
-func DStateCount() int {
+func DStateCount() int64 {
 
 	cmd := "ps -eo stat | grep D | wc -l"
 	out, err := exec.Command("bash", "-c", cmd).Output()
@@ -137,10 +138,61 @@ func DStateCount() int {
 		fmt.Printf("Failed to execute command: %s\n", cmd)
 		return 0
 	}
-	i, err := strconv.Atoi(string(out))
+	s := string(out)
+	i, err := strconv.ParseInt(strings.TrimSpace(s), 10, 64)
 	if err != nil {
-		fmt.Printf("Failed to execute command: %s\n", cmd)
+		fmt.Printf("Failed to convert DState string\n")
 		return 0
 	}
 	return i
+}
+
+// GetStatus will get the current status in config
+func GetStatus(progName string, ver string) {
+	status, err := GetConfigKeyValue("status", "")
+	if err != nil {
+		fmt.Println("Cannot get status. Try running '-start' if this is first time running")
+		os.Exit(1)
+	}
+	interval, err := GetConfigKeyValue("interval", "")
+	if err != nil {
+		fmt.Println("Cannot get interval. Try running '-stop', then '-start'")
+		os.Exit(1)
+	}
+	rtmon, err := GetConfigKeyValue("rtmon", "")
+	if err != nil {
+		fmt.Println("~ Cannot get rtmon status. ~")
+		os.Exit(1)
+	}
+	if len(rtmon) == 0 {
+		rtmon = "stopped"
+	}
+	dstate, err := GetConfigKeyValue("dstate", "d-state")
+	if err != nil {
+		fmt.Println("~ Cannot get dstate status. ~")
+		os.Exit(1)
+	}
+	numprocs, err := GetConfigKeyValue("numprocs", "d-state")
+	if err != nil {
+		fmt.Println("~ Cannot get dstate numprocs ~")
+		os.Exit(1)
+	}
+	fmt.Println("~~~~~~~~~~~~~~~")
+	fmt.Println("  gdg status")
+	fmt.Println("~~~~~~~~~~~~~~~")
+	fmt.Printf("VERSION: %s-%s\n", progName, ver)
+	fmt.Printf("STATUS: %s\n", status)
+	fmt.Printf("RTMON: %s\n", rtmon)
+	fmt.Printf("INTERVAL: %ss\n", interval)
+	fmt.Printf("DATA LOCATION: %s\n", DataDir)
+	fmt.Printf("CONFIG LOCATION: %s\n", ConfigFile)
+	dirSize, err := DirSizeMB(DataDir)
+	if err != nil {
+		fmt.Printf("CURRENT DATA SIZE: N/A\n")
+	} else {
+		fmt.Printf("CURRENT DATA SIZE: %.0fMB\n", dirSize)
+	}
+	fmt.Println("~~~~~~~~~~~~~~~")
+	fmt.Printf("DSTATE: %s\n", dstate)
+	fmt.Printf("NUMPROCS: %s\n", numprocs)
 }

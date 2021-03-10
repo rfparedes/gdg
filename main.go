@@ -7,6 +7,7 @@ import (
 	"os/user"
 	"path/filepath"
 	"strconv"
+	"strings"
 
 	"github.com/rfparedes/gdg/action"
 	"github.com/rfparedes/gdg/setup"
@@ -22,6 +23,7 @@ type config struct {
 	status   bool
 	reload   bool
 	rtmon    bool
+	dstate   int
 }
 
 func (c *config) setup() {
@@ -33,6 +35,8 @@ func (c *config) setup() {
 	flag.BoolVar(&c.gather, "g", false, "Gather oneshot")
 	flag.BoolVar(&c.status, "status", false, "Get current status")
 	flag.BoolVar(&c.rtmon, "rtmon", false, "Toggle rtmon")
+	flag.IntVar(&c.dstate, "d", 0, "Trigger sysrq-t on this many D-state procs")
+
 }
 
 const (
@@ -72,38 +76,7 @@ func main() {
 	}
 	// User requests status
 	if c.status == true {
-		status, err := util.GetConfigKeyValue("status", "")
-		if err != nil {
-			fmt.Println("Cannot get status. Try running '-start' if this is first time running")
-			os.Exit(1)
-		}
-		interval, err := util.GetConfigKeyValue("interval", "")
-		if err != nil {
-			fmt.Println("Cannot get interval. Try running '-stop', then '-start'")
-			os.Exit(1)
-		}
-		rtmon, err := util.GetConfigKeyValue("rtmon", "")
-		if err != nil {
-			fmt.Println("~ Cannot get rtmon status. ~")
-			os.Exit(1)
-		}
-		fmt.Println("~~~~~~~~~~~~~~~")
-
-		fmt.Println("  gdg status")
-		fmt.Println("~~~~~~~~~~~~~~~")
-		fmt.Printf("VERSION: %s-%s\n", progName, ver)
-		fmt.Printf("STATUS: %s\n", status)
-		fmt.Printf("RTMON: %s\n", rtmon)
-		fmt.Printf("INTERVAL: %ss\n", interval)
-		fmt.Printf("DATA LOCATION: %s\n", util.DataDir)
-		fmt.Printf("CONFIG LOCATION: %s\n", util.ConfigFile)
-		dirSize, err := util.DirSizeMB(util.DataDir)
-		if err != nil {
-			fmt.Printf("CURRENT DATA SIZE: N/A\n")
-		} else {
-			fmt.Printf("CURRENT DATA SIZE: %.0fMB\n", dirSize)
-		}
-		fmt.Println("~~~~~~~~~~~~~~~")
+		util.GetStatus(progName, ver)
 		os.Exit(0)
 	}
 	// Everything but getting version requires root user
@@ -169,6 +142,29 @@ func main() {
 			os.Exit(1)
 		}
 		os.Exit(0)
+	}
+
+	if c.dstate != 0 {
+		util.SetConfigKey("numprocs", strconv.Itoa(c.dstate), "d-state")
+		util.SetConfigKey("dstate", "started", "d-state")
+	}
+
+	dstate, err := util.GetConfigKeyValue("dstate", "d-state")
+	if err != nil {
+		fmt.Println("~ Cannot get dstate status ~")
+		return
+	}
+	if dstate == "started" {
+		numprocs, err := util.GetConfigKeyValue("numprocs", "d-state")
+		if err != nil {
+			fmt.Println("~ Cannot get d-state numprocs ~")
+			return
+		}
+		procs, err := strconv.ParseInt(strings.TrimSpace(numprocs), 10, 64)
+		dprocs := util.DStateCount()
+		if dprocs >= procs {
+			action.TriggerSysrq()
+		}
 	}
 
 	if c.gather == true {

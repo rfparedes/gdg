@@ -88,6 +88,10 @@ func CreateOrLoadConfig(interval string) int {
 	if err != nil {
 		fmt.Println("Cannot set key 'datadir'")
 	}
+	err = util.SetConfigKey("rtmon", "stopped", "")
+	if err != nil {
+		fmt.Println("Cannot set key 'rtmon'")
+	}
 
 	for u, p := range utilities {
 		var call string

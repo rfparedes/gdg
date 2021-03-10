@@ -169,32 +169,43 @@ func EnableSystemd(service string, key string) {
 // DisableSystemd disables the sytemd gdg.timer
 func DisableSystemd(service string) {
 
+	unitPath := ("/etc/systemd/system/" + service)
+
 	systemctl, err := exec.LookPath("systemctl")
 	if err != nil {
 		fmt.Println("! Cannot find 'systemctl' executable !")
 		os.Exit(1)
 	}
 	fmt.Println("~ Disabling systemd timer ~")
-	disableCmd := exec.Command(systemctl, "disable", service, "--now")
-	err = disableCmd.Run()
-	if err != nil {
-		fmt.Printf("! Cannot disable '%s' !\n", service)
+	// Check for systemd timer file
+	if _, err := os.Stat(unitPath); os.IsExist(err) {
+		disableCmd := exec.Command(systemctl, "disable", service, "--now")
+		err = disableCmd.Run()
+		if err != nil {
+			fmt.Printf("~ Cannot disable '%s' ~\n", service)
+		}
+	} else {
+		fmt.Printf("~ Cannot disable nonexistent service '%s'\n", service)
 	}
 }
 
 // DeleteSystemd function to delete the gdg systemd service or timer
-func DeleteSystemd(name string, key string) {
+func DeleteSystemd(service string, key string) {
 
-	fullPath := ("/etc/systemd/system/" + name)
+	unitPath := ("/etc/systemd/system/" + service)
 
-	fmt.Printf("~ Removing systemd %s ~\n", name)
-	err := os.Remove(fullPath)
-	if err != nil {
-		fmt.Printf("~ Cannot remove %s ~\n", fullPath)
-	}
-	err = util.SetConfigKey(key, "stopped", "")
-	if err != nil {
-		fmt.Printf("~ Cannot set key %s ~\n", key)
+	if _, err := os.Stat(unitPath); os.IsExist(err) {
+		fmt.Printf("~ Removing systemd %s ~\n", service)
+		err := os.Remove(unitPath)
+		if err != nil {
+			fmt.Printf("~ Cannot remove %s ~\n", service)
+		}
+		err = util.SetConfigKey(key, "stopped", "")
+		if err != nil {
+			fmt.Printf("~ Cannot set key %s ~\n", key)
+		}
+	} else {
+		fmt.Printf("~ Cannot delete nonexistent service '%s'\n", service)
 	}
 }
 

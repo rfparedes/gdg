@@ -178,7 +178,7 @@ func DisableSystemd(service string) {
 	}
 	fmt.Println("~ Disabling systemd timer ~")
 	// Check for systemd timer file
-	if _, err := os.Stat(unitPath); os.IsExist(err) {
+	if _, err := os.Stat(unitPath); err == nil {
 		disableCmd := exec.Command(systemctl, "disable", service, "--now")
 		err = disableCmd.Run()
 		if err != nil {
@@ -194,7 +194,7 @@ func DeleteSystemd(service string, key string) {
 
 	unitPath := ("/etc/systemd/system/" + service)
 
-	if _, err := os.Stat(unitPath); os.IsExist(err) {
+	if _, err := os.Stat(unitPath); err == nil {
 		fmt.Printf("~ Removing systemd %s ~\n", service)
 		err := os.Remove(unitPath)
 		if err != nil {

@@ -144,9 +144,12 @@ func main() {
 		os.Exit(0)
 	}
 
-	if c.dstate != 0 {
+	if c.dstate >= 1 {
 		util.SetConfigKey("numprocs", strconv.Itoa(c.dstate), "d-state")
 		util.SetConfigKey("dstate", "started", "d-state")
+	} else {
+		fmt.Println("Number of procs has to be greater than 1")
+		os.Exit(1)
 	}
 
 	dstate, err := util.GetConfigKeyValue("dstate", "d-state")

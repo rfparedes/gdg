@@ -40,6 +40,7 @@
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
+    <li><a href="#reference">Reference</a></li>
   </ol>
 </details>
 
@@ -108,6 +109,8 @@ Check Status Anytime
 
 * To easily search down chronologically through the data collected in the .dat file, use the search string `zzz`.
 
+* rtmon logging needs to be enabled explicitly and will collect network state information directly from the kernel on an ongoing basis.  This can be used to prove that service issues started after an external network failure. [[1]](#reference)
+
 ## Usage
 
 ### To start collection in 30s intervals, run
@@ -149,6 +152,12 @@ CURRENT DATA SIZE: 79MB
 
 ```sh
 sudo /usr/local/sbin/gdg -reload
+```
+
+### To toggle rtmon logging on or off, run
+
+```sh
+sudo /usr/local/sbin/gdg -rtmon
 ```
 
 ### For help
@@ -231,3 +240,7 @@ Distributed under the GPL-3.0 License. See `LICENSE` for more information.
 [issues-url]: https://github.com/rfparedes/gdg/issues
 [license-shield]: https://img.shields.io/github/license/rfparedes/gdg?color=%20%2330BA78
 [license-url]: https://github.com/rfparedes/gdg/blob/main/LICENSE
+
+## Reference
+
+[1] https://www.suse.com/support/kb/doc/?id=000019863

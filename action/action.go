@@ -2,11 +2,12 @@ package action
 
 import (
 	"fmt"
-	"github.com/rfparedes/gdg/util"
-	"gopkg.in/ini.v1"
 	"os"
 	"os/exec"
 	"strings"
+
+	"github.com/rfparedes/gdg/util"
+	"gopkg.in/ini.v1"
 )
 
 // Gather the data

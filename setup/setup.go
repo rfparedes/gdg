@@ -178,7 +178,7 @@ func DisableSystemd(service string) {
 	disableCmd := exec.Command(systemctl, "disable", service, "--now")
 	err = disableCmd.Run()
 	if err != nil {
-		fmt.Printf("! Cannot disable '%s' !\n")
+		fmt.Printf("! Cannot disable '%s' !\n", service)
 	}
 }
 

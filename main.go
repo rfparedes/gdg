@@ -35,7 +35,7 @@ func (c *config) setup() {
 	flag.BoolVar(&c.gather, "g", false, "Gather oneshot")
 	flag.BoolVar(&c.status, "status", false, "Get current status")
 	flag.BoolVar(&c.rtmon, "rtmon", false, "Toggle rtmon")
-	flag.IntVar(&c.dstate, "d", 0, "Trigger sysrq-t on this many D-state procs")
+	flag.IntVar(&c.dstate, "d", 1, "Trigger sysrq-t on this many D-state procs")
 
 }
 

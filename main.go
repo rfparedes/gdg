@@ -35,7 +35,7 @@ func (c *config) setup() {
 	flag.BoolVar(&c.gather, "g", false, "Gather oneshot")
 	flag.BoolVar(&c.status, "status", false, "Get current status")
 	flag.BoolVar(&c.rtmon, "rtmon", false, "Toggle rtmon")
-	flag.IntVar(&c.dstate, "d", 1, "Trigger sysrq-t on this many D-state procs")
+	flag.IntVar(&c.dstate, "d", 0, "Trigger sysrq-t on this many D-state procs")
 
 }
 
@@ -147,8 +147,8 @@ func main() {
 	if c.dstate >= 1 {
 		util.SetConfigKey("numprocs", strconv.Itoa(c.dstate), "d-state")
 		util.SetConfigKey("dstate", "started", "d-state")
-	} else {
-		fmt.Println("Number of procs has to be greater than 1")
+	} else if c.dstate < 0 {
+		fmt.Println("Number of procs has to be greater than 0")
 		os.Exit(1)
 	}
 

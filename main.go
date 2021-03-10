@@ -49,11 +49,6 @@ var c = config{}
 
 func main() {
 
-	// At least one argument is required
-	if len(os.Args) <= 1 {
-		fmt.Println("Nothing to do.")
-		os.Exit(0)
-	}
 	// Make sure user is running gdg out of /usr/local/sbin/
 	ex, err := os.Executable()
 	if err != nil {
@@ -68,6 +63,12 @@ func main() {
 	//c := config{}
 	c.setup()
 	flag.Parse()
+
+	// At least one argument is required
+	if len(os.Args) <= 1 {
+		flag.PrintDefaults()
+		os.Exit(0)
+	}
 
 	// User requests version
 	if c.version == true {

@@ -109,7 +109,7 @@ Check Status Anytime
 
 * To easily search down chronologically through the data collected in the .dat file, use the search string `zzz`.
 
-* rtmon logging needs to be enabled explicitly and will collect network state information directly from the kernel on an ongoing basis.  This can be used to prove that service issues started after an external network failure. [1](#reference)
+* rtmon logging needs to be enabled explicitly and will collect network state information directly from the kernel on an ongoing basis.  This can be used to prove that service issues started after an external network failure. [[1]](#reference)
 
 ## Usage
 

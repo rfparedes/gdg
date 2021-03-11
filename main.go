@@ -142,8 +142,18 @@ func main() {
 	}
 
 	if c.dstate >= 1 {
-		util.SetConfigKey("numprocs", strconv.Itoa(c.dstate), "d-state")
-		util.SetConfigKey("dstate", "started", "d-state")
+		// Only start dstate if gdg is started
+		status, err := util.GetConfigKeyValue("status", "")
+		if err != nil {
+			fmt.Println("~ Cannot get gdg status. ~")
+			os.Exit(1)
+		}
+		if status == "started" {
+			util.SetConfigKey("numprocs", strconv.Itoa(c.dstate), "d-state")
+			util.SetConfigKey("dstate", "started", "d-state")
+			fmt.Printf("~ Enabling sysrq-t when D-state procs = %d ~\n", c.dstate)
+			return
+		}
 	} else if c.dstate < 0 {
 		fmt.Println("Number of procs has to be greater than 0")
 		return
@@ -212,4 +222,8 @@ func stop() {
 	setup.DisableSystemd("gdg.timer")
 	setup.DeleteSystemd("gdg.timer", "status")
 	setup.DeleteSystemd("gdg.service", "status")
+	//gdg stopping reset d-state
+	fmt.Println("~ Disabling dstate ~")
+	util.SetConfigKey("numprocs", "0", "d-state")
+	util.SetConfigKey("dstate", "stopped", "d-state")
 }

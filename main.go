@@ -89,6 +89,11 @@ func main() {
 		return
 	}
 
+	if isFlagPassed("t") == true && (isFlagPassed("start") == false && isFlagPassed("reload") == false) {
+		fmt.Println("Use -start or -reload when setting interval")
+		return
+	}
+
 	// User starts gdg
 	if c.start == true {
 		status, _ := util.GetConfigKeyValue("status", "")
@@ -234,4 +239,14 @@ func stop() {
 	fmt.Println("~ Disabling dstate ~")
 	util.SetConfigKey("numprocs", "0", "d-state")
 	util.SetConfigKey("dstate", "stopped", "d-state")
+}
+
+func isFlagPassed(name string) bool {
+	found := false
+	flag.Visit(func(f *flag.Flag) {
+		if f.Name == name {
+			found = true
+		}
+	})
+	return found
 }

@@ -56,6 +56,7 @@ func Gather() {
 func TriggerSysrq() {
 
 	util.SetConfigKey("dstate", "stopped", "d-state")
+	util.SetConfigKey("numprocs", "0", "d-state")
 
 	echo, err := exec.LookPath("echo")
 	if err != nil {

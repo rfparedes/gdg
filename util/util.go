@@ -84,7 +84,7 @@ func CurrentDatFile(utility string) string {
 func CreateHeader() string {
 
 	t := time.Now()
-	return ("zzz ***" + t.Format("Mon Jan 2 03:04:05 MST 2006"))
+	return ("\nzzz ***" + t.Format("Mon Jan 2 03:04:05 MST 2006"))
 }
 
 // SetConfigKey sets the configuration file key value

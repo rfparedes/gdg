@@ -83,7 +83,11 @@ func CreateOrLoadConfig(interval string) int {
 
 	utilities := FindSupportedUtilities()
 
-	err := util.SetConfigKey("hostname", util.GetShortHostname(), "")
+	err := util.SetConfigKey("status", "stopped", "")
+	if err != nil {
+		fmt.Println("Cannot set key 'status'")
+	}
+	err = util.SetConfigKey("hostname", util.GetShortHostname(), "")
 	if err != nil {
 		fmt.Println("Cannot set key 'hostname'")
 	}
@@ -267,7 +271,6 @@ func EnableRtmon() {
 	if err != nil {
 		fmt.Printf("~ Cannot set key %s ~\n", "rtmon")
 	}
-	fmt.Println(rtmon)
 	// Create rtmon systemd service
 	CreateSystemd("service", rtmonService, "rtmon")
 	// Enable rtmon systemd service

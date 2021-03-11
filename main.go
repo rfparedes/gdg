@@ -125,9 +125,17 @@ func main() {
 	}
 
 	if c.rtmon == true {
-		rtmon, err := util.GetConfigKeyValue("rtmon", "")
+
+		var rtmon string
+		// If rtmon is enabled before gdg started for first time
+		if _, err := os.Stat(util.ConfigFile); os.IsNotExist(err) {
+			setup.CreateOrLoadConfig(strconv.Itoa(c.interval))
+			rtmon = "stopped"
+		} else {
+			rtmon, err = util.GetConfigKeyValue("rtmon", "")
+		}
 		if err != nil {
-			fmt.Println("~ Cannot get rtmon status ~")
+			fmt.Println("~ Cannot determine rtmon status ~")
 			return
 		}
 		if rtmon == "stopped" {
@@ -151,7 +159,7 @@ func main() {
 		if status == "started" {
 			util.SetConfigKey("numprocs", strconv.Itoa(c.dstate), "d-state")
 			util.SetConfigKey("dstate", "started", "d-state")
-			fmt.Printf("~ Enabling sysrq-t when D-state procs = %d ~\n", c.dstate)
+			fmt.Printf("Enabling sysrq-t when D-state procs = %d\n", c.dstate)
 			return
 		}
 	} else if c.dstate < 0 {

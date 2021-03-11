@@ -172,10 +172,16 @@ func GetStatus(progName string, ver string) {
 		fmt.Println("~ Cannot get dstate status. ~")
 		os.Exit(1)
 	}
+	if len(dstate) == 0 {
+		dstate = "stopped"
+	}
 	numprocs, err := GetConfigKeyValue("numprocs", "d-state")
 	if err != nil {
 		fmt.Println("~ Cannot get dstate numprocs ~")
 		os.Exit(1)
+	}
+	if len(numprocs) == 0 {
+		numprocs = "0"
 	}
 	fmt.Println("~~~~~~~~~~~~~~~")
 	fmt.Println("  gdg status")

@@ -80,6 +80,11 @@ Check Status Anytime
 
 ## Technical Details
 
+* There are three components to gdg, each which can be separately started or stopped
+   1. granular data collection using standard utilities
+   2. rtmon collection of network state information
+   3. process d-state detect and automated sysrq-t
+
 * gdg uses standard Linux utilities to perform its work, including:
 
   * iostat
@@ -109,8 +114,10 @@ Check Status Anytime
 
 * To easily search down chronologically through the data collected in the .dat file, use the search string `zzz`.
 
-* rtmon logging needs to be enabled explicitly and will collect network state information directly from the kernel on an ongoing basis.  This can be used to prove that service issues started after an external network failure. [[1]](#reference)
+* rtmon logging needs to be enabled explicitly and will collect network state information directly from the kernel on an ongoing basis.  Enabling this enables a systemd service which is running while rtmon is enabled. This can be used to prove that service issues started after an external network failure. [[1]](#reference)
 
+* If d-state is enabled, during each interval run, the number of processes in D state are detected and if this number is greater than or equal to a user-defined value (number of processes in D state), echo t > /proc/sysrq-trigger is executed to get a task trace of all processes.  This is a one-time action, meaning, once task trace is triggered, it won't be triggered again until user enables again explictly.
+  
 ## Usage
 
 ### To start collection in 30s intervals, run
@@ -140,24 +147,37 @@ cd /var/log/gdg-data
 e.g.
 
 ```
+~~~~~~~~~~~~~~~
+  gdg status
+~~~~~~~~~~~~~~~
 VERSION: gdg-0.9.0
 STATUS: started
+RTMON: started
 INTERVAL: 30s
 DATA LOCATION: /var/log/gdg-data/
 CONFIG LOCATION: /etc/gdg.cfg
-CURRENT DATA SIZE: 79MB
+CURRENT DATA SIZE: 33MB
+~~~~~~~~~~~~~~~
+DSTATE: stopped
+NUMPROCS: 0
 ```
 
 ### If you want to change the interval (-t) or after installing additional supported utilities, run
 
 ```sh
-sudo /usr/local/sbin/gdg -reload
+sudo /usr/local/sbin/gdg -reload -t 60
 ```
 
 ### To toggle rtmon logging on or off, run
 
 ```sh
 sudo /usr/local/sbin/gdg -rtmon
+```
+
+### To enable d-state functionality to trigger sysrq-t
+
+```sh
+sudo /usr/local/sbin/gdg -d <NUMPROCS>
 ```
 
 ### For help
@@ -243,4 +263,4 @@ Distributed under the GPL-3.0 License. See `LICENSE` for more information.
 
 ## Reference
 
-[1] https://www.suse.com/support/kb/doc/?id=000019863
+[1] <https://www.suse.com/support/kb/doc/?id=000019863>

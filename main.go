@@ -80,17 +80,17 @@ func main() {
 		return
 	}
 
+	// Only allow -t when start or reload is accompanying -t
+	if isFlagPassed("t") == true && (isFlagPassed("start") == false && isFlagPassed("reload") == false) {
+		fmt.Println("Use -start or -reload when setting interval")
+		return
+	}
 	// User enters interval less than 30s (NOT ALLOWED)
 	if c.interval < 30 {
 		fmt.Println("~ Interval cannot be less than 30s ~")
 		return
 	} else if c.interval > 3600 {
 		fmt.Println("~ Interval cannot be more than 3600s ~")
-		return
-	}
-
-	if isFlagPassed("t") == true && (isFlagPassed("start") == false && isFlagPassed("reload") == false) {
-		fmt.Println("Use -start or -reload when setting interval")
 		return
 	}
 

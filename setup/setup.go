@@ -57,7 +57,18 @@ func CreateOrLoadConfig(interval string) int {
 		"nstat":     " -asz",
 	}
 	nics := getNICs()
+	rtmon := "stopped"
 
+	// Check rtmon status if config exists as this is set separately
+	if _, err := os.Stat(util.ConfigFile); err == nil {
+		rtmon, err = util.GetConfigKeyValue("rtmon", "")
+		if err != nil {
+			err = util.SetConfigKey("rtmon", "unknown", "")
+			if err != nil {
+				fmt.Println("Cannot set key 'rtmon'")
+			}
+		}
+	}
 	fmt.Println("~ Setting up gdg ~")
 	// Create gdg configuration file
 	if err := util.CreateFile(util.ConfigFile); err != nil {
@@ -88,9 +99,18 @@ func CreateOrLoadConfig(interval string) int {
 	if err != nil {
 		fmt.Println("Cannot set key 'datadir'")
 	}
-	err = util.SetConfigKey("rtmon", "stopped", "")
+	err = util.SetConfigKey("rtmon", rtmon, "")
 	if err != nil {
 		fmt.Println("Cannot set key 'rtmon'")
+	}
+	// Set default values for dstate
+	err = util.SetConfigKey("dstate", "stopped", "d-state")
+	if err != nil {
+		fmt.Println("Cannot set key 'dstate'")
+	}
+	err = util.SetConfigKey("numprocs", "0", "d-state")
+	if err != nil {
+		fmt.Println("Cannot set key 'numprocs'")
 	}
 
 	for u, p := range utilities {
@@ -252,7 +272,7 @@ func EnableRtmon() {
 	CreateSystemd("service", rtmonService, "rtmon")
 	// Enable rtmon systemd service
 	EnableSystemd("rtmon.service", "rtmon")
-	// Add rtmon_status to configfile as enabled/disabled
+	// Add rtmon_status to configfile as started/stopped
 
 }
 

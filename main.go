@@ -99,7 +99,7 @@ func main() {
 		} else {
 			fmt.Println("gdg is already started")
 		}
-		os.Exit(0)
+		return
 	}
 
 	// User stops gdg
@@ -112,7 +112,7 @@ func main() {
 		} else {
 			fmt.Println("gdg is already stopped")
 		}
-		os.Exit(0)
+		return
 	}
 
 	// User reloads gdg
@@ -121,14 +121,14 @@ func main() {
 		stop()
 		start()
 		fmt.Println("~ gdg reloaded ~")
-		os.Exit(0)
+		return
 	}
 
 	if c.rtmon == true {
 		rtmon, err := util.GetConfigKeyValue("rtmon", "")
 		if err != nil {
 			fmt.Println("~ Cannot get rtmon status ~")
-			os.Exit(1)
+			return
 		}
 		if rtmon == "stopped" {
 			setup.EnableRtmon()
@@ -136,9 +136,9 @@ func main() {
 			setup.DisableRtmon()
 		} else {
 			fmt.Println("~ Cannot determine rtmon status ~")
-			os.Exit(1)
+			return
 		}
-		os.Exit(0)
+		return
 	}
 
 	if c.dstate >= 1 {
@@ -146,7 +146,7 @@ func main() {
 		util.SetConfigKey("dstate", "started", "d-state")
 	} else if c.dstate < 0 {
 		fmt.Println("Number of procs has to be greater than 0")
-		os.Exit(1)
+		return
 	}
 
 	if c.gather == true {

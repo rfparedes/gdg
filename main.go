@@ -41,7 +41,7 @@ func (c *config) setup() {
 
 const (
 	progName string = "gdg"
-	ver      string = "0.9.0"
+	ver      string = "0.9.1"
 	gdgDir   string = "/usr/local/sbin"
 )
 

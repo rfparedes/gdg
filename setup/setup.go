@@ -66,7 +66,7 @@ func FindSupportedUtilities() []Utility {
 		var err error
 		path, err = exec.LookPath(utility.Binary)
 		if err != nil {
-			fmt.Printf("~ %s not found ~\n", utility)
+			fmt.Printf("~ %s not found ~\n", utility.Binary)
 		} else {
 			utilities[i].Supported = true
 			utilities[i].Path = path

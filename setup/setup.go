@@ -2,61 +2,86 @@ package setup
 
 import (
 	"fmt"
+	"github.com/rfparedes/gdg/util"
 	"net"
 	"os"
 	"os/exec"
-	"strconv"
-
-	"github.com/rfparedes/gdg/util"
+	"strings"
 )
 
-// FindSupportedUtilities returns supported binaries with path
-func FindSupportedUtilities() map[string]string {
+// Utility type storing all utility info
+type Utility struct {
+	Name      string
+	Binary    string
+	Path      string
+	Arg       string
+	Dup       bool
+	Supported bool
+}
 
-	utilities := []string{"iostat", "top", "mpstat", "vmstat", "ss", "nstat", "ps", "nfsiostat", "ethtool", "ip", "pidstat", "meminfo", "slabinfo"}
-	u := make(map[string]string)
-	var supportedUtilities []string
+// function to populate initial utility struct
+func utilityPopulate() []Utility {
+	utilities := []Utility{
+		{Name: "iostat", Binary: "iostat", Path: "", Arg: " 1 3 -t -k -x -N", Dup: false, Supported: false},
+		{Name: "top", Binary: "top", Path: "", Arg: " -c -b -w 512 -n 1", Dup: false, Supported: false},
+		{Name: "mpstat", Binary: "mpstat", Path: "", Arg: " 1 2 -P ALL", Dup: false, Supported: false},
+		{Name: "vmstat", Binary: "vmstat", Path: "", Arg: "", Dup: false, Supported: false},
+		{Name: "vmstat-d", Binary: "vmstat", Path: "", Arg: " -d", Dup: true, Supported: false},
+		{Name: "ss", Binary: "ss", Path: "", Arg: " -neopa", Dup: false, Supported: false},
+		{Name: "nstat", Binary: "nstat", Path: "", Arg: " -asz", Dup: false, Supported: false},
+		{Name: "ps", Binary: "ps", Path: "", Arg: " -eo user,pid,ppid,%cpu,%mem,vsz,rss,tty,stat,start,time,wchan:32,args", Dup: false, Supported: false},
+		{Name: "nfsiostat", Binary: "nfsiostat", Path: "", Arg: " 1 3", Dup: false, Supported: false},
+		{Name: "ip", Binary: "ip", Path: "", Arg: " -s -s addr", Dup: false, Supported: false},
+		{Name: "pidstat", Binary: "pidstat", Path: "", Arg: "", Dup: false, Supported: false},
+		{Name: "meminfo", Binary: "cat", Path: "", Arg: " /proc/meminfo", Dup: false, Supported: false},
+		{Name: "slabinfo", Binary: "cat", Path: "", Arg: " /proc/slabinfo", Dup: true, Supported: false},
+	}
+	nics := getNICs()
+	addl := Utility{}
+	for i, n := range nics {
+		if i == 0 {
+			addl = Utility{
+				Name: "ethtool-" + n, Binary: "ethtool", Path: "", Arg: " -S " + n, Dup: false, Supported: false,
+			}
+		} else {
+			addl = Utility{
+				Name: "ethtool-" + n, Binary: "ethtool", Path: "", Arg: " -S " + n, Dup: true, Supported: false,
+			}
+		}
+		utilities = append(utilities, addl)
+	}
+	return utilities
+}
+
+// FindSupportedUtilities returns supported binaries with path
+func FindSupportedUtilities() []Utility {
+
+	utilities := utilityPopulate()
+	var supported []string
+
 	fmt.Println("~ Finding supported utilities ~")
-	for _, utility := range utilities {
+	for i, utility := range utilities {
 
 		var path string
 		var err error
-
-		if utility == "meminfo" || utility == "slabinfo" {
-			path, err = exec.LookPath("cat")
-		} else {
-			path, err = exec.LookPath(utility)
-		}
+		path, err = exec.LookPath(utility.Binary)
 		if err != nil {
 			fmt.Printf("~ %s not found ~\n", utility)
 		} else {
-			supportedUtilities = append(supportedUtilities, utility)
-			u[utility] = path
+			utilities[i].Supported = true
+			utilities[i].Path = path
+			if utilities[i].Dup == false {
+				supported = append(supported, utility.Binary)
+			}
 		}
 	}
-	fmt.Printf("~ Supported utilities %s ~\n", supportedUtilities)
-	return u
+	fmt.Println(supported)
+	return utilities
 }
 
 // CreateOrLoadConfig - Create configuration file and directories
 func CreateOrLoadConfig(interval string) int {
 
-	argMap := map[string]string{
-		"iostat":    " 1 3 -t -k -x -N",
-		"top":       " -c -b -w 512 -n 1",
-		"mpstat":    " 1 2 -P ALL",
-		"vmstat":    " -d",
-		"ss":        " -neopa",
-		"meminfo":   " /proc/meminfo",
-		"slabinfo":  " /proc/slabinfo",
-		"ps":        " -eo user,pid,ppid,%cpu,%mem,vsz,rss,tty,stat,start,time,wchan:32,args",
-		"nfsiostat": " 1 3",
-		"ethtool":   " -S ",
-		"ip":        " -s -s addr",
-		"pidstat":   "",
-		"nstat":     " -asz",
-	}
-	nics := getNICs()
 	rtmon := "stopped"
 
 	// Check rtmon status if config exists as this is set separately
@@ -117,36 +142,16 @@ func CreateOrLoadConfig(interval string) int {
 		fmt.Println("Cannot set key 'numprocs'")
 	}
 
-	for u, p := range utilities {
-		var call string
+	for _, utility := range utilities {
 
 		//Create child log directory for utility
-		if err := util.CreateDir(util.DataDir + u); err != nil {
+		if err := util.CreateDir(util.DataDir + utility.Name); err != nil {
 			fmt.Println("Directory creation failed with error: " + err.Error())
 			os.Exit(1)
 		}
-
-		if _, ok := argMap[u]; ok {
-			call = p + argMap[u]
-		} else {
-			call = p
-		}
-		if u == "ethtool" {
-			for i, n := range nics {
-				if n == "lo" {
-					continue
-				}
-				err = util.SetConfigKey(u+strconv.Itoa(i), call+n, "utility")
-				if err != nil {
-					fmt.Println("Cannot set key ", u)
-				}
-			}
-			continue
-		}
-
-		err = util.SetConfigKey(u, call, "utility")
+		err = util.SetConfigKey(utility.Name, utility.Path+utility.Arg, "utility")
 		if err != nil {
-			fmt.Println("Cannot set key ", u)
+			fmt.Println("Cannot set key ", utility.Name)
 		}
 	}
 	return 0
@@ -238,7 +243,9 @@ func getNICs() []string {
 	var NICs []string
 	interfaces, _ := net.Interfaces()
 	for _, inter := range interfaces {
-		NICs = append(NICs, inter.Name)
+		if !strings.Contains(inter.Name, "vpn") && !strings.Contains(inter.Name, "docker") && !strings.Contains(inter.Name, "lo") {
+			NICs = append(NICs, inter.Name)
+		}
 	}
 	return NICs
 }

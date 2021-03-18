@@ -22,30 +22,32 @@ type Utility struct {
 // function to populate initial utility struct
 func utilityPopulate() []Utility {
 	utilities := []Utility{
-		{Name: "iostat", Binary: "iostat", Path: "", Arg: " 1 3 -t -k -x -N", Dup: false, Supported: false},
-		{Name: "top", Binary: "top", Path: "", Arg: " -c -b -w 512 -n 1", Dup: false, Supported: false},
-		{Name: "mpstat", Binary: "mpstat", Path: "", Arg: " 1 2 -P ALL", Dup: false, Supported: false},
-		{Name: "vmstat", Binary: "vmstat", Path: "", Arg: "", Dup: false, Supported: false},
-		{Name: "vmstat-d", Binary: "vmstat", Path: "", Arg: " -d", Dup: true, Supported: false},
-		{Name: "ss", Binary: "ss", Path: "", Arg: " -neopa", Dup: false, Supported: false},
-		{Name: "nstat", Binary: "nstat", Path: "", Arg: " -asz", Dup: false, Supported: false},
-		{Name: "ps", Binary: "ps", Path: "", Arg: " -eo user,pid,ppid,%cpu,%mem,vsz,rss,tty,stat,start,time,wchan:32,args", Dup: false, Supported: false},
+		{Name: "iostat", Binary: "iostat", Path: "", Arg: "1 3 -t -k -x -N", Dup: false, Supported: false},
+		{Name: "top", Binary: "top", Path: "", Arg: "-c -b -w 512 -n 1", Dup: false, Supported: false},
+		{Name: "mpstat", Binary: "mpstat", Path: "", Arg: "1 2 -P ALL", Dup: false, Supported: false},
+		{Name: "vmstat", Binary: "vmstat", Path: "", Dup: false, Supported: false},
+		{Name: "vmstat-d", Binary: "vmstat", Path: "", Arg: "-d", Dup: true, Supported: false},
+		{Name: "ss", Binary: "ss", Path: "", Arg: "-neopa", Dup: false, Supported: false},
+		{Name: "nstat", Binary: "nstat", Path: "", Arg: "-asz", Dup: false, Supported: false},
+		{Name: "ps", Binary: "ps", Path: "", Arg: "-eo user,pid,ppid,%cpu,%mem,vsz,rss,tty,stat,start,time,wchan:32,args", Dup: false, Supported: false},
 		{Name: "nfsiostat", Binary: "nfsiostat", Path: "", Arg: " 1 3", Dup: false, Supported: false},
-		{Name: "ip", Binary: "ip", Path: "", Arg: " -s -s addr", Dup: false, Supported: false},
-		{Name: "pidstat", Binary: "pidstat", Path: "", Arg: "", Dup: false, Supported: false},
-		{Name: "meminfo", Binary: "cat", Path: "", Arg: " /proc/meminfo", Dup: false, Supported: false},
-		{Name: "slabinfo", Binary: "cat", Path: "", Arg: " /proc/slabinfo", Dup: true, Supported: false},
+		{Name: "ip", Binary: "ip", Path: "", Arg: "-s -s addr", Dup: false, Supported: false},
+		{Name: "pidstat", Binary: "pidstat", Path: "", Arg: "-udrRsvwt -p ALL", Dup: false, Supported: false},
+		{Name: "meminfo", Binary: "cat", Path: "", Arg: "/proc/meminfo", Dup: false, Supported: false},
+		{Name: "slabinfo", Binary: "cat", Path: "", Arg: "/proc/slabinfo", Dup: true, Supported: false},
+		{Name: "numastat", Binary: "numastat", Path: "", Arg: "-m -n -c", Dup: false, Supported: false},
+		{Name: "sar", Binary: "sar", Path: "", Arg: "-A 0", Dup: false, Supported: false},
 	}
 	nics := getNICs()
 	addl := Utility{}
 	for i, n := range nics {
 		if i == 0 {
 			addl = Utility{
-				Name: "ethtool-" + n, Binary: "ethtool", Path: "", Arg: " -S " + n, Dup: false, Supported: false,
+				Name: "ethtool-" + n, Binary: "ethtool", Path: "", Arg: "-S" + " " + n, Dup: false, Supported: false,
 			}
 		} else {
 			addl = Utility{
-				Name: "ethtool-" + n, Binary: "ethtool", Path: "", Arg: " -S " + n, Dup: true, Supported: false,
+				Name: "ethtool-" + n, Binary: "ethtool", Path: "", Arg: "-S" + " " + n, Dup: true, Supported: false,
 			}
 		}
 		utilities = append(utilities, addl)
@@ -144,14 +146,21 @@ func CreateOrLoadConfig(interval string) int {
 
 	for _, utility := range utilities {
 
-		//Create child log directory for utility
-		if err := util.CreateDir(util.DataDir + utility.Name); err != nil {
-			fmt.Println("Directory creation failed with error: " + err.Error())
-			os.Exit(1)
-		}
-		err = util.SetConfigKey(utility.Name, utility.Path+utility.Arg, "utility")
-		if err != nil {
-			fmt.Println("Cannot set key ", utility.Name)
+		//Only perform if utility is supported
+		if utility.Supported == true {
+			//Create child log directory for utility
+			if err := util.CreateDir(util.DataDir + utility.Name); err != nil {
+				fmt.Println("Directory creation failed with error: " + err.Error())
+				os.Exit(1)
+			}
+			if utility.Arg != "" {
+				err = util.SetConfigKey(utility.Name, utility.Path+" "+utility.Arg, "utility")
+			} else {
+				err = util.SetConfigKey(utility.Name, utility.Path, "utility")
+			}
+			if err != nil {
+				fmt.Println("Cannot set key ", utility.Name)
+			}
 		}
 	}
 	return 0

@@ -3,10 +3,10 @@ package setup
 import (
 	"fmt"
 	"github.com/rfparedes/gdg/util"
+	"io/ioutil"
 	"net"
 	"os"
 	"os/exec"
-	"strings"
 )
 
 // Utility type storing all utility info
@@ -247,13 +247,30 @@ func DeleteSystemd(service string, key string) {
 	}
 }
 
-// Find network interfaces
+// Find physical network interfaces
 func getNICs() []string {
+
 	var NICs []string
 	interfaces, _ := net.Interfaces()
-	for _, inter := range interfaces {
-		if !strings.Contains(inter.Name, "vpn") && !strings.Contains(inter.Name, "docker") && !strings.Contains(inter.Name, "lo") {
-			NICs = append(NICs, inter.Name)
+
+	// get list virtual nics
+	dir, err := ioutil.ReadDir("/sys/devices/virtual/net/")
+	if err != nil {
+		fmt.Println("Cannot get list of virtual NICs")
+	}
+
+	//check if interface is virtual
+	for _, nic := range interfaces {
+		isVirtual := false
+		for _, vnic := range dir {
+			if nic.Name == vnic.Name() {
+				//is virtual interface
+				isVirtual = true
+				break
+			}
+		}
+		if isVirtual == false {
+			NICs = append(NICs, nic.Name)
 		}
 	}
 	return NICs

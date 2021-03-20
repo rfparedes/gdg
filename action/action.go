@@ -1,11 +1,9 @@
 package action
 
 import (
-	"compress/gzip"
 	"fmt"
 	"github.com/rfparedes/gdg/util"
 	"gopkg.in/ini.v1"
-	"io"
 	"log"
 	"os"
 	"os/exec"
@@ -91,7 +89,7 @@ func TidyLogs(logdays int) {
 	// Get list of dates in a range that will need to be deleted to maintain logdays
 	start := time.Now().AddDate(0, 0, 0)
 	end := start.AddDate(0, 0, -logdays)
-	for rd := rangeDate(end, start); ; {
+	for rd := util.RangeDate(end, start); ; {
 		date := rd()
 		if date.IsZero() {
 			break
@@ -106,7 +104,7 @@ func TidyLogs(logdays int) {
 	for _, file := range files {
 		// If the filename doesn't have inuse in its name
 		if !strings.Contains(file, inUse) {
-			if !contains(dates, file) {
+			if !util.Contains(dates, file) {
 				e := os.Remove(file)
 				if e != nil {
 					log.Fatal(e)
@@ -114,7 +112,7 @@ func TidyLogs(logdays int) {
 			} else { //gzip it if not already
 				fileExtension := filepath.Ext(file)
 				if fileExtension != ".gz" {
-					err := gzipit(file, filepath.Dir(file))
+					err := util.Gzipit(file, filepath.Dir(file))
 					if err != nil {
 						fmt.Println(err)
 					}
@@ -122,64 +120,4 @@ func TidyLogs(logdays int) {
 			}
 		}
 	}
-}
-
-// rangeDate returns a date range function over start date to end date inclusive.
-// After the end of the range, the range function returns a zero date,
-// date.IsZero() is true.
-func rangeDate(start, end time.Time) func() time.Time {
-	y, m, d := start.Date()
-	start = time.Date(y, m, d, 0, 0, 0, 0, time.UTC)
-	y, m, d = end.Date()
-	end = time.Date(y, m, d, 0, 0, 0, 0, time.UTC)
-
-	return func() time.Time {
-		if start.After(end) {
-			return time.Time{}
-		}
-		date := start
-		start = start.AddDate(0, 0, 1)
-		return date
-	}
-}
-
-// Contains tells whether a contains x.
-func contains(a []string, x string) bool {
-	var found bool
-	for _, n := range a {
-		found = strings.Contains(x, n)
-		if found {
-			return true
-		}
-	}
-	return false
-}
-
-// Compress (.gz) a file and delete
-func gzipit(source, target string) error {
-	reader, err := os.Open(source)
-	if err != nil {
-		return err
-	}
-
-	filename := filepath.Base(source)
-	target = filepath.Join(target, fmt.Sprintf("%s.gz", filename))
-	writer, err := os.Create(target)
-	if err != nil {
-		return err
-	}
-	defer writer.Close()
-
-	archiver := gzip.NewWriter(writer)
-	archiver.Name = filename
-	defer archiver.Close()
-
-	_, err = io.Copy(archiver, reader)
-
-	reader.Close()
-	e := os.Remove(source)
-	if e != nil {
-		log.Fatal(e)
-	}
-	return err
 }

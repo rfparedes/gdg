@@ -2,7 +2,10 @@ package util
 
 import (
 	"bytes"
+	"compress/gzip"
 	"fmt"
+	"io"
+	"log"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -198,4 +201,64 @@ func GetStatus(progName string, ver string) {
 	fmt.Println("~~~~~~~~~~~~~~~")
 	fmt.Printf("DSTATE: %s\n", dstate)
 	fmt.Printf("NUMPROCS: %s\n", numprocs)
+}
+
+// Compress (.gz) a file and delete
+func Gzipit(source, target string) error {
+	reader, err := os.Open(source)
+	if err != nil {
+		return err
+	}
+
+	filename := filepath.Base(source)
+	target = filepath.Join(target, fmt.Sprintf("%s.gz", filename))
+	writer, err := os.Create(target)
+	if err != nil {
+		return err
+	}
+	defer writer.Close()
+
+	archiver := gzip.NewWriter(writer)
+	archiver.Name = filename
+	defer archiver.Close()
+
+	_, err = io.Copy(archiver, reader)
+
+	reader.Close()
+	e := os.Remove(source)
+	if e != nil {
+		log.Fatal(e)
+	}
+	return err
+}
+
+// Contains tells whether a contains x.
+func Contains(a []string, x string) bool {
+	var found bool
+	for _, n := range a {
+		found = strings.Contains(x, n)
+		if found {
+			return true
+		}
+	}
+	return false
+}
+
+// rangeDate returns a date range function over start date to end date inclusive.
+// After the end of the range, the range function returns a zero date,
+// date.IsZero() is true.
+func RangeDate(start, end time.Time) func() time.Time {
+	y, m, d := start.Date()
+	start = time.Date(y, m, d, 0, 0, 0, 0, time.UTC)
+	y, m, d = end.Date()
+	end = time.Date(y, m, d, 0, 0, 0, 0, time.UTC)
+
+	return func() time.Time {
+		if start.After(end) {
+			return time.Time{}
+		}
+		date := start
+		start = start.AddDate(0, 0, 1)
+		return date
+	}
 }

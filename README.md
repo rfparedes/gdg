@@ -104,13 +104,13 @@ Check Status Anytime
 
 * gdg will detect which utilities are available and only use those installed.  In advance, you can install any of the utilities above anytime before or after setup. Most of these utilities are located in six different packages. On most distributions, sysstat package contains (`iostat`, `mpstat`, `pidstat`, `sar`), nfs-common or nfs-client package contains (`nfsiostat`), procps package contains (`top`, `vmstat`, `ps`), iproute2 package contains (`ss`, `nstat`, `ip`, `rtmon`), ethtool contains (`ethtool`), and numactl contains (`numastat`).
 
-* gdg does not manage disk space.  gdg will continue to collect data as long as there is space available in /var/log/.  Make sure you monitor disk space and clean up or move files if space is tight.  `gdg -status` will give you the current gdg space usage
+* gdg will by default keep seven days of logs. This can be changed by the user with the -l option.  In addition, all log files that haven't been gzipped, with the exception of the log currently being written to, will be gzipped hourly. `gdg -status` will give you the current gdg space usage
 
 * gdg will create a configuration file in `/etc/gdg.cfg` and a data directory in `/var/log/gdg-data`.
 
 * gdg uses a systemd timer so there is no running daemon.
 
-* gdg installs a systemd service and systemd timer on `-start`.
+* gdg installs two systemd services and two systemd timer on `-start`.  One set of service and timer files are responsible for calling the data collection.  The other set of service and timer files are responsible for the log tidying every hour.
 
 * gdg removes the systemd service and systemd timer on `-stop`.  All other files are untouched.
 

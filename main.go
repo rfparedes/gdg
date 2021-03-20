@@ -24,6 +24,8 @@ type config struct {
 	reload   bool
 	rtmon    bool
 	dstate   int
+	logdays  int
+	tidylogs bool
 }
 
 func (c *config) setup() {
@@ -36,7 +38,8 @@ func (c *config) setup() {
 	flag.BoolVar(&c.status, "status", false, "Get current status")
 	flag.BoolVar(&c.rtmon, "rtmon", false, "Toggle rtmon")
 	flag.IntVar(&c.dstate, "d", 0, "Trigger sysrq-t on this many D-state procs")
-
+	flag.IntVar(&c.logdays, "l", 7, "Number of days to keep logs")
+	flag.BoolVar(&c.tidylogs, "tidylogs", false, "Tidy log files")
 }
 
 const (
@@ -86,6 +89,12 @@ func main() {
 		return
 	}
 
+	// Only allow -l when start or reload is accompanying -l
+	if isFlagPassed("l") == true && (isFlagPassed("start") == false && isFlagPassed("reload") == false) {
+		fmt.Println("Use -start or -reload when setting logdays")
+		return
+	}
+
 	// User starts gdg
 	if c.start == true {
 		status, _ := util.GetConfigKeyValue("status", "")
@@ -126,7 +135,7 @@ func main() {
 		var rtmon string
 		// If rtmon is enabled before gdg started for first time
 		if _, err := os.Stat(util.ConfigFile); os.IsNotExist(err) {
-			setup.CreateOrLoadConfig(fmt.Sprint(c.interval))
+			setup.CreateOrLoadConfig(fmt.Sprint(c.interval), fmt.Sprint(c.logdays))
 			rtmon = "stopped"
 		} else {
 			rtmon, err = util.GetConfigKeyValue("rtmon", "")
@@ -143,6 +152,21 @@ func main() {
 			fmt.Println("~ Cannot determine rtmon status ~")
 			return
 		}
+		return
+	}
+
+	if c.tidylogs == true {
+		logdays, err := util.GetConfigKeyValue("logdays", "")
+		if err != nil {
+			fmt.Println("~ Cannot determine logdays ~")
+			return
+		}
+		i, err := strconv.Atoi(logdays)
+		if err != nil {
+			fmt.Println("~ Cannot convert logdays to int ~")
+			return
+		}
+		action.TidyLogs(i)
 		return
 	}
 
@@ -217,16 +241,44 @@ ExecStart=` + gdgDir + "/gdg -g" + "\n" +
 [Install]
 WantedBy=multi-user.target`
 
-	setup.CreateOrLoadConfig(fmt.Sprint(c.interval))
+	gdgLogService := `[Unit]
+Description=Granular Data Gatherer Tidylogs
+Wants=gdg-tidy.timer
+	
+[Service]
+Type=oneshot
+ExecStart=` + gdgDir + "/gdg -tidylogs" + "\n" +
+		`
+[Install]
+WantedBy=multi-user.target`
+
+	gdgLogTimer := `[Unit]
+Description=Granular Data Gatherer Tidylogs Timer
+Requires=gdg-tidy.service
+	
+[Timer]
+OnCalendar=hourly
+RandomizedDelaySec=900
+	
+[Install]
+WantedBy=timers.target`
+
+	setup.CreateOrLoadConfig(fmt.Sprint(c.interval), fmt.Sprint(c.logdays))
 	setup.CreateSystemd("service", gdgService, "gdg")
 	setup.CreateSystemd("timer", gdgTimer, "gdg")
 	setup.EnableSystemd("gdg.timer", "status")
+	setup.CreateSystemd("service", gdgLogService, "gdg-tidy")
+	setup.CreateSystemd("timer", gdgLogTimer, "gdg-tidy")
+	setup.EnableSystemd("gdg-tidy.timer", "status")
 }
 
 func stop() {
 	setup.DisableSystemd("gdg.timer")
 	setup.DeleteSystemd("gdg.timer", "status")
 	setup.DeleteSystemd("gdg.service", "status")
+	setup.DisableSystemd("gdg-tidy.timer")
+	setup.DeleteSystemd("gdg-tidy.timer", "status")
+	setup.DeleteSystemd("gdg-tidy.service", "status")
 	//gdg stopping reset d-state
 	fmt.Println("~ Disabling dstate ~")
 	util.SetConfigKey("numprocs", "0", "d-state")

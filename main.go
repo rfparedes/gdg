@@ -18,7 +18,7 @@ type config struct {
 	version  bool
 	stop     bool
 	start    bool
-	interval int
+	interval uint
 	gather   bool
 	status   bool
 	reload   bool
@@ -31,7 +31,7 @@ func (c *config) setup() {
 	flag.BoolVar(&c.start, "start", false, "Start gathering data")
 	flag.BoolVar(&c.stop, "stop", false, "Stop gathering data")
 	flag.BoolVar(&c.reload, "reload", false, "Reload after interval or utility change")
-	flag.IntVar(&c.interval, "t", 30, "Gathering interval in seconds")
+	flag.UintVar(&c.interval, "t", 30, "Gathering interval in seconds")
 	flag.BoolVar(&c.gather, "g", false, "Gather oneshot")
 	flag.BoolVar(&c.status, "status", false, "Get current status")
 	flag.BoolVar(&c.rtmon, "rtmon", false, "Toggle rtmon")
@@ -85,14 +85,6 @@ func main() {
 		fmt.Println("Use -start or -reload when setting interval")
 		return
 	}
-	// User enters interval less than 30s (NOT ALLOWED)
-	if c.interval < 30 {
-		fmt.Println("~ Interval cannot be less than 30s ~")
-		return
-	} else if c.interval > 3600 {
-		fmt.Println("~ Interval cannot be more than 3600s ~")
-		return
-	}
 
 	// User starts gdg
 	if c.start == true {
@@ -134,7 +126,7 @@ func main() {
 		var rtmon string
 		// If rtmon is enabled before gdg started for first time
 		if _, err := os.Stat(util.ConfigFile); os.IsNotExist(err) {
-			setup.CreateOrLoadConfig(strconv.Itoa(c.interval))
+			setup.CreateOrLoadConfig(fmt.Sprint(c.interval))
 			rtmon = "stopped"
 		} else {
 			rtmon, err = util.GetConfigKeyValue("rtmon", "")
@@ -208,7 +200,7 @@ Requires=gdg.service
 	
 [Timer]
 OnActiveSec=0
-OnUnitActiveSec=` + strconv.Itoa(c.interval) + "\n" +
+OnUnitActiveSec=` + (fmt.Sprint(c.interval)) + "\n" +
 		`AccuracySec=500msec
 	
 [Install]
@@ -225,7 +217,7 @@ ExecStart=` + gdgDir + "/gdg -g" + "\n" +
 [Install]
 WantedBy=multi-user.target`
 
-	setup.CreateOrLoadConfig(strconv.Itoa(c.interval))
+	setup.CreateOrLoadConfig(fmt.Sprint(c.interval))
 	setup.CreateSystemd("service", gdgService, "gdg")
 	setup.CreateSystemd("timer", gdgTimer, "gdg")
 	setup.EnableSystemd("gdg.timer", "status")

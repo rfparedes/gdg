@@ -124,10 +124,10 @@ Check Status Anytime
   
 ## Usage
 
-### To start collection in 30s intervals, run
+### To start collection in 30s intervals and keep logs for 7 days, run
 
 ```sh
-sudo /usr/local/sbin/gdg -t 30 -start
+sudo /usr/local/sbin/gdg -t 30 -l 7 -start
 ```
 
 ### To stop collection, run
@@ -154,22 +154,23 @@ e.g.
 ~~~~~~~~~~~~~~~
   gdg status
 ~~~~~~~~~~~~~~~
-VERSION: gdg-0.9.0
+VERSION: gdg-0.9.1
 STATUS: started
 RTMON: started
-INTERVAL: 30s
+INTERVAL: 15s
+LOG DAYS TO KEEP: 14d
 DATA LOCATION: /var/log/gdg-data/
 CONFIG LOCATION: /etc/gdg.cfg
-CURRENT DATA SIZE: 33MB
+CURRENT DATA SIZE: 318MB
 ~~~~~~~~~~~~~~~
 DSTATE: stopped
 NUMPROCS: 0
 ```
 
-### If you want to change the interval (-t) or after installing additional supported utilities, run
+### If you want to change the interval (-t) or logdays (-l) after installing additional supported utilities, run
 
 ```sh
-sudo /usr/local/sbin/gdg -reload -t 60
+sudo /usr/local/sbin/gdg -reload -t 60 -l 14
 ```
 
 ### To toggle rtmon logging on or off, run

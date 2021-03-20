@@ -82,7 +82,7 @@ func FindSupportedUtilities() []Utility {
 }
 
 // CreateOrLoadConfig - Create configuration file and directories
-func CreateOrLoadConfig(interval string) int {
+func CreateOrLoadConfig(interval string, logdays string) int {
 
 	rtmon := "stopped"
 
@@ -121,6 +121,10 @@ func CreateOrLoadConfig(interval string) int {
 	err = util.SetConfigKey("interval", interval, "")
 	if err != nil {
 		fmt.Println("Cannot set key 'interval'")
+	}
+	err = util.SetConfigKey("logdays", logdays, "")
+	if err != nil {
+		fmt.Println("Cannot set key 'logdays'")
 	}
 	err = util.SetConfigKey("configfile", util.ConfigFile, "")
 	if err != nil {

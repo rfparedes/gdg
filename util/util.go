@@ -174,6 +174,11 @@ func GetStatus(progName string, ver string) {
 		fmt.Println("~ Cannot get dstate numprocs ~")
 		os.Exit(1)
 	}
+	logdays, err := GetConfigKeyValue("logdays", "")
+	if err != nil {
+		fmt.Println("~ Cannot get logdays ~")
+		os.Exit(1)
+	}
 	fmt.Println("~~~~~~~~~~~~~~~")
 	fmt.Println("  gdg status")
 	fmt.Println("~~~~~~~~~~~~~~~")
@@ -181,6 +186,7 @@ func GetStatus(progName string, ver string) {
 	fmt.Printf("STATUS: %s\n", status)
 	fmt.Printf("RTMON: %s\n", rtmon)
 	fmt.Printf("INTERVAL: %ss\n", interval)
+	fmt.Printf("LOG DAYS TO KEEP: %sd\n", logdays)
 	fmt.Printf("DATA LOCATION: %s\n", DataDir)
 	fmt.Printf("CONFIG LOCATION: %s\n", ConfigFile)
 	dirSize, err := DirSizeMB(DataDir)

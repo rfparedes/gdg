@@ -85,14 +85,6 @@ func main() {
 		fmt.Println("Use -start or -reload when setting interval")
 		return
 	}
-	// User enters negative interval
-	// if c.interval < 30 {
-	// 	fmt.Println("~ Interval cannot be less than 30s ~")
-	// 	return
-	// } else if c.interval > 3600 {
-	// 	fmt.Println("~ Interval cannot be more than 3600s ~")
-	// 	return
-	// }
 
 	// User starts gdg
 	if c.start == true {

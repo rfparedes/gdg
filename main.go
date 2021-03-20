@@ -236,10 +236,7 @@ Wants=gdg.timer
 	
 [Service]
 Type=oneshot
-ExecStart=` + gdgDir + "/gdg -g" + "\n" +
-		`
-[Install]
-WantedBy=multi-user.target`
+ExecStart=` + gdgDir + "/gdg -g" + "\n"
 
 	gdgLogService := `[Unit]
 Description=Granular Data Gatherer Tidylogs
@@ -247,10 +244,7 @@ Wants=gdg-tidy.timer
 	
 [Service]
 Type=oneshot
-ExecStart=` + gdgDir + "/gdg -tidylogs" + "\n" +
-		`
-[Install]
-WantedBy=multi-user.target`
+ExecStart=` + gdgDir + "/gdg -tidylogs" + "\n"
 
 	gdgLogTimer := `[Unit]
 Description=Granular Data Gatherer Tidylogs Timer

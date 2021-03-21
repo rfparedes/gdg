@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"io"
 	"os"
 	"os/user"
 	"path/filepath"
@@ -29,16 +30,16 @@ type config struct {
 }
 
 func (c *config) setup() {
-	flag.BoolVar(&c.version, "v", false, "Output version information")
+	flag.BoolVar(&c.version, "version", false, "Output version information")
 	flag.BoolVar(&c.start, "start", false, "Start gathering data")
 	flag.BoolVar(&c.stop, "stop", false, "Stop gathering data")
 	flag.BoolVar(&c.reload, "reload", false, "Reload after interval or utility change")
-	flag.UintVar(&c.interval, "t", 30, "Gathering interval in seconds")
-	flag.BoolVar(&c.gather, "g", false, "Gather oneshot")
+	flag.UintVar(&c.interval, "interval", 30, "Gathering interval in seconds")
+	flag.BoolVar(&c.gather, "gather", false, "Gather oneshot")
 	flag.BoolVar(&c.status, "status", false, "Get current status")
 	flag.BoolVar(&c.rtmon, "rtmon", false, "Toggle rtmon")
-	flag.IntVar(&c.dstate, "d", 0, "Trigger sysrq-t on this many D-state procs")
-	flag.IntVar(&c.logdays, "l", 7, "Number of days to keep logs")
+	flag.IntVar(&c.dstate, "dst", 0, "Trigger sysrq-t on this many D-state procs")
+	flag.IntVar(&c.logdays, "logdays", 7, "Number of days to keep logs")
 	flag.BoolVar(&c.tidylogs, "tidylogs", false, "Tidy log files")
 }
 
@@ -51,6 +52,10 @@ const (
 var c = config{}
 
 func main() {
+
+	flag.Usage = func() {
+		PrintHelpAndExit(os.Stdout, 0)
+	}
 
 	// Make sure user is running gdg out of /usr/local/sbin/
 	ex, err := os.Executable()
@@ -212,8 +217,7 @@ func main() {
 	}
 
 	// print usage
-	flag.PrintDefaults()
-
+	flag.Usage()
 }
 
 func start() {
@@ -236,7 +240,7 @@ Wants=gdg.timer
 	
 [Service]
 Type=oneshot
-ExecStart=` + gdgDir + "/gdg -g" + "\n"
+ExecStart=` + gdgDir + "/gdg -gather" + "\n"
 
 	gdgLogService := `[Unit]
 Description=Granular Data Gatherer Tidylogs
@@ -287,4 +291,32 @@ func isFlagPassed(name string) bool {
 		}
 	})
 	return found
+}
+
+// PrintHelpAndExit prints the usage and exit
+func PrintHelpAndExit(writer io.Writer, exitStatus int) {
+	fmt.Fprintln(writer, `gdg: Granular Data Gatherer
+Actions:
+gdg  [ --start | --status | --stop | --reload ]
+
+Action options (optional):
+--interval	Gathering interval in seconds (default: 30s)
+--logdays	Number of days to keep logs (default: 7d)
+
+Additional features (enable individually):
+--rtmon		Toggle rtmon on or off
+--dst <PROCS>	Trigger sysrq-t on this many D-state procs
+
+Automatic action options (performed by systemd):
+--tidylogs	Tidy log files
+--gather	Gather data one-shot
+
+Print current gdg version:
+gdg --version
+
+Print this message:
+gdg --help
+
+For help or to report issues: https://github.com/rfparedes/gdg`)
+	os.Exit(exitStatus)
 }

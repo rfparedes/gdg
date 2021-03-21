@@ -69,13 +69,13 @@ sudo chmod +x /usr/local/sbin/gdg
 Start it
 
 ```sh
-sudo /usr/local/sbin/gdg -start
+sudo /usr/local/sbin/gdg --start
 ```
 
 Check Status Anytime
 
 ```sh
-/usr/local/sbin/gdg -status
+/usr/local/sbin/gdg --status
 ```
 
 ## Technical Details
@@ -104,15 +104,15 @@ Check Status Anytime
 
 * gdg will detect which utilities are available and only use those installed.  In advance, you can install any of the utilities above anytime before or after setup. Most of these utilities are located in six different packages. On most distributions, sysstat package contains (`iostat`, `mpstat`, `pidstat`, `sar`), nfs-common or nfs-client package contains (`nfsiostat`), procps package contains (`top`, `vmstat`, `ps`), iproute2 package contains (`ss`, `nstat`, `ip`, `rtmon`), ethtool contains (`ethtool`), and numactl contains (`numastat`).
 
-* gdg will by default keep seven days of logs. This can be changed by the user with the -l option.  In addition, all log files that haven't been gzipped, with the exception of the log currently being written to, will be gzipped hourly. `gdg -status` will give you the current gdg space usage
+* gdg will by default keep seven days of logs. This can be changed by the user with the --logdays option.  In addition, all log files that haven't been gzipped, with the exception of the log currently being written to, will be gzipped hourly. `gdg --status` will give you the current gdg space usage
 
 * gdg will create a configuration file in `/etc/gdg.cfg` and a data directory in `/var/log/gdg-data`.
 
 * gdg uses a systemd timer so there is no running daemon.
 
-* gdg installs two systemd services and two systemd timer on `-start`.  One set of service and timer files are responsible for calling the data collection.  The other set of service and timer files are responsible for the log tidying every hour.
+* gdg installs two systemd services and two systemd timer on `--start`.  One set of service and timer files are responsible for calling the data collection.  The other set of service and timer files are responsible for the log tidying every hour.
 
-* gdg removes the systemd service and systemd timer on `-stop`.  All other files are untouched.
+* gdg removes the systemd service and systemd timer on `--stop`.  All other files are untouched.
 
 * gdg collects data in the `/var/log/gdg-data` directory.  The children below this directory are named after the utility (e.g. `iostat`) which collected the data.  Below this directory are .dat (e.g. `meminfo_21.03.07.2300.dat`) files named after the following format (`utility_YY.MM.DD.HH00.dat`). The .dat files contain at maximum, one hour worth of data.
 
@@ -127,13 +127,13 @@ Check Status Anytime
 ### To start collection in 30s intervals and keep logs for 7 days, run
 
 ```sh
-sudo /usr/local/sbin/gdg -t 30 -l 7 -start
+sudo /usr/local/sbin/gdg --interval 30 --logdays 7 --start
 ```
 
 ### To stop collection, run
 
 ```sh
-sudo /usr/local/sbin/gdg -stop
+sudo /usr/local/sbin/gdg --stop
 ```
 
 ### To see the data collected
@@ -145,7 +145,7 @@ cd /var/log/gdg-data
 ### To see the current status of gdg including start/stop status, version, interval, data location, and current size of collected data, run
 
 ```sh
-/usr/local/sbin/gdg -status
+/usr/local/sbin/gdg --status
 ```
 
 e.g.
@@ -170,25 +170,25 @@ NUMPROCS: 0
 ### If you want to change the interval (-t) or logdays (-l) after installing additional supported utilities, run
 
 ```sh
-sudo /usr/local/sbin/gdg -reload -t 60 -l 14
+sudo /usr/local/sbin/gdg --reload --interval 60 --logdays 14
 ```
 
 ### To toggle rtmon logging on or off, run
 
 ```sh
-sudo /usr/local/sbin/gdg -rtmon
+sudo /usr/local/sbin/gdg --rtmon
 ```
 
 ### To enable d-state functionality to trigger sysrq-t
 
 ```sh
-sudo /usr/local/sbin/gdg -d <NUMPROCS>
+sudo /usr/local/sbin/gdg --dst <NUMPROCS>
 ```
 
 ### For help
 
 ```sh
-/usr/local/sbin/gdg -h
+/usr/local/sbin/gdg --help
 ```
 
 ## Build it yourself
@@ -218,7 +218,7 @@ sudo chmod +x /usr/local/sbin/gdg
 Start it
 
 ```sh
-sudo /usr/local/sbin/gdg -start
+sudo /usr/local/sbin/gdg --start
 ```
 
 ## Validated Distributions

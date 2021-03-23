@@ -2,11 +2,12 @@ package setup
 
 import (
 	"fmt"
-	"github.com/rfparedes/gdg/util"
 	"io/ioutil"
 	"net"
 	"os"
 	"os/exec"
+
+	"github.com/rfparedes/gdg/util"
 )
 
 // Utility type storing all utility info
@@ -72,7 +73,7 @@ func FindSupportedUtilities() []Utility {
 		} else {
 			utilities[i].Supported = true
 			utilities[i].Path = path
-			if utilities[i].Dup == false {
+			if !utilities[i].Dup {
 				supported = append(supported, utility.Binary)
 			}
 		}
@@ -151,7 +152,7 @@ func CreateOrLoadConfig(interval string, logdays string) int {
 	for _, utility := range utilities {
 
 		//Only perform if utility is supported
-		if utility.Supported == true {
+		if utility.Supported {
 			//Create child log directory for utility
 			if err := util.CreateDir(util.DataDir + utility.Name); err != nil {
 				fmt.Println("Directory creation failed with error: " + err.Error())
@@ -273,7 +274,7 @@ func getNICs() []string {
 				break
 			}
 		}
-		if isVirtual == false {
+		if !isVirtual {
 			NICs = append(NICs, nic.Name)
 		}
 	}

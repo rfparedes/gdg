@@ -2,14 +2,15 @@ package action
 
 import (
 	"fmt"
-	"github.com/rfparedes/gdg/util"
-	"gopkg.in/ini.v1"
 	"log"
 	"os"
 	"os/exec"
 	"path/filepath"
 	"strings"
 	"time"
+
+	"github.com/rfparedes/gdg/util"
+	"gopkg.in/ini.v1"
 )
 
 // Gather the data
@@ -75,7 +76,7 @@ func TidyLogs(logdays int) {
 		if info.IsDir() {
 			return nil
 		}
-		if matched, err := filepath.Match("*.dat", filepath.Base(path)); err != nil {
+		if matched, err := filepath.Match("*.dat*", filepath.Base(path)); err != nil {
 			return err
 		} else if matched {
 			files = append(files, path)
@@ -85,7 +86,6 @@ func TidyLogs(logdays int) {
 	if err != nil {
 		panic(err)
 	}
-
 	// Get list of dates in a range that will need to be deleted to maintain logdays
 	start := time.Now().AddDate(0, 0, 0)
 	end := start.AddDate(0, 0, -logdays)
@@ -99,7 +99,6 @@ func TidyLogs(logdays int) {
 
 	// Used to exclude the files currently in use
 	inUse := start.Format("06.01.02.15") + "00"
-
 	// Delete the files not in the range of dates and not the current in-use file
 	for _, file := range files {
 		// If the filename doesn't have inuse in its name

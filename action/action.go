@@ -29,7 +29,7 @@ func Gather() {
 	for _, k := range keys {
 		// Create dat file if it doesn't exist
 		datFile := (util.DataDir + k + "/" + util.CurrentDatFile(k))
-		f, err := os.OpenFile(datFile, os.O_WRONLY|os.O_APPEND|os.O_CREATE, 0744)
+		f, err := os.OpenFile(datFile, os.O_WRONLY|os.O_APPEND|os.O_CREATE, 0644)
 		util.Check(err)
 		defer f.Close()
 		_, err = f.WriteString(util.CreateHeader() + "\n")

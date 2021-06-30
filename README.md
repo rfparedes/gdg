@@ -232,6 +232,8 @@ gdg has been validated on:
 * Debian 10
 * RHEL7
 * RHEL8
+* Ubuntu 18.04
+* Ubuntu 20.04
 
 ## Roadmap
 

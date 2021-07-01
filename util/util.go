@@ -35,7 +35,7 @@ func CreateDir(dirName string) (err error) {
 // CreateFile function
 func CreateFile(fileName string) (err error) {
 
-	file, err := os.OpenFile(fileName, os.O_RDONLY|os.O_CREATE|os.O_TRUNC, 0744)
+	file, err := os.OpenFile(fileName, os.O_RDONLY|os.O_CREATE|os.O_TRUNC, 0644)
 	if err != nil {
 		return err
 	}

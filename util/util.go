@@ -120,7 +120,7 @@ func DirSizeMB(dir string) (sizeMB float64, err error) {
 	if _, err := os.Stat(dir); os.IsNotExist(err) {
 		return 0.0, err
 	}
-	var dirSize int64 = 0
+	var dirSize int64
 	readSize := func(dir string, file os.FileInfo, err error) error {
 		if !file.IsDir() {
 			dirSize += file.Size()

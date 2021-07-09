@@ -120,7 +120,7 @@ func DirSizeMB(dir string) (sizeMB float64, err error) {
 	if _, err := os.Stat(dir); os.IsNotExist(err) {
 		return 0.0, err
 	}
-	var dirSize int64 = 0
+	var dirSize int64
 	readSize := func(dir string, file os.FileInfo, err error) error {
 		if !file.IsDir() {
 			dirSize += file.Size()
@@ -203,7 +203,7 @@ func GetStatus(progName string, ver string) {
 	fmt.Printf("NUMPROCS: %s\n", numprocs)
 }
 
-// Compress (.gz) a file and delete
+// Gzipit compress (.gz) and delete the original file
 func Gzipit(source, target string) error {
 	reader, err := os.Open(source)
 	if err != nil {
@@ -244,7 +244,7 @@ func Contains(a []string, x string) bool {
 	return false
 }
 
-// rangeDate returns a date range function over start date to end date inclusive.
+// RangeDate returns a date range function over start date to end date inclusive.
 // After the end of the range, the range function returns a zero date,
 // date.IsZero() is true.
 func RangeDate(start, end time.Time) func() time.Time {
